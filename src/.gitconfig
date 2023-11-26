@@ -1,0 +1,12 @@
+# git config for barroit
+# $HOME/
+
+[user]
+	name = barroit
+	email = sunjiamu@outlook.com
+[init]
+	defaultBranch = main
+[credential]
+	helper = store
+[core]
+	autocrlf = input
