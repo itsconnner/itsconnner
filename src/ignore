@@ -1,0 +1,11 @@
+# global gitignore for barroit
+# $HOME/.config/git/
+
+# IDE
+.idea
+
+# Library
+node_modules
+
+# Environment
+.env

@@ -4,6 +4,14 @@
 
 run `./init` to create the corresponding file symlinks
 
+### Quick update config
+
+```bash
+echo "export CONFIG="$(pwd)/src"" >> ~/.profile
+source ~/.profile
+ls -al $CONFIG
+```
+
 ### Init onedrive
 
 ```bash
@@ -24,4 +32,3 @@ sudo cp build/penguin/pk /usr/local/bin/pk
 echo 'export ONEDRIVE="${HOME}"' >> ~/.profile
 source ~/.profile
 ```
-

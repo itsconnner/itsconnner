@@ -4,7 +4,9 @@ srcdir="$(dirname $(realpath $0))/src"
 
 for srcname in $(ls -A $srcdir); do
 	src="$srcdir/$srcname"
-	eval "dest=$(sed -n '2p' $src | awk '{print $2}')$srcname"
+	eval "destdir=$(sed -n '2p' $src | awk '{print $2}')"
+	dest="$destdir$srcname"
+
 	flag="-s"
 	if [ -f $dest ]; then
 		read -p "file \"$dest\" already exists, replace it? " option
@@ -18,5 +20,7 @@ for srcname in $(ls -A $srcdir); do
 				;;
 		esac
 	fi
+
+	mkdir -p $destdir
 	ln $flag $src $dest
 done
