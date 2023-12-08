@@ -1,8 +1,12 @@
 # global gitignore for barroit
 # $HOME/.config/git/
 
-# IDE
+# Tmp
+.*.swp
+
+# Config
 .idea
+.vscode
 
 # Library
 node_modules
