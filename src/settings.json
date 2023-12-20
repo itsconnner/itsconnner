@@ -1,0 +1,89 @@
+// vscode settings for barroit
+// $HOME/.config/Code/User/
+
+{
+    "workbench.colorTheme": "Default Dark Modern",
+    "files.autoSave": "onFocusChange",
+    "editor.fontFamily": "'JetBrains Mono'",
+    "editor.fontSize": 20,
+    "editor.insertSpaces": false,
+    "editor.tabSize": 8,
+    "editor.occurrencesHighlight": "off",
+    "editor.selectionHighlight": false,
+    "editor.matchBrackets": "never",
+    "workbench.editor.doubleClickTabToToggleEditorGroupSizes": "off",
+    "workbench.colorCustomizations": {
+        "editorBracketHighlight.foreground1": "#C8C8C8",
+        "editorBracketHighlight.foreground2": "#C8C8C8",
+        "editorBracketHighlight.foreground3": "#C8C8C8",
+        "editorBracketHighlight.foreground4": "#C8C8C8",
+        "editorBracketHighlight.foreground5": "#C8C8C8",
+        "editorBracketHighlight.foreground6": "#C8C8C8",
+        "editor.background": "#141414"
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "constant.language.c",
+                "settings": {
+                    "foreground": "#BF61CB"
+                }
+            },
+            {
+                "scope": "constant.other.placeholder",
+                "settings": {
+                    "foreground": "#CE9178"
+                }
+            },
+            {
+                "scope": [
+                    "keyword.control",
+                    "support.type.posix-reserved.c"
+                ],
+                "settings": {
+                    "foreground": "#569CD6"
+                }
+            },
+            {
+                "scope": [
+                    "entity.name.type.c",
+                    "entity.name.function.preprocessor",
+                    "variable",
+                    "variable.parameter"
+                ],
+                "settings": {
+                    "foreground": "#C8C8C8"
+                }
+            },
+            {
+                "scope": [
+                    "keyword.control.directive.include.c",
+                    "keyword.control.directive.define.c",
+                    "comment"
+                ],
+                "settings": {
+                    "foreground": "#A8A8A6"
+                }
+            }
+        ]
+    },
+    "explorer.confirmDelete": false,
+    "editor.minimap.enabled": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "extensions.ignoreRecommendations": true,
+    "files.associations": {
+        "*.h": "c",
+        "*.h.in": "c",
+        "*.make": "makefile"
+    },
+    "editor.guides.indentation": false,
+    "window.restoreWindows": "none",
+    "explorer.confirmDragAndDrop": false,
+    "editor.quickSuggestions": {
+        "other": "off"
+    },
+    "editor.suggestOnTriggerCharacters": false,
+    "window.zoomLevel": 3,
+    "C_Cpp.dimInactiveRegions": false,
+    "C_Cpp.enhancedColorization": "disabled"
+}

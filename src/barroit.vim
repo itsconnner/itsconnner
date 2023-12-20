@@ -70,5 +70,10 @@ hi cppStructure		ctermfg=38
 hi cppType		ctermfg=38
 hi cppSTLtype		ctermfg=38
 
+" make
+hi makeIdent		ctermfg=253
+hi makeTarget		ctermfg=173
+hi makeCommands		ctermfg=253
+
 " cmake
 hi cmakeComment		ctermfg=Gray
