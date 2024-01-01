@@ -1,48 +1,40 @@
 #!/usr/bin/bash
-# $HOME/
+# $HOME
 
-operations="mount ls unmount"
-operation="$1"
+commands=('mount' 'ls' 'unmount')
+command="${1:-mount}"
 
-if [[ -z $operation || $operations != *"$operation"* ]]; then
-	echo "Usage: onedrive <command>"
-	echo -e "   mount\tmount remote to local"
-	echo -e "   unmount\tunmount the local mount point"
-	echo -e "   ls\t\tlist all directories from remote"
+if ! printf '%s\0' "${commands[@]}" | grep -Fxqz -- "$command"
+then
+	echo 'Usage: onedrive <command>
+
+   mount     mount the remote as filesystem on a mountpoint.
+   unmount   unmount the mountpoint in filesystem
+   ls        list all directories of remote'
 	exit 1
 fi
 
-mounted=$(mount | grep rclone | awk '{print $3"/"}')
+if [[ $command == 'unmount' ]]
+then
+	readarray -t mountpoints < <(mount | grep rclone | awk '{print $3"/"}')
+	fusermount -u "${mountpoints[@]}"
+	exit 0
+fi
 
-for dname in $(rclone lsf --dirs-only onedrive:); do
-	dpath="$HOME/$dname"
-	case $operation in
-		mount)
-			if [[ $mounted == *"$dpath"* ]]; then
-				 echo "skip mounted directory $dname"
-			else
-				output=$(rclone mount "onedrive:$dname" "$dpath" --vfs-cache-mode writes --daemon 2>&1)
-				if [ $output ]; then
-					echo $output
-				else
-					echo "mount onedrive:$dname to $dpath"
-				fi
-			fi
-			;;
-		ls)
-			echo $dname
-			;;
-		unmount)
-			if [[ $mounted == *"$dpath"* ]]; then
-				output=$(fusermount -u "$dpath" 2>&1)
-				if [ "$output" ]; then
-					echo "$output"
-				else
-					echo "unmount $dpath"
-				fi
-			else
-				echo "Skip non-mounted directory $dname"
-			fi
-			;;
-	esac
+targets=$(rclone lsf --dirs-only onedrive:)
+
+if [[ $command == 'ls' ]]
+then
+	printf '%s\n' "$targets"
+	exit 0
+fi
+
+for target in $targets
+do
+	pathname="$HOME/$target"
+
+	mkdir -p $pathname
+	rm -rf $pathname/*
+
+	rclone mount onedrive:$target $pathname --vfs-cache-mode full --daemon
 done

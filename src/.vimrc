@@ -1,5 +1,5 @@
 " vim config for barroit
-" $HOME/
+" $HOME
 
 call plug#begin('~/.vim/plugged')
 " List your plugins here

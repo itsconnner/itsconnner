@@ -1,5 +1,5 @@
 # global gitignore for barroit
-# $HOME/.config/git/
+# $HOME/.config/git
 
 # Tmp
 .*.swp

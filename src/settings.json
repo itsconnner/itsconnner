@@ -1,5 +1,5 @@
 // vscode settings for barroit
-// $HOME/.config/Code/User/
+// $HOME/.config/Code/User
 
 {
     "workbench.colorTheme": "Default Dark Modern",
@@ -72,9 +72,15 @@
     "editor.scrollbar.horizontal": "hidden",
     "extensions.ignoreRecommendations": true,
     "files.associations": {
-        "*.h": "c",
-        "*.h.in": "c",
-        "*.make": "makefile"
+		"*.h": "c",
+		"*.h.in": "c",
+		"*.make": "makefile",
+		"array": "c",
+		"string": "c",
+		"string_view": "c",
+        "*.in": "text",
+		"system_error": "c",
+		"algorithm": "c"
     },
     "editor.guides.indentation": false,
     "window.restoreWindows": "none",
@@ -85,5 +91,12 @@
     "editor.suggestOnTriggerCharacters": false,
     "window.zoomLevel": 3,
     "C_Cpp.dimInactiveRegions": false,
-    "C_Cpp.enhancedColorization": "disabled"
+    "C_Cpp.enhancedColorization": "disabled",
+    "C_Cpp.errorSquiggles": "disabled",
+    "git.openRepositoryInParentFolders": "never",
+    "cmake.configureOnOpen": false,
+    "cmake.showOptionsMovedNotification": false,
+    "C_Cpp.default.includePath": [
+        "${env:HOME}/.local/include/**"
+    ]
 }

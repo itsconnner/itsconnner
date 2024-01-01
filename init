@@ -1,26 +1,14 @@
 #!/usr/bin/bash
 
-srcdir="$(dirname $(realpath $0))/src"
+srcdir="$(cd $(dirname $0) &> /dev/null && pwd)/src"
 
-for srcname in $(ls -A $srcdir); do
+for srcname in $(ls -A $srcdir)
+do
 	src="$srcdir/$srcname"
-	eval "destdir=$(sed -n '2p' $src | awk '{print $2}')"
-	dest="$destdir$srcname"
 
-	flag="-s"
-	if [ -f $dest ]; then
-		read -p "file \"$dest\" already exists, replace it? " option
-		case $option in
-			y|Y|yes|Yes|YES)
-				flag+="f"
-				;;
-			*)
-				echo "skip $srcname"
-				continue
-				;;
-		esac
-	fi
+	eval "destdir=$(sed -n '2p' $src | awk '{print $2}')"
+	dest="$destdir/$srcname"
 
 	mkdir -p $destdir
-	ln $flag $src $dest
+	ln -sf $src $dest
 done

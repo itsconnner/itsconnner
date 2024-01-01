@@ -1,5 +1,5 @@
 " color scheme for barriot
-" $HOME/.vim/colors/
+" $HOME/.vim/colors
 
 " global
 hi LineNr		ctermfg=Gray
@@ -12,7 +12,7 @@ hi vimHiCtermFgBg	ctermfg=Gray
 hi vimHiNmbr		ctermfg=151
 hi vimLineComment	ctermfg=Gray
 
-" shell
+" sh
 hi shComment		ctermfg=Gray
 hi shNumber		ctermfg=151
 hi shVariable		ctermfg=253
@@ -29,16 +29,22 @@ hi shCmdSubRegion	ctermfg=253
 hi shConditional	ctermfg=38
 hi shSnglCase		ctermfg=253
 hi shOperator		ctermfg=253
-hi shStatement		ctermfg=38
+hi shStatement		ctermfg=253
 hi shCommandSub		ctermfg=253
 hi shSpecial		ctermfg=Yellow
 hi shSpecialDQ		ctermfg=Yellow
 hi shCtrlSeq		ctermfg=Yellow
 hi shEscape		ctermfg=Yellow
 hi Delimiter		ctermfg=253
-hi bashStatement	ctermfg=253
 hi PreProc		ctermfg=253
 hi shEcho		ctermfg=Gray
+hi shSetList		ctermfg=253
+hi shSet		ctermfg=253
+hi shTestOpr		ctermfg=253
+hi shLoop		ctermfg=38
+
+" bash
+hi bashStatement	ctermfg=253
 
 " c
 hi cCommentL		ctermfg=Gray
