@@ -89,7 +89,6 @@
         "other": "off"
     },
     "editor.suggestOnTriggerCharacters": false,
-    "window.zoomLevel": 3,
     "C_Cpp.dimInactiveRegions": false,
     "C_Cpp.enhancedColorization": "disabled",
     "C_Cpp.errorSquiggles": "disabled",
@@ -98,5 +97,7 @@
     "cmake.showOptionsMovedNotification": false,
     "C_Cpp.default.includePath": [
         "${env:HOME}/.local/include/**"
-    ]
+    ],
+    "window.zoomLevel": 3,
+    "explorer.autoReveal": false
 }
