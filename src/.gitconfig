@@ -2,11 +2,12 @@
 # $HOME
 
 [user]
-	name = barroit
-	email = sunjiamu@outlook.com
+	name = Jiamu Sun
+	email = barroit@linux.com
 [init]
-	defaultBranch = main
+	defaultBranch = master
 [credential]
 	helper = store
 [core]
 	autocrlf = input
+	editor = vim

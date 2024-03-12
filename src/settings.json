@@ -1,6 +1,5 @@
 // vscode settings for barroit
 // $HOME/.config/Code/User
-
 {
     "workbench.colorTheme": "Default Dark Modern",
     "files.autoSave": "onFocusChange",
@@ -71,17 +70,6 @@
     "editor.minimap.enabled": false,
     "editor.scrollbar.horizontal": "hidden",
     "extensions.ignoreRecommendations": true,
-    "files.associations": {
-		"*.h": "c",
-		"*.h.in": "c",
-		"*.make": "makefile",
-		"array": "c",
-		"string": "c",
-		"string_view": "c",
-        "*.in": "text",
-		"system_error": "c",
-		"algorithm": "c"
-    },
     "editor.guides.indentation": false,
     "window.restoreWindows": "none",
     "explorer.confirmDragAndDrop": false,
@@ -92,12 +80,56 @@
     "C_Cpp.dimInactiveRegions": false,
     "C_Cpp.enhancedColorization": "disabled",
     "C_Cpp.errorSquiggles": "disabled",
+    "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+    "C_Cpp.default.defines": [
+        "_GNU_SOURCE"
+    ],
+    "C_Cpp.default.cStandard": "gnu17",
+    "C_Cpp.default.includePath": [
+        "${env:HOME}/.local/include/**",
+        "${workspaceFolder}/src/**"
+    ],
     "git.openRepositoryInParentFolders": "never",
     "cmake.configureOnOpen": false,
     "cmake.showOptionsMovedNotification": false,
-    "C_Cpp.default.includePath": [
-        "${env:HOME}/.local/include/**"
-    ],
     "window.zoomLevel": 3,
-    "explorer.autoReveal": false
+    "explorer.autoReveal": false,
+    "explorer.confirmPasteNative": false,
+    "fileHeaderComment.parameter": {
+        "*": {
+            "cbegin": "/****************************************************************************",
+            "cprefix": "**",
+            "cend": "****************************************************************************/",
+            "author": "Jiamu Sun",
+            "year": "2023, 2024",
+            "contact": "barroit@linux.com",
+            "project": "PassKeeper"
+        }
+    },
+    "fileHeaderComment.template": {
+        "*": [
+            "${cbegin}",
+            "${cprefix}",
+            "${cprefix} Copyright ${year} ${author}",
+            "${cprefix} Contact: ${contact}",
+            "${cprefix}",
+            "${cprefix} This file is part of ${project}.",
+            "${cprefix}",
+            "${cprefix} ${project} is free software: you can redistribute it and/or modify it",
+            "${cprefix} under the terms of the GNU General Public License as published by the",
+            "${cprefix} Free Software Foundation, either version 3 of the License, or (at your",
+            "${cprefix} option) any later version.",
+            "${cprefix}",
+            "${cprefix} ${project} is distributed in the hope that it will be useful, but",
+            "${cprefix} WITHOUT ANY WARRANTY; without even the implied warranty of",
+            "${cprefix} MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU",
+            "${cprefix} General Public License for more details.",
+            "${cprefix}",
+            "${cprefix} You should have received a copy of the GNU General Public License along",
+            "${cprefix} with ${project}. If not, see <https://www.gnu.org/licenses/>.",
+            "${cprefix}",
+            "${cend}"
+        ]
+    }
 }

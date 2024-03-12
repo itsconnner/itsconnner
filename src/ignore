@@ -1,15 +1,15 @@
 # global gitignore for barroit
 # $HOME/.config/git
 
-# Tmp
+# temporary files
 .*.swp
 
-# Config
-.idea
-.vscode
-
-# Library
+# dependencies
 node_modules
 
-# Environment
+# environment files
 .env
+remote.info
+
+# core dump files
+core.*

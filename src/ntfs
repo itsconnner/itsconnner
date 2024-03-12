@@ -16,8 +16,11 @@ fi
 
 if [[ $command == 'unmount' ]]
 then
-	readarray -t mountpoints < <(mount | grep rclone | awk '{print $3"/"}')
-	fusermount -u "${mountpoints[@]}"
+	# readarray -t mountpoints < <(mount | grep rclone | awk '{print $3"/"}')
+	for mountpoint in $(mount | grep rclone | awk '{print $3"/"}')
+	do
+		fusermount -u $mountpoint
+	done
 	exit 0
 fi
 
