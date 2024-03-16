@@ -1,6 +1,3 @@
-" color scheme for barriot
-" $HOME/.vim/colors
-
 " global
 hi LineNr		ctermfg=Gray
 

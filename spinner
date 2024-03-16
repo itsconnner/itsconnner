@@ -1,6 +1,3 @@
-#!/usr/bin/bash
-# $HOME
-
 spinner()
 {
 	local pid=$!

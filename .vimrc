@@ -1,6 +1,3 @@
-" vim config for barroit
-" $HOME
-
 call plug#begin('~/.vim/plugged')
 " List your plugins here
 Plug 'octol/vim-cpp-enhanced-highlight'

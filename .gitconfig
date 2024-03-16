@@ -1,6 +1,3 @@
-# git config for barroit
-# $HOME
-
 [user]
 	name = Jiamu Sun
 	email = barroit@linux.com
@@ -11,3 +8,8 @@
 [core]
 	autocrlf = input
 	editor = vim
+[sendemail]
+	smtpserver = smtp.gmail.com
+	smtpserverport = 587
+	smtpuser = baiorettohr@gmail.com
+	smtpencryption = tls

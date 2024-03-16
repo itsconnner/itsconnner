@@ -1,0 +1,9 @@
+.gitconfig=$HOME
+.vimrc=$HOME
+.Xmodmap=$HOME
+barroit.vim=$HOME/.vim/colors
+ignore=$HOME/.config/git
+ntfs=$HOME
+settings.json=$HOME/.config/Code/User
+# spinner=$HOME
+gdbinit=$HOME/.config/gdb=EVAL

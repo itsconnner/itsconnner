@@ -1,0 +1,69 @@
+# This is not the entry point and you should NEVER execute this file manually
+use v5.38;
+use Cwd qw(cwd);
+use constant CFGMAP => 'cfgmap';
+
+open(my $cfgmap_in, '<', CFGMAP) or die "cannot open ".CFGMAP.": $!";
+my $src_dir = cwd();
+
+while (<$cfgmap_in>)
+{
+	my ($src, $dest, $eval_spcial_line) = ($_ =~ /^([^#^=^\s]+)=([^=^\s]+)=?([^=^\s]*)/);
+
+	if (!$src)
+	{
+		next;
+	}
+
+	if (!$dest || ($eval_spcial_line && $eval_spcial_line ne 'EVAL'))
+	{
+		die CFGMAP." line $.: incorrect format\n";
+	}
+
+	my ($dest_prefix, $dest_rest) = ($dest =~ /^\$([^\/^\s]+)(\/?[^\s]*)/) or die CFGMAP." line $.: incorrect format\n";
+
+	my $dest_dir = $ENV{$dest_prefix}.$dest_rest.($dest_rest =~ /\/$/ ? '' : '/');
+	$dest = $dest_dir.$src;
+	$src = $src_dir.($src_dir =~ /\/$/ ? '' : '/').$src;
+
+	system("ln", "-sf", $src, $dest) == 0 or die "failed to remove $dest: $!";
+
+	if (!$eval_spcial_line)
+	{
+		next;
+	}
+
+	local @ARGV = ($src);
+	local $^I = '';
+
+	while (<>)
+	{
+		my ($content, $var) = ($_ =~ /^.\s<BR>(.+)<BR>\s([^\s]+)/);
+
+		if (!$content)
+		{
+			print;
+			next;
+		}
+
+		if (!$var)
+		{
+			die "$src line $.: incorrect format\n";
+		}
+
+		my ($var_prefix, $var_rest) = ($var =~ /^\$([^\/^\s]+)(\/?[^\s]*)/) or die "$src line $.: incorrect format\n";
+		$content = $content." $ENV{$var_prefix}".$var_rest;
+
+		if (eof)
+		{
+			s/\s+$//;
+			$_ .= "\n$content";
+			print;
+		}
+		else
+		{
+			<>;
+			print $_."$content\n";
+		}
+	}
+}

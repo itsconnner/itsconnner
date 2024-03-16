@@ -1,6 +1,3 @@
-#!/usr/bin/bash
-# $HOME
-
 commands=('mount' 'ls' 'unmount')
 command="${1:-mount}"
 

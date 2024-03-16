@@ -1,5 +1,3 @@
-// vscode settings for barroit
-// $HOME/.config/Code/User
 {
     "workbench.colorTheme": "Default Dark Modern",
     "files.autoSave": "onFocusChange",
@@ -48,7 +46,10 @@
                     "entity.name.type.c",
                     "entity.name.function.preprocessor",
                     "variable",
-                    "variable.parameter"
+                    "variable.parameter",
+                    "string.regexp",
+                    "constant.character.escape",
+                    "keyword.operator"
                 ],
                 "settings": {
                     "foreground": "#C8C8C8"

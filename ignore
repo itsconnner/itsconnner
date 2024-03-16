@@ -1,6 +1,3 @@
-# global gitignore for barroit
-# $HOME/.config/git
-
 # temporary files
 .*.swp
 
