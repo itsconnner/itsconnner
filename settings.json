@@ -18,6 +18,9 @@
         "editorBracketHighlight.foreground6": "#C8C8C8",
         "editor.background": "#141414"
     },
+    "files.associations": {
+        ".?gdb*": "plaintext"
+    },
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
@@ -99,13 +102,8 @@
     "explorer.confirmPasteNative": false,
     "fileHeaderComment.parameter": {
         "*": {
-            "cbegin": "/****************************************************************************",
-            "cprefix": "**",
-            "cend": "****************************************************************************/",
             "author": "Jiamu Sun",
-            "year": "2023, 2024",
-            "contact": "barroit@linux.com",
-            "project": "PassKeeper"
+            "contact": "barroit@linux.com"
         }
     },
     "fileHeaderComment.template": {
