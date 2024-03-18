@@ -17,4 +17,4 @@ else
 	exit 1
 fi
 
-perl ./start-mapping.pl
+perl ./start-mapping

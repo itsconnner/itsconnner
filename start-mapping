@@ -1,4 +1,6 @@
+#!/usr/bin/env perl
 # This is not the entry point and you should NEVER execute this file manually
+
 use v5.38;
 use Cwd qw(cwd);
 use constant CFGMAP => 'cfgmap';
