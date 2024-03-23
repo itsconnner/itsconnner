@@ -1,0 +1,17 @@
+// Place your key bindings in this file to override the defaults
+[
+	{
+		"key": "ctrl+w",
+		"command": "-workbench.action.closeActiveEditor"
+	},
+	{
+		"key": "ctrl+w",
+		"command": "deleteWordLeft",
+		"when": "textInputFocus && !editorReadonly"
+	},
+	{
+		"key": "ctrl+backspace",
+		"command": "-deleteWordLeft",
+		"when": "textInputFocus && !editorReadonly"
+	}
+]

@@ -19,7 +19,9 @@
         "editor.background": "#141414"
     },
     "files.associations": {
-        ".?gdb*": "plaintext"
+        ".gdb*": "plaintext",
+        "gdb*": "plaintext",
+        "cfgmap": "plaintext"
     },
     "editor.tokenColorCustomizations": {
         "textMateRules": [

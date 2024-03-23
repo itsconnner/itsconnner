@@ -13,3 +13,5 @@
 	smtpserverport = 587
 	smtpuser = baiorettohr@gmail.com
 	smtpencryption = tls
+[fetch]
+	prune = true

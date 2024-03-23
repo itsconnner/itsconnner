@@ -3,6 +3,7 @@
 
 use v5.38;
 use Cwd qw(cwd);
+use autodie;
 use constant CFGMAP => 'cfgmap';
 
 open(my $cfgmap_in, '<', CFGMAP) or die "cannot open ".CFGMAP.": $!";
@@ -25,10 +26,12 @@ while (<$cfgmap_in>)
 	my ($dest_prefix, $dest_rest) = ($dest =~ /^\$([^\/^\s]+)(\/?[^\s]*)/) or die CFGMAP." line $.: incorrect format\n";
 
 	my $dest_dir = $ENV{$dest_prefix}.$dest_rest.($dest_rest =~ /\/$/ ? '' : '/');
+	system("mkdir", "-p", $dest_dir) == 0 or die "failed to move $dest: $!";
+
 	$dest = $dest_dir.$src;
 	$src = $src_dir.($src_dir =~ /\/$/ ? '' : '/').$src;
 
-	system("ln", "-sf", $src, $dest) == 0 or die "failed to remove $dest: $!";
+	system("ln", "-sf", $src, $dest) == 0 or die "failed to move $dest: $!";
 
 	if (!$eval_spcial_line)
 	{

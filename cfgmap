@@ -5,5 +5,7 @@ barroit.vim=$HOME/.vim/colors
 ignore=$HOME/.config/git
 ntfs=$HOME
 settings.json=$HOME/.config/Code/User
+keybindings.json=$HOME/.config/Code/User
 # spinner=$HOME
 gdbinit=$HOME/.config/gdb=EVAL
+hexdump.py=$HOME/.config/gdb
