@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+file="$HOME"/.bashrc
+content=$(cat "$file")
+
+sed -i -e '$a\' "$file"
+
+if ! echo "$content" | grep 'alias commit' > /dev/null
+then
+	echo "alias commit='git commit -as'" >> "$file"
+fi
+
+if ! echo "$content" | grep 'alias add' > /dev/null
+then
+	echo "alias add='git add -A'" >> "$file"
+fi
+
+if ! echo "$content" | grep 'alias push' > /dev/null
+then
+	echo "alias push='git push'" >> "$file"
+fi

@@ -1,42 +1,66 @@
 #!/usr/bin/bash
 
 commands=('mount' 'ls' 'unmount')
-command="${1:-mount}"
+cmdname="${1:-mount}"
 
-if ! printf '%s\0' "${commands[@]}" | grep -Fxqz -- "$command"
+
+for command in "${commands[@]}"
+do
+	if [[ "$command" == "$cmdname" ]]
+	then
+		is_cmdname=1
+	fi
+done
+
+if [[ -z "$is_cmdname" ]]
 then
-	echo 'Usage: onedrive <command>
+	cat << EOF
+Usage: onedrive <command>
 
    mount     mount the remote as filesystem on a mountpoint.
    unmount   unmount the mountpoint in filesystem
    ls        list all directories of remote'
+EOF
 	exit 1
 fi
 
-if [[ $command == 'unmount' ]]
+if [[ "$cmdname" == 'unmount' ]]
 then
-	# readarray -t mountpoints < <(mount | grep rclone | awk '{print $3"/"}')
 	for mountpoint in $(mount | grep rclone | awk '{print $3"/"}')
 	do
-		fusermount -u $mountpoint
+		fusermount -u "$mountpoint"
 	done
 	exit 0
 fi
 
-targets=$(rclone lsf --dirs-only onedrive:)
+rddirs=$(rclone lsf --dirs-only onedrive:)
 
-if [[ $command == 'ls' ]]
+if [[ "$cmdname" == 'ls' ]]
 then
-	printf '%s\n' "$targets"
+	echo ${rddirs[@]}
 	exit 0
 fi
 
-for target in $targets
+for dir in ${rddirs[@]}
 do
-	pathname="$HOME/$target"
+	pathname="$HOME/$dir"
 
-	mkdir -p $pathname
-	rm -rf $pathname/*
+	mkdir -p "$pathname"
 
-	rclone mount onedrive:$target $pathname --vfs-cache-mode full --daemon
+	if [[ $(ls -A "$pathname" | wc -l) -gt 0 ]]
+	then
+		echo "contents found in $pathname, remove? [y/N]"
+		read -r should_remove
+
+		case "$response" in
+		[yY][eE][sS]|[yY])
+			rm -rf "$pathname"*
+			;;
+		*)
+			continue
+			;;
+		esac
+	fi
+
+	rclone mount onedrive:$dir $pathname --vfs-cache-mode full --daemon
 done
