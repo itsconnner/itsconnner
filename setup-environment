@@ -1,21 +1,36 @@
-#!/usr/bin/bash
+#!/usr/bin/env perl
 
-file="$HOME"/.bashrc
-content=$(cat "$file")
+use v5.38;
+use Env qw(HOME);
+use autodie;
 
-sed -i -e '$a\' "$file"
+my $file = "$HOME/.bashrc";
 
-if ! echo "$content" | grep 'alias commit' > /dev/null
-then
-	echo "alias commit='git commit -as'" >> "$file"
-fi
+open my $fh_out, '<', $file;
 
-if ! echo "$content" | grep 'alias add' > /dev/null
-then
-	echo "alias add='git add -A'" >> "$file"
-fi
+my @lines = <$fh_out>;
 
-if ! echo "$content" | grep 'alias push' > /dev/null
-then
-	echo "alias push='git push'" >> "$file"
-fi
+close $fh_out;
+
+my %aliases = (
+	add => 'git add -A',
+	commit => 'git commit -as',
+	push => 'git push',
+	make => 'make -j25',
+	vi => 'vim',
+);
+
+open my $fh_in, '>>', $file;
+
+if (@lines && $lines[-1] !~ /\n$/)
+{
+	print $fh_in "\n";
+}
+
+while(my ($alias, $command) = each %aliases)
+{
+	if (! grep { /^alias $alias=.+/ } @lines)
+	{
+		say $fh_in "alias $alias=$command";
+	}
+}

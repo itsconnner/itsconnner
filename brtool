@@ -9,8 +9,8 @@ then
 	exit 1
 fi
 
-if [[ -r ./README.md ]] && grep '# Autoconfig for barroit' ./README.md > /dev/null
-then
+if [[ -r ./README ]] && grep 'autoconfig' ./README > /dev/null
+thet
 :
 else
 	echo 'make sure you are in the project root dir'

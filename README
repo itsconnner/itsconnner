@@ -1,6 +1,8 @@
-= autoconfig(1)
+autoconfig
+==========
 
-== Usage
+Usage
+-----
 
 run `./brtool` to generate the corresponding file symlinks
 

@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+dirs=("$HOME/Workspace" "$HOME/Workspace")
+
+for dir in ${dirs[@]}
+do
+	gnome-terminal --tab --working-directory="$dir"
+done
