@@ -10,7 +10,7 @@ then
 fi
 
 if [[ -r ./README ]] && grep 'autoconfig' ./README > /dev/null
-thet
+then
 :
 else
 	echo 'make sure you are in the project root dir'
