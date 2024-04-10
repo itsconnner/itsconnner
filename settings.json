@@ -87,7 +87,7 @@
 	"C_Cpp.enhancedColorization": "disabled",
 	"C_Cpp.errorSquiggles": "disabled",
 	"C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
-	"C_Cpp.default.compilerPath": "/usr/bin/gcc",
+	"C_Cpp.default.compilerPath": "${env:HOME}/.local/bin/gcc",
 	"C_Cpp.default.defines": [
 		"_GNU_SOURCE"
 	],
@@ -132,5 +132,8 @@
 			"${cprefix}",
 			"${cend}"
 		]
-	}
+	},
+	"workbench.activityBar.location": "top",
+	"window.commandCenter": false,
+	"workbench.layoutControl.enabled": false
 }

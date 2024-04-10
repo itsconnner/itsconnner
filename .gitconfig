@@ -15,3 +15,5 @@
 	smtpencryption = tls
 [fetch]
 	prune = true
+[advice]
+	detachedHead = false

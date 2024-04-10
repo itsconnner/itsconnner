@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-dirs=("$HOME/Workspace" "$HOME/Workspace")
+dirs=("$HOME/Workspace/PassKeeper" "$HOME/Workspace/git" "$HOME/Playground")
 
 for dir in ${dirs[@]}
 do
