@@ -135,5 +135,6 @@
 	},
 	"workbench.activityBar.location": "top",
 	"window.commandCenter": false,
-	"workbench.layoutControl.enabled": false
+	"workbench.layoutControl.enabled": false,
+	"files.insertFinalNewline": true
 }
