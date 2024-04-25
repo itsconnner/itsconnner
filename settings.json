@@ -21,7 +21,8 @@
 	"files.associations": {
 		".gdb*": "plaintext",
 		"gdb*": "plaintext",
-		"cfgmap": "plaintext"
+		"cfgmap": "plaintext",
+		"README": "plaintext"
 	},
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
