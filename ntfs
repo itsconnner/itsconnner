@@ -54,7 +54,7 @@ do
 
 		case "$response" in
 		[yY][eE][sS]|[yY])
-			rm -rf "$pathname"*
+			rm -rf "$pathname"/*
 			;;
 		*)
 			continue
