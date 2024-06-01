@@ -1,0 +1,13 @@
+Setup Mozc
+==========
+
+How to
+------
+
+run setup command 'sudo dpkg-reconfigure keyboard-configuration', the following
+options need to be the same
+	keyboard model: 'General 105-key PC'
+	country of origin for the keyboard: Japanese
+then press enter key until the configuration is complete
+
+adjust the keycode map 'xmodmap .Xmodmap'
