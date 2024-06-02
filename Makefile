@@ -17,6 +17,7 @@ filemap:
 keymap:
 	$(RUN) $(ROOT)/$@
 
-all: alias coredump filemap keymap
+onedrive:
+	$(RUN) $(ROOT)/$@
 
-.PHONY: all alias coredump filemap keymap
+.PHONY: alias coredump filemap keymap onedrive

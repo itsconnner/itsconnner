@@ -1,10 +1,14 @@
 Assets for Barroit
 ==================
 
+Config
+------
+Currently using gmake, target contains 'alias' 'coredump' 'filemap' 'keymap'
+
 Memo
 ----
 Directory 'memo' stores notes
 
-Setup
------
-Currently using gmake, target contains 'alias' 'coredump' 'filemap' 'keymap'
+Misc
+----
+..........

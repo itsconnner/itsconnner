@@ -1,66 +1,140 @@
 #!/usr/bin/bash
 
-commands=('mount' 'ls' 'unmount')
-cmdname="${1:-mount}"
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+BG_BLACK='\033[40m'
+NC='\033[0m'
 
+die()
+{
+	>&2 echo fatal: $*
+	exit 1
+}
 
-for command in "${commands[@]}"
-do
-	if [[ "$command" == "$cmdname" ]]
+error()
+{
+	>&2 echo error: $*
+	return 1
+}
+
+findstr()
+{
+	if [[ -z $1 ]]
 	then
-		is_cmdname=1
+		die 'findstr() requires target($1)'
 	fi
-done
 
-if [[ -z "$is_cmdname" ]]
+	str="$1"
+	shift
+
+	if [[ -z $@ ]]
+	then
+		die 'findstr() requires array($@)'
+	fi
+
+	arr=("$@")
+
+	printf '%s\0' "${arr[@]}" | grep -Fxqz -- "$str"
+
+	return $?
+}
+
+if [[ -z $REMOTE_FILESYS ]]
 then
-	cat << EOF
-Usage: onedrive <command>
+	die "you forget to ‘make onedrive’"
+fi
 
-   mount     mount the remote as filesystem on a mountpoint.
-   unmount   unmount the mountpoint in filesystem
-   ls        list all directories of remote'
-EOF
+readonly commands=('mount' 'ls' 'unmount')
+readonly command="${1:-mount}"
+
+if ! findstr "$command" "${commands[@]}"
+then
+	error "unknown command '$command'"
 	exit 1
 fi
 
-if [[ "$cmdname" == 'unmount' ]]
+mounted=$(mount | grep rclone | awk '{print $3"/"}')
+
+if [[ "$command" == 'unmount' ]]
 then
-	for mountpoint in $(mount | grep rclone | awk '{print $3"/"}')
-	do
-		fusermount -u "$mountpoint"
-	done
-	exit 0
-fi
-
-rddirs=$(rclone lsf --dirs-only onedrive:)
-
-if [[ "$cmdname" == 'ls' ]]
-then
-	echo ${rddirs[@]}
-	exit 0
-fi
-
-for dir in ${rddirs[@]}
-do
-	pathname="$HOME/$dir"
-
-	mkdir -p "$pathname"
-
-	if [[ $(ls -A "$pathname" | wc -l) -gt 0 ]]
+	if [[ -z $mounted ]]
 	then
-		echo "contents found in $pathname, remove? [y/N]"
-		read -r should_remove
+		echo 'nothing to be done'
+	else
+		while read file
+		do
+			fusermount -u "$file"
+			echo "unmounted $file"
+		done <<< "$mounted"
+	fi
 
-		case "$should_remove" in
-		[yY][eE][sS]|[yY])
-			rm -rf "$pathname"*
+	exit 0
+fi
+
+if [[ "$command" == 'ls' ]]
+then
+	if [[ ! -z $mounted ]]
+	then
+		echo "${mounted[@]}"
+	else
+		rclone lsf --dirs-only "$REMOTE_FILESYS:"
+	fi
+
+	exit 0
+fi
+
+if [[ ! -z $mounted ]]
+then
+	error "at least one dir on remote filesys $REMOTE_FILESYS \
+		has been mounted, run ‘ntfs unmount’ first!"
+	exit 1
+fi
+
+mountlist=$(rclone lsf --dirs-only "$REMOTE_FILESYS:")
+
+for name in ${mountlist[@]}
+do
+	destpath="$HOME/$name"
+
+	if [[ ${destpath:0-1} == '/' ]]
+	then
+		destpath="${destpath%?}"
+	fi
+
+	junkfile=$(ls -A "$destpath" | wc -l)
+	if [[ $junkfile -gt 0 ]]
+	then
+		if [[ $junkfile -gt 1 ]]
+		then
+			echo -n "$junkfile files are found in ‘$destpath’, "
+			echo 'remove them? [y/N]'
+		else
+			echo -n "$junkfile file is found in ‘$destpath’, "
+			echo 'remove it? [y/N]'
+		fi
+
+		read -sN1 delfile
+
+		case "$delfile" in
+		[yY])
+			rm -rf "$destpath"/*
 			;;
 		*)
+			echo -ne "${RED}${BG_BLACK}$name${NC} -> "
+			echo -e "${RED}${BG_BLACK}$destpath${NC}"
+
 			continue
 			;;
 		esac
 	fi
 
-	rclone mount onedrive:$dir $pathname --vfs-cache-mode full --daemon
+	if rclone mount "$REMOTE_FILESYS:$name" "$destpath" \
+		--vfs-cache-mode full --daemon
+	then
+		echo -e "${CYAN}$name${NC} -> ${GREEN}$destpath${NC}"
+	else
+		echo -ne "${RED}${BG_BLACK}$name${NC} -> "
+		echo -e "${RED}${BG_BLACK}$destpath${NC}"
+	fi
 done
