@@ -1,8 +1,0 @@
-#!/usr/bin/bash
-
-dirs=("$HOME/Workspace/PassKeeper" "$HOME/Workspace/git" "$HOME/Playground")
-
-for dir in ${dirs[@]}
-do
-	gnome-terminal --tab --working-directory="$dir"
-done

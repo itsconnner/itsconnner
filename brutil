@@ -1,0 +1,179 @@
+#!/usr/bin/bash
+
+die()
+{
+	>&2 echo fatal: $*
+	exit 1
+}
+
+error()
+{
+	>&2 echo error: $*
+	return 1
+}
+
+require_success()
+{
+	if [[ ! $? -eq 0 ]]
+	then
+		exit 1
+	fi
+}
+
+st_file_f()
+{
+	if [[ -z $1 ]]
+	then
+		die 'access_file_f() requires io_target($1)'
+	fi
+
+	if [[ ! -f $1 ]]
+	then
+		error "file '$1' not exists"
+		exit 1
+	fi
+}
+
+st_file_r()
+{
+	st_file_f "$1"
+
+	if [[ ! -r $1 ]]
+	then
+		error "read operation denied by file '$1'"
+		exit 1
+	fi
+}
+
+get_io_target()
+{
+	if [[ -z $2 ]]
+	then
+		die 'get_io_target requires io_target_argpos($2)'
+	fi
+
+	if [[ -z $3 ]]
+	then
+		die 'get_io_target requires function_name($3)'
+	fi
+
+	filename="$1"
+	if [[ -z $filename ]]
+	then
+		if [[ -z $IO_TARGET ]]
+		then
+			die "$3() requires io_target($2 or \$IO_TARGET)"
+		fi
+
+		filename="$IO_TARGET"
+	fi
+
+	echo "$filename"
+}
+
+have_entry_routine()
+{
+	if [[ -z $1 ]]
+	then
+		die 'have_entry_routine() requires entry_string($1)'
+	fi
+
+	filename=$(get_io_target "$2" '$2' 'have_entry_routine')
+	require_success
+
+	if [[ -z "$3" ]]
+	then
+		die 'have_entry_routine() requires check_file($3)'
+	fi
+
+	if [[ $3 -ne 0 ]]
+	then
+		st_file_r "$filename"
+	elif [[ ! -f $filename ]]
+	then
+		return 1
+	fi
+
+	grep -q "$1" "$filename"
+
+	return $?
+}
+
+have_entry()
+{
+	have_entry_routine "$1" "$2" 0
+}
+
+have_entry_st()
+{
+	have_entry_routine "$1" "$2" 1
+}
+
+write_entry_routine()
+{
+	if [[ -z $1 ]]
+	then
+		die 'write_entry_routine() requires entry_string($1)'
+	fi
+
+	filename=$(get_io_target "$2" '$2' 'write_entry_routine')
+	require_success
+
+	if [[ -z $3 ]]
+	then
+		die 'write_entry_routine() requires is_superuser($3)'
+	fi
+
+	if [[ -z $4 ]]
+	then
+		die 'write_entry_routine() requires need_leading_newline($4)'
+	fi
+
+	if [[ $4 -ne 0 ]] &&
+	    [[ -f $filename ]] &&
+	     [[ $(cat "$filename" | wc -l) -gt 0 ]] &&
+	      ! tail -c 2 "$filename" | grep -qP '\n\n$'
+	then
+		if [[ $3 -eq 0 ]]
+		then
+			echo | tee -a "$filename" > /dev/null
+		else
+			echo | sudo tee -a "$filename" > /dev/null
+		fi
+	fi
+
+	if [[ $3 -eq 0 ]]
+	then
+		echo -e $1 | tee -a "$filename"
+	else
+		echo -e $1 | sudo tee -a "$filename"
+	fi
+}
+
+write_entry()
+{
+	write_entry_routine "$1" "$2" 0 1
+}
+
+write_entry_r()
+{
+	write_entry_routine "$1" "$2" 0 0
+}
+
+write_entry_su()
+{
+	write_entry_routine "$1" "$2" 1 1
+}
+
+write_entry_su_r()
+{
+	write_entry_routine "$1" "$2" 1 0
+}
+
+notify_user()
+{
+	echo $*
+
+	echo Press any key to continue...
+	read -sN1
+}

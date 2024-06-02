@@ -1,0 +1,20 @@
+#!/usr/bin/bash
+
+source "$BRUTIL"
+
+cat << EOF
+The following options need to be the same
+	keyboard model:				General 105-key PC
+	country of origin for the keyboard:	Japanese
+Then press enter key until the configuration is complete
+EOF
+
+notify_user
+
+sudo dpkg-reconfigure keyboard-configuration
+
+if ! have_entry_st 'xmodmap "$HOME/.Xmodmap"' "$HOME/.profile"
+then
+	write_entry 'xmodmap "$HOME/.Xmodmap"' "$HOME/.profile"
+	source "$HOME/.profile"
+fi

@@ -1,11 +1,10 @@
-Assets of Barroit
-=================
+Assets for Barroit
+==================
 
-run `./brtool` to generate the corresponding file symlinks
+Memo
+----
+Directory 'memo' stores notes
 
-run `setup-environment` to get a comfortable environment
-
-Issues
-------
-
-ntfs: missing mount status check before mounting the remote dir to the local
+Setup
+-----
+Currently using gmake, target contains 'alias' 'coredump' 'filemap' 'keymap'

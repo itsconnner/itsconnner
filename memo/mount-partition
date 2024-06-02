@@ -9,20 +9,20 @@ a normal directory as the other created by $USER.
 Example
 -------
 
-here is the step-by-step example
+Here is the step-by-step example
 
-create directory /larfil 'sudo mkdir /larfil', at this point, /larfil is owned
+Create directory /larfil 'sudo mkdir /larfil', at this point, /larfil is owned
 by root
 
-edit /etc/fstab 'sudo nano /etc/fstab', make the static filesys info entry be
+Edit /etc/fstab 'sudo nano /etc/fstab', make the static filesys info entry be
 something like '/dev/disk/by-uuid/dummy-uuid /larfil ext4 defaults 0 1'
 
-mount /larfil and create a subdir 'sudo mount /larfil' 'sudo mkdir /larfil/data'
+Mount /larfil and create a subdir 'sudo mount /larfil' 'sudo mkdir /larfil/data'
 
-set appropriate permissions on /larfil
+Set appropriate permissions on /larfil
 'sudo chown -R $(id -u):$(id -g) /larfil/data' 'chmod -R 775 /larfil/data'
 
-create a symlink target to /larfil/data 'ln -s /larfil/data Larfil', the name
+Create a symlink target to /larfil/data 'ln -s /larfil/data Larfil', the name
 named using UpperCamelCase is for disambiguation
 
 NOTE

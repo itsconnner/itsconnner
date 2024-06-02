@@ -1,0 +1,23 @@
+# Lines starting with # is comment.
+# The first column specifies the config file that needs to be placed.
+# The second column specifies the location where the config file is to be
+# placed, and there are two scenarios:
+#  1 Path ending with '/' indicates that the config file will be placed in that
+#    directory.
+#  2 Path not ending with '/' indicates that the config file will be placed at
+#    that path. This is useful when the actual name of the config file differs
+#    from the last segment of the path.
+# The third column indicates whether the configuration file needs to be parsed.
+
+# localname      destdir/                                    eval,sudo
+.gitconfig       $HOME/
+.vimrc           $HOME/
+.wgetrc          $HOME/
+.Xmodmap         $HOME/
+barroit.vim      $HOME/.vim/colors/
+gdb.hexdump      $HOME/.config/gdb/hexdump.py
+gdbinit          $HOME/.config/gdb/                          eval
+ignore           $HOME/.config/git/
+ntfs             $HOME/
+vscode.config    $HOME/.config/Code/User/settings.json
+vscode.keymap    $HOME/.config/Code/User/keybindings.json

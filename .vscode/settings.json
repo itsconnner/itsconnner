@@ -1,5 +1,8 @@
 {
 	"files.associations": {
-		"memo/**": "plaintext"
+		"memo/*": "plaintext",
+		"gdb*": "plaintext",
+		"vscode.config": "json",
+		"vscode.keymap": "json"
 	}
 }
