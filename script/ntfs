@@ -40,13 +40,38 @@ findstr()
 	return $?
 }
 
+echo_link_ok()
+{
+	if [[ -z $1 ]]
+	then
+		die 'echo_link_success() requires target($1)'
+	fi
+
+	echo -e "${CYAN}$1${NC} -> ${GREEN}$2${NC}"
+}
+
+echo_link_no()
+{
+	if [[ -z $1 ]]
+	then
+		die 'echo_link_success() requires target($1)'
+	fi
+
+	if [[ -z $2 ]]
+	then
+		die 'echo_link_success() requires dest($2)'
+	fi
+
+	>&2 echo -ne "${RED}${BG_BLACK}$1${NC} -> ${RED}${BG_BLACK}$2${NC}"
+}
+
 if [[ -z $REMOTE_FILESYS ]]
 then
 	die "you forget to ‘make onedrive’"
 fi
 
-readonly commands=('mount' 'ls' 'unmount')
-readonly command="${1:-mount}"
+commands=('mount' 'ls' 'unmount')
+command="${1:-mount}"
 
 if ! findstr "$command" "${commands[@]}"
 then
@@ -65,7 +90,7 @@ then
 		while read file
 		do
 			fusermount -u "$file"
-			echo "unmounted $file"
+			echo_link_ok "$file"
 		done <<< "$mounted"
 	fi
 
@@ -121,9 +146,7 @@ do
 			rm -rf "$destpath"/*
 			;;
 		*)
-			echo -ne "${RED}${BG_BLACK}$name${NC} -> "
-			echo -e "${RED}${BG_BLACK}$destpath${NC}"
-
+			echo_link_no "$name" "$destpath"
 			continue
 			;;
 		esac
@@ -132,9 +155,8 @@ do
 	if rclone mount "$REMOTE_FILESYS:$name" "$destpath" \
 		--vfs-cache-mode full --daemon
 	then
-		echo -e "${CYAN}$name${NC} -> ${GREEN}$destpath${NC}"
+		echo_link_ok "$name" "$destpath"
 	else
-		echo -ne "${RED}${BG_BLACK}$name${NC} -> "
-		echo -e "${RED}${BG_BLACK}$destpath${NC}"
+		echo_link_no "$name" "$destpath"
 	fi
 done

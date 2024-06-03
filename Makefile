@@ -5,6 +5,8 @@ export ROOT BRUTIL
 
 RUN := bash
 
+all: alias coredump filemap keymap onedrive terminal
+
 alias:
 	$(RUN) $(ROOT)/$@
 
@@ -20,4 +22,7 @@ keymap:
 onedrive:
 	$(RUN) $(ROOT)/$@
 
-.PHONY: alias coredump filemap keymap onedrive
+terminal:
+	$(RUN) $(ROOT)/$@ $(M)
+
+.PHONY: all alias coredump filemap keymap onedrive terminal
