@@ -129,6 +129,19 @@ write_entry_routine()
 		die 'write_entry_routine() requires need_leading_newline($4)'
 	fi
 
+	dirname="$(dirname "$filename")"
+	if [[ ! -d $dirname ]]
+	then
+		if [[ $3 -eq 0 ]]
+		then
+			mkdir -p "$dirname"
+		else
+			sudo mkdir -p "$dirname"
+		fi
+
+		require_success
+	fi
+
 	if [[ $4 -ne 0 ]] &&
 	    [[ -f $filename ]] &&
 	     [[ $(cat "$filename" | wc -l) -gt 0 ]] &&
@@ -140,6 +153,8 @@ write_entry_routine()
 		else
 			echo | sudo tee -a "$filename" > /dev/null
 		fi
+
+		require_success
 	fi
 
 	if [[ $3 -eq 0 ]]
@@ -148,6 +163,8 @@ write_entry_routine()
 	else
 		echo -e $1 | sudo tee -a "$filename"
 	fi
+
+	require_success
 }
 
 write_entry()

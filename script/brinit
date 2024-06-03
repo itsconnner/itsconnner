@@ -1,7 +1,20 @@
 #!/usr/bin/bash
 
+if [[ -z $BRONESHOT ]]
+then
+	echo '$BRONESHOT is undefined, run ‘make oneshot’ first!'
+fi
+
+if [[ -f "$BRONESHOT/brinit" ]]
+then
+	>&2 echo 'error: brinit is executed more than once'
+	exit 1
+fi
+
 bash "$HOME/ntfs"
 
 xmodmap "$HOME/.Xmodmap"
 
 gnome-terminal --tab --working-directory="$HOME/Workspace/PassKeeper"
+
+touch "$BRONESHOT/brinit"
