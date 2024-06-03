@@ -9,15 +9,18 @@
 #    from the last segment of the path.
 # The third column indicates whether the configuration file needs to be parsed.
 
-# localname      destdir/                                    eval,sudo
-.gitconfig       $HOME/
-.vimrc           $HOME/
-.wgetrc          $HOME/
-.Xmodmap         $HOME/
-barroit.vim      $HOME/.vim/colors/
-gdb.hexdump      $HOME/.config/gdb/hexdump.py
-gdbinit          $HOME/.config/gdb/                          eval
-ignore           $HOME/.config/git/
-ntfs             $HOME/
-vscode.config    $HOME/.config/Code/User/settings.json
-vscode.keymap    $HOME/.config/Code/User/keybindings.json
+# localname             destdir/                                    eval,dummyact
+
+config/.gitconfig       $HOME/
+config/.vimrc           $HOME/
+config/.wgetrc          $HOME/
+config/.Xmodmap         $HOME/
+config/barroit.vim      $HOME/.vim/colors/
+config/gdb.hexdump      $HOME/.config/gdb/hexdump.py
+config/gdbinit          $HOME/.config/gdb/                          eval
+config/ignore           $HOME/.config/git/
+config/vscode.config    $HOME/.config/Code/User/settings.json
+config/vscode.keymap    $HOME/.config/Code/User/keybindings.json
+
+script/brinit           $HOME/
+script/ntfs             $HOME/

@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+bash "$HOME/ntfs"
+
+xmodmap "$HOME/.Xmodmap"
+
+gnome-terminal --tab --working-directory="$HOME/Workspace/PassKeeper"

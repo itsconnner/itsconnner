@@ -2,6 +2,10 @@
 
 source "$BRUTIL"
 
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
 E_()
 {
 	if [[ -z $1 ]]
@@ -93,7 +97,7 @@ do
 		continue
 	fi
 
-	localpath="$ROOT/config/$name"
+	localpath="$ROOT/$name"
 	if [[ ! -f $localpath ]]
 	then
 		E_ "local config file ‘$localpath’ not exists" "$name"
@@ -105,7 +109,7 @@ do
 	if [[ ${destpath:0-1} == '/' ]]
 	then
 		destdir="${destpath%?}"
-		destpath+="$name"
+		destpath+=$(basename "$name")
 	else
 		destdir=$(dirname "$destpath")
 	fi
@@ -134,7 +138,8 @@ do
 		E_ "$name"
 		continue
 	else
-		printf '%-15s => %s\n' "$name" "$destpath"
+		printf "${CYAN}%-20s${NC} -> ${GREEN}%-15s${NC}%s\n"\
+			"$name" "$destpath"
 	fi
 
 	if [[ -z $extra ]]
