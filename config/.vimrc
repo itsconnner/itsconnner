@@ -3,11 +3,17 @@ call plug#begin('~/.vim/plugged')
 Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
-set number					" Show line numbers
-set tabstop=8					" Set tab width to 4 spaces
-set autoindent					" Auto-indent new lines
-set shiftwidth=8				" Set shift width to 4 spaces
-set cindent					" C/C++ indentation
-set backspace=indent,eol,start			" Maintain backspace behavior
+if !isdirectory(expand('~/.vim/swap'))
+	silent !mkdir -p ~/.vim/swap
+endif
 
-colorscheme barroit				" Set Color Scheme
+set directory=~/.vim/swap//	" swap folder
+
+set number			" Show line numbers
+set tabstop=8
+set autoindent
+set shiftwidth=8
+set cindent			" C/C++ indentation
+set backspace=indent,eol,start	" backspace behavior
+
+colorscheme barroit
