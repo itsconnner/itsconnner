@@ -12,3 +12,9 @@ Directory 'memo' stores notes
 Misc
 ----
 ..........
+
+
+Known issues
+------------
+oneshot: action with type modifier ‘!’ only triggered during boot, but not
+	login, consider using startup applications to make a cleanup?

@@ -9,4 +9,4 @@ RUN := bash
 .PHONY: $(TARGET)
 
 $(TARGET):
-	bash $(ROOT)/$@
+	bash $(ROOT)/$@ $(ARGS)

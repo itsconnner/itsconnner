@@ -2,19 +2,19 @@
 
 source "$BRUTIL"
 
-export IO_TARGET="$HOME/.config/user-tmpfiles.d/oneshot.conf"
-TMPDIR='/tmp/barroit-oneshot'
+export IO_TARGET="/etc/tmpfiles.d/br-oneshot.conf"
+TMPDIR='/tmp/br-oneshot'
 
 if ! have_entry "d $TMPDIR 0700 $USER $USER -"
 then
-	write_entry "d $TMPDIR 0700 $USER $USER -"
+	write_entry_su "d $TMPDIR 0700 $USER $USER -"
 
 	systemd-tmpfiles --create "$IO_TARGET"
 fi
 
 if ! have_entry "e! $TMPDIR - - - 0"
 then
-	write_entry "e! $TMPDIR - - - 0"
+	write_entry_su "e! $TMPDIR - - - 0"
 fi
 
 export IO_TARGET="$HOME/.bashrc"
