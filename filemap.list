@@ -16,7 +16,7 @@ config/.vimrc           $HOME/
 config/.wgetrc          $HOME/
 config/.Xmodmap         $HOME/
 config/barroit.vim      $HOME/.vim/colors/
-config/gdb.hexdump      $HOME/.config/gdb/hexdump.py
+config/hexdump.py.gdb   $HOME/.config/gdb/hexdump.py
 config/gdbinit          $HOME/.config/gdb/                          eval
 config/ignore           $HOME/.config/git/
 config/vscode.config    $HOME/.config/Code/User/settings.json

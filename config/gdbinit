@@ -1,5 +1,5 @@
-#	<BR>set auto-load safe-path<BR> $HOME/Workspace
-set auto-load safe-path /home/barroit/Workspace
+#	<BR>set auto-load safe-path<BR> $HOME/workspace
+set auto-load safe-path /home/barroit/workspace
 
 #	<BR>source<BR> $HOME/.config/gdb/hexdump.py
 source /home/barroit/.config/gdb/hexdump.py
