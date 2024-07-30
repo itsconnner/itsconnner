@@ -1,0 +1,187 @@
+{
+	"workbench.colorTheme": "Default Dark Modern",
+	"files.autoSave": "onFocusChange",
+	"editor.fontFamily": "'JetBrains Mono'",
+	"editor.fontSize": 19,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 8,
+	"editor.detectIndentation": false,
+	"editor.occurrencesHighlight": "off",
+	"editor.selectionHighlight": false,
+	"editor.matchBrackets": "never",
+	"workbench.editor.doubleClickTabToToggleEditorGroupSizes": "off",
+	"workbench.startupEditor": "welcomePageInEmptyWorkbench",
+	"workbench.colorCustomizations": {
+		"editorBracketHighlight.foreground1": "#A8A8A8",
+		"editorBracketHighlight.foreground2": "#A8A8A8",
+		"editorBracketHighlight.foreground3": "#A8A8A8",
+		"editorBracketHighlight.foreground4": "#A8A8A8",
+		"editorBracketHighlight.foreground5": "#A8A8A8",
+		"editorBracketHighlight.foreground6": "#A8A8A8",
+		"editor.foreground": "#A8A8A8",
+		"editor.background": "#141414"
+	},
+	"files.associations": {
+		"gdbinit": "plaintext",
+		"README": "plaintext",
+		"Kconfig": "plaintext",
+		"TODO": "plaintext",
+		".git*": "plaintext",
+		"filelinks": "plaintext"
+	},
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+//---------------  C/CPP  ---------------
+			{
+				"scope": "constant.other.placeholder",
+				"settings": {
+					"foreground": "#CE9178"
+				}
+			},
+			{
+				"scope": [
+					"keyword.control",
+					"keyword.operator.new.cpp",
+					"keyword.operator.delete",
+					"support.type.posix-reserved",
+					"storage.type.built-in.primitive",
+					"storage.modifier"
+				],
+				"settings": {
+					"foreground": "#569CD6"
+				}
+			},
+			{
+				"scope": [
+					"entity.name.function",
+					"support.function.builtin"
+				],
+				"settings": {
+					"foreground": "#C6C699"
+				}
+			},
+			{
+				"scope": [
+					"constant.numeric.decimal",
+					"constant.numeric.integer"
+				],
+				"settings": {
+					"foreground": "#ACC4A0"
+				}
+			},
+			{
+				"scope": [
+					"meta.preprocessor.macro",
+					"entity.name.type",
+					"entity.name.function.preprocessor",
+					"entity.name.label.call",
+					"entity.name.scope-resolution",
+					"entity.name.other.preprocessor.macro.predefined",
+					"entity.other.attribute",
+					"entity.other.attribute-name",
+					"storage.modifier.pointer",
+					"variable",
+					"variable.other.enummember",
+					"string.regexp",
+					"constant.character.escape",
+					"constant.language",
+					"keyword.operator",
+					"keyword.control.directive",
+					"keyword.control.directive",
+					"comment"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
+//---------------  JAVA  ---------------
+			{
+				"scope": [
+					"storage.modifier.import.java",
+					"storage.type.annotation.java",
+					"storage.type.java",
+					"storage.type.generic.java"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
+			{
+				"scope": [
+					"storage.type.primitive.java"
+				],
+				"settings": {
+					"foreground": "#569CD6"
+				}
+			}
+		]
+	},
+	"explorer.confirmDelete": false,
+	"editor.minimap.enabled": false,
+	"editor.scrollbar.horizontal": "hidden",
+	"extensions.ignoreRecommendations": true,
+	"editor.guides.indentation": false,
+	"window.restoreWindows": "none",
+	"explorer.confirmDragAndDrop": false,
+	"editor.quickSuggestions": {
+		"other": "off"
+	},
+	"editor.suggestOnTriggerCharacters": false,
+	"C_Cpp.dimInactiveRegions": false,
+	"C_Cpp.enhancedColorization": "disabled",
+	"C_Cpp.errorSquiggles": "disabled",
+	"git.openRepositoryInParentFolders": "never",
+	"cmake.configureOnOpen": false,
+	"cmake.showOptionsMovedNotification": false,
+	"window.zoomLevel": 4,
+	"explorer.autoReveal": false,
+	"explorer.confirmPasteNative": false,
+	"fileHeaderComment.parameter": {
+		"c": {
+			"spdxbegin": "//",
+			"begin": "/*",
+			"prefix": " *",
+			"end": " */"
+		},
+		"cpp": {
+			"spdxbegin": "//",
+			"begin": "/*",
+			"prefix": " *",
+			"end": " */"
+		},
+		"*": {
+			"author": "Jiamu Sun",
+			"contact": "barroit@linux.com"
+		}
+	},
+	"fileHeaderComment.template": {
+		"*": [
+			"${spdxbegin} SPDX-License-Identifier: ${license}",
+			"${begin}",
+			"${prefix} Copyright ${year} ${author}",
+			"${prefix}",
+			"${prefix} Contact: ${contact}",
+			"${end}"
+		]
+	},
+	"window.commandCenter": false,
+	"workbench.layoutControl.enabled": false,
+	"files.insertFinalNewline": true,
+	"workbench.editor.enablePreview": true,
+	"editor.unicodeHighlight.includeStrings": false,
+	"C_Cpp.autoAddFileAssociations": false,
+	"editor.stickyScroll.enabled": false,
+	"workbench.editor.editorActionsLocation": "hidden",
+	"workbench.activityBar.location": "top",
+	"[cmake]": {
+		"editor.insertSpaces": true,
+		"editor.indentSize": 2
+	},
+	"[jsonc]": {
+		"editor.tabSize": 3,
+	},
+	"[xml]": {
+		"editor.insertSpaces": true,
+		"editor.indentSize": 2
+	}
+}
