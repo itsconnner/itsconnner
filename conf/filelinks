@@ -1,0 +1,33 @@
+# 1st column specifies the TARGET.
+# 2nd column specifies LINK_NAME or DIRECTORY; path ending with ‘/’ will be
+# treated as directory, otherwise it’s LINK_NAME.
+# For more information, see ln(1).
+# 3rd column specifies actions applied to the configuration (can be empty).
+# The leading ‘~’ is a special specifier, it will be replaced by $HOME. If the
+# path only contains a ~, then ~ and ~/ are synonymous.
+
+# git
+.gitconfig	~
+git_ignore	~/.config/git/ignore
+
+# vim
+.vimrc		~
+color.vim	~/.vim/colors/barroit.vim
+
+# keymap
+.Xmodmap	~
+
+# gdb
+gdb_hexdump.py	~/.config/gdb/hexdump.py
+gdbinit		~/.config/gdb/		 eval
+
+# vscode
+vscode_settings.json	~/.config/Code/User/settings.json
+vscode_keybindings.json	~/.config/Code/User/keybindings.json
+
+# tools
+setup-session.sh ~
+mount-rmtdir.sh  ~
+
+# screen
+xorg.conf	/etc/X11/	sudo
