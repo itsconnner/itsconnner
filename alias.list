@@ -1,5 +1,0 @@
-add       git add -A
-commit    git commit -as
-push      git push
-codeln    git ls-files | xargs wc -l
-codeln-s  git ls-files | xargs cat | wc -l

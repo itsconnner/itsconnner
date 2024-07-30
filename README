@@ -1,20 +1,6 @@
-Assets for Barroit
-==================
+Barroit's Assets
+================
 
-Config
-------
-Currently using gmake, target contains 'alias' 'coredump' 'filemap' 'keymap'
-
-Memo
-----
-Directory 'memo' stores notes
-
-Misc
-----
-..........
-
-
-Known issues
-------------
-oneshot: action with type modifier ‘!’ only triggered during boot, but not
-	login, consider using startup applications to make a cleanup?
+This repository serves as a central hub for essential resources associated with
+barroit. It includes personal configuration files, automatic configuration
+scripts, and a collection of practical utility scripts.

@@ -1,5 +1,0 @@
-Monitor config
-==============
-
-If the second monitors enter a black screen after suspending, make sure the
-xorg.conf file exists under /etc/X11. A dump can be found at config/xorg.conf
