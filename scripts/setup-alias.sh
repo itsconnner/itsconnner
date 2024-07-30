@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 export COMMENT='#'
 export SUPERUSER=
 export IOTARGET="$HOME/.bash_aliases"

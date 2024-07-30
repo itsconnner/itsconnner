@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 cat << EOF
 The following options need to be set
 	keyboard model			    to	General 105-key PC

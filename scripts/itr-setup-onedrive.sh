@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 cat << EOF
 Follow the default instructions illustrated on https://rclone.org/onedrive/.
 The configuration profile needs to be named 'onedrive'.
