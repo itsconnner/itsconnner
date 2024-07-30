@@ -1,0 +1,32 @@
+Mount Partition
+===============
+
+The main idea is to mount a partition at a path, create a subdir DIR within
+that path, and set DIR with appropriate permission. Create a symlink in the
+$HOME, the symlink is link against DIR. At this time, DIR can be operated as
+a normal directory as the other created by $USER.
+
+Example
+-------
+
+Here is the step-by-step example
+
+Create directory /larfil 'sudo mkdir /larfil', at this point, /larfil is owned
+by root
+
+Edit /etc/fstab 'sudo nano /etc/fstab', make the static filesys info entry be
+something like '/dev/disk/by-uuid/dummy-uuid /larfil ext4 defaults 0 1'
+
+Mount /larfil and create a subdir 'sudo mount /larfil' 'sudo mkdir /larfil/data'
+
+Set appropriate permissions on /larfil
+'sudo chown -R $(id -u):$(id -g) /larfil/data' 'chmod -R 775 /larfil/data'
+
+Create a symlink target to /larfil/data 'ln -s /larfil/data Larfil', the name
+named using UpperCamelCase is for disambiguation
+
+NOTE
+----
+
+DO NOT BREAK '/etc/fstab' or the system may not be able to boot up, if this
+happens, use GRUB to fix this.
