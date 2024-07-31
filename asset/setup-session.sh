@@ -5,7 +5,7 @@ RED='\033[0;31m'
 YELLOW='\033[0;33m'
 RESET='\033[0m'
 
-THIS_FILE=$(sed 's/\//~/g' <<< "${0:1}")
+THIS_FILE=$(basename $0)
 
 die()
 {
@@ -23,6 +23,10 @@ if [[ ! $ONESHOT_LIST ]]; then
 	die 'run ‘setup-oneshot-exec.sh’ first'
 fi
 
+if [[ ! -f "$HOME/mount-rmtdir.sh" ]]; then
+	die 'run ‘setup-filelink.sh’ first'
+fi
+
 if [[ -f "$ONESHOT_LIST/$THIS_FILE" ]]; then
 	warn "‘$(basename $0)’ is executed more than once"
 	exit 128
@@ -34,6 +38,6 @@ fi
 
 gnome-terminal --tab --working-directory="$HOME/workspase"
 
-bash "$HOME/mount-remote-files"
+bash "$HOME/mount-rmtdir.sh"
 
 touch "$ONESHOT_LIST/$THIS_FILE"

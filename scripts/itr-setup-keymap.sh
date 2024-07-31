@@ -11,8 +11,8 @@ waiting_user
 sudo dpkg-reconfigure keyboard-configuration
 exit_on_error
 
-export COMMENT='#'
-export SUPERUSER=
-export IOTARGET="$HOME/.profile"
+COMMENT='#'
+SUPERUSER=
+IOTARGET=$PROFILE
   write_on_missing 'xmodmap "$HOME/.Xmodmap"'
-  source $IOTARGET
+  xmodmap "$HOME/.Xmodmap"

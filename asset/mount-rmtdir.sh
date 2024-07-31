@@ -8,7 +8,7 @@ CYAN='\033[0;36m'
 BG_BLACK='\033[40m'
 RESET='\033[0m'
 
-THIS_FILE=$(sed 's/\//~/g' <<< "${0:1}")
+THIS_FILE=$(basename $0)
 
 die()
 {
@@ -42,10 +42,10 @@ if [[ ! $ONESHOT_LIST ]]; then
 fi
 
 for dir in $(rclone lsf --dirs-only "$REMOTE_FILESYS:"); do
-	ost="$ONESHOT_LIST/$THIS_FILE~$(basename $dir)"
+	flag="$ONESHOT_LIST/$THIS_FILE~$(basename $dir)"
 	src="$REMOTE_FILESYS:$dir"
 
-	if [[ -f "$ost" ]]; then
+	if [[ -f "$flag" ]]; then
 		warn "‘$src’ has been mounted"
 		continue
 	elif [[ $(wc -w <<< "$dir") != '1' ]]; then
@@ -77,7 +77,7 @@ for dir in $(rclone lsf --dirs-only "$REMOTE_FILESYS:"); do
 
 	if rclone mount "$src" "$dest" --vfs-cache-mode full --daemon; then
 		report_link_success "$src" "$dest"
-		touch "$ost"
+		touch "$flag"
 	else
 		report_link_failure "$src" "$dest"
 	fi

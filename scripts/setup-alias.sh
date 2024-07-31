@@ -1,8 +1,9 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
-export COMMENT='#'
-export SUPERUSER=
-export IOTARGET="$HOME/.bash_aliases"
+COMMENT='#'
+
+SUPERUSER=
+IOTARGET="$HOME/.bash_aliases"
 
 lncnt=0
 while read name value; do
@@ -19,5 +20,6 @@ while read name value; do
 	write_on_missing "alias $name='$value'"
 done < "$CONFLIST/aliases"
 
-export IOTARGET="$HOME/.bashrc"
+IOTARGET=$BASHRC
   write_on_missing '. ~/.bash_aliases'
+  source $BASHRC

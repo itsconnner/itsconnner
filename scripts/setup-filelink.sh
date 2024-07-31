@@ -59,7 +59,8 @@ parse_file()
 	done < "$1"
 }
 
-mkdir -p $ASSETLIST/backup
+bakdir="$ABSGEN/asset.bac"
+mkdir -p $bakdir
 exit_on_error
 
 lncnt=0
@@ -75,9 +76,10 @@ while read; do
 		continue
 	fi
 
-	read target path action <<< "$REPLY"
+	read target dest action <<< "$REPLY"
+	src="$PWD/$ASSETLIST/$target"
 
-	if [[ ! -f "$ASSETLIST/$target" ]]; then
+	if [[ ! -f "$src" ]]; then
 		error "target ‘$target’ does not exist"
 		continue
 	fi
@@ -95,15 +97,19 @@ while read; do
 		fi
 	fi
 
-	if [[ $path =~ ^'~' ]]; then
-		path="$HOME/${path:2}"
+	if [[ $dest =~ ^'~' ]]; then
+		dest="$HOME/${dest:2}"
 	fi
 
-	if [[ ${path:0-1} = '/' ]]; then
-		path+=$target
+	if [[ ${dest:0-1} = '/' ]]; then
+		dest+=$target
 	fi
 
-	dir=$(dirname $path)
+	if [[ -h $dest && $(readlink $dest) = $src ]]; then
+		continue
+	fi
+
+	dir=$(dirname $dest)
 	if [[ ! -d $dir ]]; then
 		if [[ -f $dir ]]; then
 			error "‘$dir’ is a regular file (target ‘$target’)"
@@ -117,27 +123,26 @@ while read; do
 		fi
 	fi
 
-	if [[ ! -h $path && -f $path ]]; then
-		bak=$target~$(basename $path)
-		if ! cp $path "$ASSETLIST/backup/$bak"; then
-			warn "failed to back up ‘$path’ (target ‘$target’)"
+	if [[ ! -h $dest && -f $dest ]]; then
+		if ! cp $dest "$bakdir/$target~$(basename $dest)"; then
+			warn "failed to back up ‘$dest’ (target ‘$target’)"
 			continue
 		fi
 	fi
 
 	if [[ $sudo ]]; then
-		sudo ln -sf "$PWD/$ASSETLIST/$target" $path
+		sudo ln -sf $src $dest
 	else
-		ln -sf "$PWD/$ASSETLIST/$target" $path
+		ln -sf $src $dest
 	fi
 	if [[ $? -ne 0 ]]; then
 		continue
 	fi
 
-	printf "${CYAN}%-25s${RESET} -> ${GREEN}%s${RESET}\n" "$target" "$path"
+	printf "${CYAN}%-25s${RESET} -> ${GREEN}%s${RESET}\n" "$target" "$dest"
 
 	if [[ $eval ]]; then
-		parse_file "$ASSETLIST/$target"
+		parse_file $src
 	fi
 
 done < "$CONFLIST/filelinks"
