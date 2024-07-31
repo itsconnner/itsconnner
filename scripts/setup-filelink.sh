@@ -63,6 +63,8 @@ bakdir="$ABSGEN/asset.bac"
 mkdir -p $bakdir
 exit_on_error
 
+echo_line_sep $CURSCR
+
 lncnt=0
 while read; do
 	(( lncnt++ ))
@@ -139,7 +141,7 @@ while read; do
 		continue
 	fi
 
-	printf "${CYAN}%-25s${RESET} -> ${GREEN}%s${RESET}\n" "$target" "$dest"
+	echo_linked $target $dest
 
 	if [[ $eval ]]; then
 		parse_file $src

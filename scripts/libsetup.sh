@@ -55,6 +55,16 @@ flex_tee()
 	fi
 }
 
+echo_line_sep()
+{
+	echo "------------------- $* -------------------"
+}
+
+echo_linked()
+{
+	printf "${CYAN}%-25s${RESET} -> ${GREEN}%s${RESET}\n" "$1" "$2"
+}
+
 initwr=1
 write_on_missing()
 {
@@ -69,11 +79,12 @@ write_on_missing()
 	fi
 
 	if grep -sq "^[[:space:]]*$text[[:space:]]*$" $file; then
+		skipped=1
 		return
 	fi
 
 	if [[ $initwr ]]; then
-		echo "------------------- $CURSCR -------------------"
+		echo_line_sep $CURSCR
 		initwr=
 	fi
 

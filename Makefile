@@ -11,6 +11,7 @@ export ABSGEN  := $(ABSROOT)/generated
 
 export BASHRC  := $(HOME)/.bashrc
 export PROFILE := $(HOME)/.profile
+export ALIASES := $(HOME)/.bash_aliases
 
 # fst stands for fast (non-interactive)
 fst_setups := $(notdir $(wildcard scripts/setup-*.sh))

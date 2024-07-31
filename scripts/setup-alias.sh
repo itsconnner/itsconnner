@@ -3,7 +3,7 @@
 COMMENT='#'
 
 SUPERUSER=
-IOTARGET="$HOME/.bash_aliases"
+IOTARGET=$ALIASES
 
 lncnt=0
 while read name value; do
