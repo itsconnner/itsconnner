@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-3.0-only
+
 class HexDump(gdb.Command):
 	def __init__(self):
 		super(HexDump, self).__init__("hexdump", gdb.COMMAND_DATA)

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-License-Identifier: GPL-3.0-only
 
 MAKEFLAGS += -rR
 MAKEFLAGS += --no-print-directory

@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-3.0-or-later
+# SPDX-License-Identifier: GPL-3.0-only
 
 cat << EOF
 Follow the default instructions illustrated on https://rclone.org/onedrive/.
