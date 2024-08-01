@@ -25,9 +25,10 @@ gdbinit		~/.config/gdb/		 eval
 vscode_settings.json	~/.config/Code/User/settings.json
 vscode_keybindings.json	~/.config/Code/User/keybindings.json
 
-# tools
-setup-session.sh ~
-mount-rmtdir.sh  ~
-
 # screen
 xorg.conf	/etc/X11/	sudo
+
+# nfs
+mount-onedrive.sh	~
+umount-onedrive.sh	~
+umount-onedrive.service	/etc/systemd/system/	eval,sudo

@@ -29,8 +29,8 @@ parse_file()
 			continue
 		fi
 
-		local field=${BASH_REMATCH[1]}
-		local value=$(eval echo ${BASH_REMATCH[2]})
+		local fmt=${BASH_REMATCH[1]}
+		local ap=$(eval echo ${BASH_REMATCH[2]})
 
 		if [[ $cur -eq $tot ]]; then
 			# calibration of $cur and $tot is not necessary
@@ -40,7 +40,8 @@ parse_file()
 		read
 		(( cur++ ))
 
-		sed -i "${cur}s/.*/$(escape "$field $value")/" "$1"
+		content=$(printf "$fmt" $ap)
+		sed -i "${cur}s/.*/$(escape "$content")/" "$1"
 		if [[ ! $cur -lt $tot ]]; then
 			break
 		fi
@@ -106,6 +107,10 @@ while read; do
 		dest+=$target
 	fi
 
+	if [[ $eval ]]; then
+		parse_file $src
+	fi
+
 	if [[ -h $dest && $(readlink $dest) = $src ]]; then
 		continue
 	fi
@@ -146,9 +151,4 @@ while read; do
 	fi
 
 	echo_linked $target $dest
-
-	if [[ $eval ]]; then
-		parse_file $src
-	fi
-
 done < "$CONFLIST/filelinks"
