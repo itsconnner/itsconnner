@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 if [[ ! $KTREE ]]; then
-	die 'missing kernel tree (set KTREE path by exporting ‘KTREE’)'
+	die 'missing kernel tree (set KTREE path by setting ‘KTREE’)'
 elif [[ $(wc -w <<< "$KTREE") != '1' ]]; then
-	die 'path ‘KTREE’ contains space'
+	die "path ‘$KTREE’ contains space"
 elif [[ ! -d $KTREE ]]; then
 	die "invalid KTREE path ‘$KTREE’"
 fi
@@ -24,7 +24,12 @@ while read file args; do
 
 	src="$script/$file"
 	dest="$ktool/$file"
-	if [[ ! -h $dest ]] && ! ln -sf $src $dest; then
+
+	if [[ -h $dest && $(readlink $dest) = $src ]]; then
+		continue
+	fi
+
+	if ! ln -sf $src $dest; then
 		continue
 	fi
 

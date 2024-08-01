@@ -63,9 +63,8 @@ bakdir="$ABSGEN/asset.bac"
 mkdir -p $bakdir
 exit_on_error
 
-echo_line_sep $CURSCR
-
 lncnt=0
+initwr=1
 while read; do
 	(( lncnt++ ))
 	if skip_line "$REPLY"; then
@@ -139,6 +138,11 @@ while read; do
 	fi
 	if [[ $? -ne 0 ]]; then
 		continue
+	fi
+
+	if [[ $initwr ]]; then
+		echo_line_sep $CURSCR
+		initwr=
 	fi
 
 	echo_linked $target $dest
