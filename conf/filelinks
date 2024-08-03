@@ -9,6 +9,7 @@
 # git
 .gitconfig	~
 git_ignore	~/.config/git/ignore
+.git-signature	~
 
 # vim
 .vimrc		~

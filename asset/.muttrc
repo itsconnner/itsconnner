@@ -33,8 +33,9 @@ set smtp_authenticators	       = $imap_authenticators
 set smtp_oauth_refresh_command = $imap_oauth_refresh_command
 
 # ================  Composition  ====================
-set editor  = vim
-set charset = UTF-8	# value of $LANG; also fallback for send_charset
+set editor	 = vim
+set charset	 = UTF-8
+set send_charset = 'us-ascii:utf-8'
 
 set   edit_headers
 set   use_from

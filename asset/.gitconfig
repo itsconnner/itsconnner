@@ -13,6 +13,9 @@
 	editor   = vim
 	abbrev   = 12
 
+[format]
+	useAutoBase
+
 [fetch]
 	prune = true
 
@@ -20,4 +23,4 @@
 	detachedHead = false
 
 [pretty]
-	fixes = fixes: %h (\"%s\")
+	Fixes = Fixes: %h (\"%s\")
