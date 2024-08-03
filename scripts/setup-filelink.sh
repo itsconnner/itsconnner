@@ -25,7 +25,10 @@ parse_file()
 			continue;
 		fi
 
-		if [[ ! "$rest" =~ ^\<BR\>(.+)\<BR\>(.+) ]]; then
+		if [[ "$rest" =~ ^\<BRNOTE\>(.+)\<BRNOTE\>$ && ! $2 ]]; then
+			note "$(eval echo ${BASH_REMATCH[1]})"
+			continue
+		elif [[ ! "$rest" =~ ^\<BR\>(.+)\<BR\>(.+) ]]; then
 			continue
 		fi
 
@@ -107,48 +110,57 @@ while read; do
 		dest+=$target
 	fi
 
-	if [[ $eval ]]; then
-		parse_file $src
-	fi
-
+	skip_ln=
 	if [[ -h $dest && $(readlink $dest) = $src ]]; then
-		continue
+		if [[ ! $eval ]]; then
+			continue
+		else
+			skip_ln=1
+		fi
 	fi
 
-	dir=$(dirname $dest)
-	if [[ ! -d $dir ]]; then
-		if [[ -f $dir ]]; then
-			error "‘$dir’ is a regular file (target ‘$target’)"
-		elif [[ $sudo ]]; then
-			sudo mkdir -p $dir
+	if [[ ! $skip_ln ]]; then
+		dir=$(dirname $dest)
+		if [[ ! -d $dir ]]; then
+			if [[ -f $dir ]]; then
+				error "‘$dir’ is a regular file" \
+				      "(target ‘$target’)"
+			elif [[ $sudo ]]; then
+				sudo mkdir -p $dir
+			else
+				mkdir -p $dir
+			fi
+			if [[ $? -ne 0 ]]; then
+				continue
+			fi
+		fi
+
+		if [[ ! -h $dest && -f $dest ]]; then
+			if ! cp $dest "$bakdir/$target~$(basename $dest)"; then
+				warn "failed to back up ‘$dest’" \
+				     "(target ‘$target’)"
+				continue
+			fi
+		fi
+
+		if [[ $sudo ]]; then
+			sudo ln -sf $src $dest
 		else
-			mkdir -p $dir
+			ln -sf $src $dest
 		fi
 		if [[ $? -ne 0 ]]; then
 			continue
 		fi
-	fi
 
-	if [[ ! -h $dest && -f $dest ]]; then
-		if ! cp $dest "$bakdir/$target~$(basename $dest)"; then
-			warn "failed to back up ‘$dest’ (target ‘$target’)"
-			continue
+		if [[ $initwr ]]; then
+			echo_line_sep $CURSCR
+			initwr=
 		fi
+
+		echo_linked $target $dest
 	fi
 
-	if [[ $sudo ]]; then
-		sudo ln -sf $src $dest
-	else
-		ln -sf $src $dest
+	if [[ $eval ]]; then
+		parse_file $src $skip_ln
 	fi
-	if [[ $? -ne 0 ]]; then
-		continue
-	fi
-
-	if [[ $initwr ]]; then
-		echo_line_sep $CURSCR
-		initwr=
-	fi
-
-	echo_linked $target $dest
 done < "$CONFLIST/filelinks"

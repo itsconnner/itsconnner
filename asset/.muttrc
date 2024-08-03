@@ -1,0 +1,55 @@
+# ================  CRED  ====================
+#	<BRNOTE>see memo/setup-mutt for how to configure mutt<BRNOTE>
+source ~/.mutt/muttuser
+
+# ================  IMAP  ====================
+set imap_authenticators = "xoauth2"
+set imap_oauth_refresh_command = "~/.mutt/mutt_oauth2.py ~/.mutt/$imap_user.t"
+set folder = imaps://outlook.office365.com/
+set spoolfile = +INBOX
+unset record
+set delete = yes # purged message goes to Deleted in Outlook
+set postponed = +Drafts
+mailboxes !
+
+# ================  SMTP  ====================
+set smtp_url="smtp://$imap_user@smtp.office365.com:587/"
+set smtp_authenticators=${imap_authenticators}
+set smtp_oauth_refresh_command=${imap_oauth_refresh_command}
+
+# ================  Composition  ====================
+set editor = vim
+set edit_headers = yes
+set charset = UTF-8
+set send_charset="us-ascii:utf-8"
+unset use_domain
+set from = $imap_user
+set use_from = yes
+
+# ================  Shortcut  ====================
+bind index <up>   previous-entry
+bind index <down> next-entry
+
+bind pager <up>   previous-line
+bind pager <down> next-line
+
+bind pager <left>  half-up
+bind pager <right> half-down
+
+# ================  Color Scheme  ====================
+# index
+color normal		white	black
+color index		white	black	"~A"
+color error	bold	white	black
+color tree		white	black
+color indicator	bold	yellow	black
+
+# message
+color header	bold	green	black	"(From|To|Cc): "
+color header	bold	white	black	"(Subject|Date): "
+color body		white	black	".*"
+color markers	bold	magenta	black
+
+# misc
+color status	bold	cyan	blue
+color prompt  none bold	white	black

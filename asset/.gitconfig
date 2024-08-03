@@ -1,6 +1,6 @@
 [user]
 	name  = Jiamu Sun
-	email = barroit@linux.com
+	email = sunjiamu@outlook.com
 
 [init]
 	defaultBranch = master
@@ -12,12 +12,6 @@
 	autocrlf = input
 	editor   = vim
 	abbrev   = 12
-
-[sendemail]
-	smtpserver = smtp.gmail.com
-	smtpserverport = 587
-	smtpuser = baiorettohr@gmail.com
-	smtpencryption = tls
 
 [fetch]
 	prune = true

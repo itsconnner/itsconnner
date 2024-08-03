@@ -27,11 +27,11 @@
 		"Kconfig": "plaintext",
 		"TODO": "plaintext",
 		".git*": "plaintext",
-		"filelinks": "plaintext"
+		".muttrc": "plaintext",
 	},
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
-//---------------  C/CPP  ---------------
+// ---------------------  C/CPP  ---------------------
 			{
 				"scope": "constant.other.placeholder",
 				"settings": {
@@ -86,15 +86,18 @@
 					"constant.character.escape",
 					"constant.language",
 					"keyword.operator",
+					"keyword.operator.quantifier.regexp",
 					"keyword.control.directive",
 					"keyword.control.directive",
-					"comment"
+					"comment",
+					"punctuation.parenthesis.begin.regexp",
+					"punctuation.parenthesis.end.regexp"
 				],
 				"settings": {
 					"foreground": "#A8A8A8"
 				}
 			},
-//---------------  JAVA  ---------------
+// ---------------------  JAVA  ---------------------
 			{
 				"scope": [
 					"storage.modifier.import.java",
@@ -113,7 +116,16 @@
 				"settings": {
 					"foreground": "#569CD6"
 				}
-			}
+			},
+// ---------------------  PYTHON  ---------------------
+			{
+				"scope": [
+					"variable.legacy.builtin.python"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
 		]
 	},
 	"explorer.confirmDelete": false,

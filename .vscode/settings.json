@@ -1,0 +1,6 @@
+{
+	"files.associations": {
+		"filelinks": "plaintext",
+		"memo/*": "plaintext"
+	},
+}
