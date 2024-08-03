@@ -12,12 +12,6 @@ Setup mutt configuration
 
 	make setup-filelink.sh
 
-Set the following entries in ~/.mutt/muttuser.
-
-	imap_user
-	smtp_pass
-	realname
-
 Go to https://portal.azure.com/ and navigate to ‘App Registrations’. Access the
 application (likely mutt). In the app's ‘Overview’ panel, retrieve the
 ‘Application (client) ID’ and set this as the client_id in ~/.mutt/oauth2info.

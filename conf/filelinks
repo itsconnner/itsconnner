@@ -36,3 +36,4 @@ umount-onedrive.service	/etc/systemd/system/	eval,sudo
 # mail
 .muttrc		~		eval
 mutt_oauth2.py	~/.mutt/
+.mailcap	~

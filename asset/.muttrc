@@ -1,30 +1,49 @@
-# ================  CRED  ====================
-#	<BRNOTE>see memo/setup-mutt for how to configure mutt<BRNOTE>
-source ~/.mutt/muttuser
+# <BRNOTE>see memo/setup-mutt for how to configure mutt<BRNOTE>
 
 # ================  IMAP  ====================
-set imap_authenticators = "xoauth2"
+set imap_user		       = 'sunjiamu@outlook.com'
+set imap_authenticators	       = 'xoauth2'
 set imap_oauth_refresh_command = "~/.mutt/mutt_oauth2.py ~/.mutt/$imap_user.t"
-set folder = imaps://outlook.office365.com/
-set spoolfile = +INBOX
-unset record
-set delete = yes # purged message goes to Deleted in Outlook
+
+set folder    = 'imaps://outlook.office365.com/'
+set spoolfile = +Inbox
+unset record	# prevent email dupe
 set postponed = +Drafts
-mailboxes !
+
+# With the following configuration, deleted emails are moved to the ‘Deleted
+# Items’. However, each deleted email is copied to the ‘Recoverable Items’ and
+# emails cannot be permanently deleted through Mutt.
+set delete
+set trash     = +Deleted
+
+mailboxes	!			 # listening $spoolfile
+auto_view	text/html
+mime_lookup	application/octet-stream # determine types of attachments
+alternative_order multipart/mixed multipart/related text/plain
+
+set   pager_stop
+unset smart_wrap
+
+set quit = ask-yes
+set sort = reverse-date-received
 
 # ================  SMTP  ====================
-set smtp_url="smtp://$imap_user@smtp.office365.com:587/"
-set smtp_authenticators=${imap_authenticators}
-set smtp_oauth_refresh_command=${imap_oauth_refresh_command}
+set smtp_url		       = "smtp://$imap_user@smtp-mail.outlook.com:587/"
+set smtp_authenticators	       = $imap_authenticators
+set smtp_oauth_refresh_command = $imap_oauth_refresh_command
 
 # ================  Composition  ====================
-set editor = vim
-set edit_headers = yes
-set charset = UTF-8
-set send_charset="us-ascii:utf-8"
-unset use_domain
-set from = $imap_user
-set use_from = yes
+set editor  = vim
+set charset = UTF-8	# value of $LANG; also fallback for send_charset
+
+set   edit_headers
+set   use_from
+unset use_domain	# because joe@localhost is just embarrassing
+
+set realname = 'Jiamu Sun'
+set from     = 'barroit@linux.com'
+
+my_hdr Reply-To: $from
 
 # ================  Shortcut  ====================
 bind index <up>   previous-entry
@@ -39,15 +58,15 @@ bind pager <right> half-down
 # ================  Color Scheme  ====================
 # index
 color normal		white	black
-color index		white	black	"~A"
+color index		white	black	'~A'
 color error	bold	white	black
 color tree		white	black
 color indicator	bold	yellow	black
 
 # message
-color header	bold	green	black	"(From|To|Cc): "
-color header	bold	white	black	"(Subject|Date): "
-color body		white	black	".*"
+color header	bold	green	black	'(From|To|Cc): '
+color header	bold	white	black	'(Subject|Date): '
+color body		white	black	'.*'
 color markers	bold	magenta	black
 
 # misc
