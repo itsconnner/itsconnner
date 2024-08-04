@@ -23,11 +23,11 @@
 	},
 	"files.associations": {
 		"gdbinit": "plaintext",
-		"README": "plaintext",
+		"README*": "plaintext",
 		"Kconfig": "plaintext",
 		"TODO": "plaintext",
 		".git*": "plaintext",
-		".muttrc": "plaintext",
+		".muttrc": "plaintext"
 	},
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
@@ -195,5 +195,8 @@
 	"[xml]": {
 		"editor.insertSpaces": true,
 		"editor.indentSize": 2
+	},
+	"[markdown]": {
+		"editor.wordWrap": "off",
 	}
 }
