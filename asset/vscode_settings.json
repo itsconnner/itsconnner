@@ -27,7 +27,9 @@
 		"Kconfig": "plaintext",
 		"TODO": "plaintext",
 		".git*": "plaintext",
-		".muttrc": "plaintext"
+		".muttrc": "plaintext",
+		"*.h.in": "c",
+		"*.hpp.in": "cpp"
 	},
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
@@ -75,11 +77,13 @@
 					"entity.name.type",
 					"entity.name.function.preprocessor",
 					"entity.name.label.call",
+					"entity.name.label",
 					"entity.name.scope-resolution",
 					"entity.name.other.preprocessor.macro.predefined",
 					"entity.other.attribute",
 					"entity.other.attribute-name",
 					"storage.modifier.pointer",
+					"storage.modifier.reference",
 					"variable",
 					"variable.other.enummember",
 					"string.regexp",
@@ -148,32 +152,30 @@
 	"window.zoomLevel": 4,
 	"explorer.autoReveal": false,
 	"explorer.confirmPasteNative": false,
-	"fileHeaderComment.parameter": {
-		"c": {
-			"spdxbegin": "//",
-			"begin": "/*",
-			"prefix": " *",
-			"end": " */"
-		},
-		"cpp": {
-			"spdxbegin": "//",
-			"begin": "/*",
-			"prefix": " *",
-			"end": " */"
-		},
-		"*": {
-			"author": "Jiamu Sun",
-			"contact": "barroit@linux.com"
-		}
-	},
 	"fileHeaderComment.template": {
 		"*": [
 			"${spdxbegin} SPDX-License-Identifier: ${license}",
 			"${begin}",
-			"${prefix} Copyright ${year} ${author}",
+			"${prefix} Copyright ${year} Jiamu Sun",
 			"${prefix}",
-			"${prefix} Contact: ${contact}",
+			"${prefix} Contact: barroit@linux.com",
 			"${end}"
+		],
+		"source": [
+			"// SPDX-License-Identifier: ${license}",
+			"/*",
+			" * Copyright ${year} Jiamu Sun",
+			" *",
+			" * Contact: barroit@linux.com",
+			" */"
+		],
+		"header": [
+			"/* SPDX-License-Identifier: ${license} */",
+			"/*",
+			" * Copyright ${year} Jiamu Sun",
+			" *",
+			" * Contact: barroit@linux.com",
+			" */"
 		]
 	},
 	"window.commandCenter": false,
