@@ -29,7 +29,8 @@
 		".git*": "plaintext",
 		".muttrc": "plaintext",
 		"*.h.in": "c",
-		"*.hpp.in": "cpp"
+		"*.hpp.in": "cpp",
+		"vscode_settings.json": "jsonc"
 	},
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
@@ -45,6 +46,7 @@
 					"keyword.control",
 					"keyword.operator.new.cpp",
 					"keyword.operator.delete",
+					"keyword.other.using.directive",
 					"support.type.posix-reserved",
 					"storage.type.built-in.primitive",
 					"storage.modifier"
@@ -76,6 +78,7 @@
 					"meta.preprocessor.macro",
 					"entity.name.type",
 					"entity.name.function.preprocessor",
+					"entity.name.function",
 					"entity.name.label.call",
 					"entity.name.label",
 					"entity.name.scope-resolution",
@@ -96,6 +99,13 @@
 					"comment",
 					"punctuation.parenthesis.begin.regexp",
 					"punctuation.parenthesis.end.regexp"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
+			{
+				"scope": [
 				],
 				"settings": {
 					"foreground": "#A8A8A8"
@@ -130,6 +140,15 @@
 					"foreground": "#A8A8A8"
 				}
 			},
+// ---------------------  SHELL  ---------------------
+			{
+				"scope": [
+					"support.function.builtin"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			}
 		]
 	},
 	"explorer.confirmDelete": false,
@@ -192,13 +211,18 @@
 		"editor.indentSize": 2
 	},
 	"[jsonc]": {
-		"editor.tabSize": 3,
+		"editor.tabSize": 3
 	},
 	"[xml]": {
 		"editor.insertSpaces": true,
 		"editor.indentSize": 2
 	},
 	"[markdown]": {
-		"editor.wordWrap": "off",
-	}
+		"editor.wordWrap": "off"
+	},
+	"codesnap.showWindowControls": false,
+	"codesnap.realLineNumbers": true,
+	"codesnap.roundedCorners": false,
+	"codesnap.shutterAction": "copy",
+	"codesnap.containerPadding": "0"
 }

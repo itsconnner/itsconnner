@@ -1,4 +1,4 @@
-```no markdown
+```no_markdown
 
                         A brief overview of barroit
 
@@ -14,9 +14,11 @@ Currently living in Japan, and languages spoken include
 
 Development experience covers areas such as
 
-	Command-line application
+	Password vaults
+	Backup automation
+	Keystroke logging
 	IoT
-	Website
+	Web full stack
 	Minecraft plugin
 	Discord bot
 	Vocaloid song
