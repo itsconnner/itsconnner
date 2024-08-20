@@ -27,7 +27,7 @@ vscode_settings.json	~/.config/Code/User/settings.json
 vscode_keybindings.json	~/.config/Code/User/keybindings.json
 
 # screen
-xorg.conf	/etc/X11/	sudo
+xorg.conf	/etc/X11/	sudo,copy
 
 # nfs
 mount-onedrive.sh	~

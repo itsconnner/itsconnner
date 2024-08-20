@@ -65,7 +65,14 @@ echo_linked()
 	printf "${CYAN}%-25s${RESET} -> ${GREEN}%s${RESET}\n" "$1" "$2"
 }
 
-initwr=1
+no_space()
+{
+	if [[ $(echo $* | wc -w) != '1' ]]; then
+		return 1
+	fi
+}
+
+__initwr=1
 write_on_missing()
 {
 	local text=$1
@@ -74,7 +81,7 @@ write_on_missing()
 
 	if [[ -z "$file" ]]; then
 		die "IOTARGET ‘$IOTARGET’ is empty"
-	elif [[ $(echo $file | wc -w) != '1' ]]; then
+	elif ! no_space $file; then
 		die "path ‘$file’ contains space"
 	fi
 
@@ -83,9 +90,9 @@ write_on_missing()
 		return
 	fi
 
-	if [[ $initwr ]]; then
+	if [[ $__initwr ]]; then
 		echo_line_sep $CURSCR
-		initwr=
+		__initwr=
 	fi
 
 	if [[ ! -f $file || $(wc -w < $file) = '0' ]]; then
