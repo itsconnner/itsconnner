@@ -28,6 +28,7 @@
 		"TODO": "plaintext",
 		".git*": "plaintext",
 		".muttrc": "plaintext",
+		".config*": "plaintext",
 		"*.h.in": "c",
 		"*.hpp.in": "cpp",
 		"vscode_settings.json": "jsonc"
@@ -48,6 +49,7 @@
 					"keyword.operator.delete",
 					"keyword.other.using.directive",
 					"support.type.posix-reserved",
+					"support.type.built-in.posix-reserved",
 					"storage.type.built-in.primitive",
 					"storage.modifier"
 				],
@@ -99,13 +101,6 @@
 					"comment",
 					"punctuation.parenthesis.begin.regexp",
 					"punctuation.parenthesis.end.regexp"
-				],
-				"settings": {
-					"foreground": "#A8A8A8"
-				}
-			},
-			{
-				"scope": [
 				],
 				"settings": {
 					"foreground": "#A8A8A8"

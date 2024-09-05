@@ -16,9 +16,10 @@ set postponed = +Drafts
 set delete
 set trash     = +Deleted
 
-mailboxes	!			 # listening $spoolfile
-auto_view	text/html
-mime_lookup	application/octet-stream # determine types of attachments
+mailboxes   !			 # listening $spoolfile
+auto_view   text/html
+mime_lookup application/octet-stream # determine types of attachments
+
 alternative_order multipart/mixed multipart/related text/plain
 
 set   pager_stop
@@ -44,7 +45,7 @@ unset use_domain	# because joe@localhost is just embarrassing
 set realname = 'Jiamu Sun'
 set from     = 'barroit@linux.com'
 
-my_hdr Reply-To: $from
+my_hdr Reply-To: $realname <$from>
 
 # ================  Shortcut  ====================
 bind index <up>   previous-entry

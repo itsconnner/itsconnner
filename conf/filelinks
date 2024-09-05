@@ -38,3 +38,6 @@ umount-onedrive.service	/etc/systemd/system/	eval,sudo
 .muttrc		~		eval
 mutt_oauth2.py	~/.mutt/
 .mailcap	~
+
+# vm
+.sshconfig	~/.ssh/config
