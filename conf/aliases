@@ -4,3 +4,5 @@ push	git push
 
 linel	wc -l $(git ls-files)
 lines	cat $(git ls-files) | wc -l
+
+m	make
