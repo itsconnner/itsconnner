@@ -1,6 +1,7 @@
 add	git add
 commit	git commit -s
 push	git push
+amend	git commit --amend --no-edit
 
 linel	wc -l $(git ls-files)
 lines	cat $(git ls-files) | wc -l
