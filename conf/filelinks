@@ -41,3 +41,6 @@ mutt_oauth2.py	~/.mutt/
 
 # vm
 .sshconfig	~/.ssh/config
+
+# gpg
+.pgpconfig	~/.gnupg/pgp.conf

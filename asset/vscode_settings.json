@@ -22,7 +22,7 @@
 		"editor.background": "#141414"
 	},
 	"files.associations": {
-		"gdbinit": "plaintext",
+		"*gdbinit": "plaintext",
 		"README*": "plaintext",
 		"Kconfig": "plaintext",
 		"TODO": "plaintext",
@@ -144,6 +144,15 @@
 				],
 				"settings": {
 					"foreground": "#A8A8A8"
+				}
+			},
+// ---------------------  JSON  ---------------------
+			{
+				"scope": [
+					"support.type.property-name.json.comments"
+				],
+				"settings": {
+					"foreground": "#939393"
 				}
 			}
 		]
