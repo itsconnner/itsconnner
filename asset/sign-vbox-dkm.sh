@@ -25,7 +25,10 @@ for ko in $(echo $dkms/vbox*.ko); do
 	       "$(basename $ko)"
 done
 
-sudo zstd -f --rm -qq $dkms/vbox*.ko
+# sudo zstd -f --rm -qq $dkms/vbox*.ko
+# need to keep a copy of that *.ko, some versions of 
+# kernel do not recognize.ko.zst module files
+sudo zstd -f -qq $dkms/vbox*.ko
 
 for m in $(echo $dkms/vbox*.zst); do
 	name=$(basename $m | sed 's/\..*$//')
