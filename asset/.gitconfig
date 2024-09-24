@@ -22,6 +22,7 @@
 
 [advice]
 	detachedHead = false
+	statusHints = false
 
 [pretty]
 	Fixes = Fixes: %h (\"%s\")

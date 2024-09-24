@@ -9,6 +9,7 @@
 	"editor.occurrencesHighlight": "off",
 	"editor.selectionHighlight": false,
 	"editor.matchBrackets": "never",
+	"merge-conflict.decorators.enabled": false,
 	"workbench.editor.doubleClickTabToToggleEditorGroupSizes": "off",
 	"workbench.startupEditor": "welcomePageInEmptyWorkbench",
 	"workbench.colorCustomizations": {

@@ -9,3 +9,4 @@ node_modules
 
 # core dump files
 core.*
+vgcore.*

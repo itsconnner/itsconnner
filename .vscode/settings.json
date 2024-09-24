@@ -1,6 +1,7 @@
 {
 	"files.associations": {
 		"filelinks": "plaintext",
-		"memo/*": "plaintext"
+		"memo/*": "plaintext",
+		".fastfetch": "jsonc"
 	},
 }

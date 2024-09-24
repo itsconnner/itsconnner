@@ -8,3 +8,5 @@ lines	cat $(git ls-files) | wc -l
 
 m	make
 g	gdb
+
+useidf	source $HOME/source/esp-idf/export.sh

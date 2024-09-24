@@ -8,7 +8,7 @@
 
 # git
 .gitconfig	~
-git_ignore	~/.config/git/ignore
+gitignore	~/.config/git/ignore
 .git-signature	~
 
 # vim
@@ -44,3 +44,7 @@ mutt_oauth2.py	~/.mutt/
 
 # gpg
 .pgpconfig	~/.gnupg/pgp.conf
+
+#fastfetch
+.fastfetch	~/.config/fastfetch/config.jsonc
+dotmiku		~/.config/fastfetch/			copy
