@@ -45,6 +45,9 @@ mutt_oauth2.py	~/.mutt/
 # gpg
 .pgpconfig	~/.gnupg/pgp.conf
 
-#fastfetch
+# fastfetch
 .fastfetch	~/.config/fastfetch/config.jsonc
 dotmiku		~/.config/fastfetch/			copy
+
+# tool
+recpdf.py	~
