@@ -9,11 +9,12 @@ endif
 
 set directory=~/.vim/swap//	" swap folder
 
-set number			" Show line numbers
+set number			" line numbers
 set tabstop=8
 set autoindent
 set shiftwidth=8
 set cindent			" C/C++ indentation
 set backspace=indent,eol,start	" backspace behavior
+set ruler			" column number
 
 colorscheme barroit

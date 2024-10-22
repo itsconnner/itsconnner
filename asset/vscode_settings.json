@@ -17,7 +17,7 @@
 /* -----------------------------  Suggestion  ------------------------------ */
 	"editor.guides.indentation": false,
 	"editor.quickSuggestions": {
-		"other": "off",
+		"other": "off"
 	},
 	"editor.suggestOnTriggerCharacters": false,
 	"explorer.confirmPasteNative": false,
@@ -39,7 +39,7 @@
 	"files.autoSave": "onFocusChange",
 	"files.insertFinalNewline": true,
 /* -----------------------------  Indentation  ----------------------------- */
-	"editor.autoIndent": "none",
+	"editor.autoIndent": "brackets",
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
 	"editor.tabSize": 8,
@@ -123,7 +123,7 @@
 		"editor.background": "#141414",
 		"diffEditor.removedLineBackground": "#500000a0",
 		"diffEditor.insertedLineBackground": "#2b3f14fa",
-		"diffEditor.insertedTextBackground": "#0000",
+		"diffEditor.insertedTextBackground": "#0000"
 	},
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
@@ -248,5 +248,5 @@
 				}
 			}
 		]
-	},
+	}
 }
