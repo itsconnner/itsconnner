@@ -28,6 +28,7 @@
 	"extensions.ignoreRecommendations": true,
 /* ---------------------------  Srouce Control  ---------------------------- */
 	"scm.showActionButton": false,
+	"git.showCommitInput": false,
 	"git.openRepositoryInParentFolders": "never",
 /* ------------------------------  Highlight  ------------------------------ */
 	"editor.occurrencesHighlight": "off",
