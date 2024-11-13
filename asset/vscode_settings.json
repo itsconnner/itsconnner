@@ -71,17 +71,13 @@
 		"source": [
 			"// SPDX-License-Identifier: ${license}",
 			"/*",
-			" * Copyright ${year} Jiamu Sun",
-			" *",
-			" * Contact: barroit@linux.com",
+			" * Copyright ${year} Jiamu Sun <barroit@linux.com>",
 			" */"
 		],
 		"header": [
 			"/* SPDX-License-Identifier: ${license} */",
 			"/*",
-			" * Copyright ${year} Jiamu Sun",
-			" *",
-			" * Contact: barroit@linux.com",
+			" * Copyright ${year} Jiamu Sun <barroit@linux.com>",
 			" */"
 		]
 	},
@@ -184,6 +180,7 @@
 					"entity.other.attribute-name",
 					"storage.modifier.pointer",
 					"storage.modifier.reference",
+					"storage.source.cmake",
 					"variable",
 					"variable.other.enummember",
 					"string.regexp",
