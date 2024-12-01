@@ -1,9 +1,10 @@
 add	git add
+amend	git commit --amend
 commit	git commit
 push	git push
-amend	git commit --amend
-stash	git stash
 rebase	git rebase
+stash	git stash
+switch	git switch
 
 linel	wc -l $(git ls-files)
 lines	cat $(git ls-files) | wc -l

@@ -221,7 +221,8 @@
 			/* ----------------------  PYTHON  ----------------------- */
 			{
 				"scope": [
-					"variable.legacy.builtin.python"
+					"variable.legacy.builtin.python",
+					"support.type.python"
 				],
 				"settings": {
 					"foreground": "#A8A8A8"
@@ -230,7 +231,11 @@
 			/* -----------------------  SHELL  ----------------------- */
 			{
 				"scope": [
-					"support.function.builtin"
+					"support.function.builtin",
+					"support.variable.drive.powershell",
+					"support.variable.automatic.powershell",
+					"support.function.attribute.powershell",
+					"support.function.powershell"
 				],
 				"settings": {
 					"foreground": "#A8A8A8"
