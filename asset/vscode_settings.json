@@ -228,6 +228,14 @@
 					"foreground": "#A8A8A8"
 				}
 			},
+			{
+				"scope": [
+					"storage.type.number.python",
+				],
+				"settings": {
+					"foreground": "#ACC4A0"
+				}
+			},
 			/* -----------------------  SHELL  ----------------------- */
 			{
 				"scope": [
