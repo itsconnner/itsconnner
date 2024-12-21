@@ -60,14 +60,7 @@
 	},
 /* -------------------------  File Header Comment  ------------------------- */
 	"fileHeaderComment.template": {
-		"*": [
-			"${spdxbegin} SPDX-License-Identifier: ${license}",
-			"${begin}",
-			"${prefix} Copyright ${year} Jiamu Sun",
-			"${prefix}",
-			"${prefix} Contact: barroit@linux.com",
-			"${end}"
-		],
+		"*": [ "" ],
 		"source": [
 			"// SPDX-License-Identifier: ${license}",
 			"/*",
@@ -79,6 +72,10 @@
 			"/*",
 			" * Copyright ${year} Jiamu Sun <barroit@linux.com>",
 			" */"
+		],
+		"bash": [
+			"#!/usr/bin/env bash",
+			"# SPDX-License-Identifier: ${license}"
 		]
 	},
 /* ------------------------------  Code Snap  ------------------------------ */
@@ -198,6 +195,17 @@
 					"foreground": "#A8A8A8"
 				}
 			},
+			/* ------------------------  C#  ------------------------- */
+			{
+				"scope": [
+					"punctuation.accessor.cs",
+					"entity.name.variable.field.cs",
+					"entity.name.variable.local.cs"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
 			/* -----------------------  JAVA  ------------------------ */
 			{
 				"scope": [
@@ -259,5 +267,6 @@
 				}
 			}
 		]
-	}
+	},
+	"security.workspace.trust.untrustedFiles": "open"
 }
