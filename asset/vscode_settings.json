@@ -4,7 +4,6 @@
 	"window.restoreWindows": "none",
 	"window.zoomLevel": 4,
 	"explorer.autoReveal": false,
-	"window.customTitleBarVisibility": "never",
 /* -------------------------------  Editor  -------------------------------- */
 	"workbench.editor.doubleClickTabToToggleEditorGroupSizes": "off",
 	"workbench.editor.enablePreview": false,
@@ -15,6 +14,8 @@
 	"editor.minimap.enabled": false,
 	"editor.scrollbar.horizontal": "hidden",
 /* -----------------------------  Suggestion  ------------------------------ */
+	"cmake.showOptionsMovedNotification": false,
+	"editor.codeLens": false,
 	"editor.guides.indentation": false,
 	"editor.quickSuggestions": {
 		"other": "off"
@@ -23,8 +24,6 @@
 	"explorer.confirmPasteNative": false,
 	"explorer.confirmDragAndDrop": false,
 	"explorer.confirmDelete": false,
-	"C_Cpp.errorSquiggles": "disabled",
-	"cmake.showOptionsMovedNotification": false,
 	"extensions.ignoreRecommendations": true,
 /* ---------------------------  Srouce Control  ---------------------------- */
 	"scm.showActionButton": false,
@@ -78,7 +77,7 @@
 			"# SPDX-License-Identifier: ${license}"
 		]
 	},
-/* ------------------------------  Code Snap  ------------------------------ */
+/* ------------------------------  CodeSnap  ------------------------------- */
 	"codesnap.showWindowControls": false,
 	"codesnap.realLineNumbers": true,
 	"codesnap.roundedCorners": false,
@@ -198,12 +197,22 @@
 			/* ------------------------  C#  ------------------------- */
 			{
 				"scope": [
-					"punctuation.accessor.cs",
 					"entity.name.variable.field.cs",
-					"entity.name.variable.local.cs"
+					"entity.name.variable.local.cs",
+					"entity.name.namespace",
+					"punctuation.accessor.cs",
+					"variable.other.constant"
 				],
 				"settings": {
 					"foreground": "#A8A8A8"
+				}
+			},
+			{
+				"scope": [
+					"keyword.other.directive.using.cs"
+				],
+				"settings": {
+					"foreground": "#569CD6"
 				}
 			},
 			/* -----------------------  JAVA  ------------------------ */
@@ -268,5 +277,6 @@
 			}
 		]
 	},
-	"security.workspace.trust.untrustedFiles": "open"
+	"security.workspace.trust.untrustedFiles": "open",
+	"problems.visibility": false
 }

@@ -5,5 +5,3 @@ set auto-load safe-path /home/barroit/workspace
 source /home/barroit/.config/gdb/hexdump.py
 
 set confirm off
-
-set debuginfod enabled on
