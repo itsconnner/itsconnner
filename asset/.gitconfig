@@ -6,9 +6,6 @@
 [init]
 	defaultBranch = master
 
-[credential]
-	helper = store
-
 [core]
 	autocrlf = input
 	editor   = vim
