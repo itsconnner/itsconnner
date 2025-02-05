@@ -6,3 +6,9 @@ Host github.com
 	User git
 	IdentityFile ~/.ssh/id_github
 	IdentitiesOnly yes
+
+Host noble
+	HostName 138.2.45.214
+	User ubuntu
+	IdentityFile ~/.ssh/id_oci_noble
+	IdentitiesOnly yes
