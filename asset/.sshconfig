@@ -1,5 +1,7 @@
 Host win11
 	HostName 192.168.50.104
+	IdentityFile ~/.ssh/id_vm_win11
+	IdentitiesOnly yes
 
 Host github.com
 	HostName github.com
