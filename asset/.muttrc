@@ -24,6 +24,7 @@ alternative_order multipart/mixed multipart/related text/plain
 
 set   pager_stop
 unset smart_wrap
+unset markers
 
 set quit = ask-yes
 set sort = reverse-date-received
