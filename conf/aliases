@@ -1,8 +1,12 @@
 add	git add
 amend	git commit --amend
+branch	git branch
 commit	git commit
+log	git log
+merge	git merge
 push	git push
 rebase	git rebase
+show	git show
 stash	git stash
 switch	git switch
 
