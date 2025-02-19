@@ -29,6 +29,7 @@
 	"scm.showActionButton": false,
 	"git.showCommitInput": false,
 	"git.openRepositoryInParentFolders": "never",
+	"git.mergeEditor": true,
 /* ------------------------------  Highlight  ------------------------------ */
 	"editor.occurrencesHighlight": "off",
 	"editor.selectionHighlight": false,
@@ -266,6 +267,32 @@
 					"foreground": "#A8A8A8"
 				}
 			},
+			/* ------------------------  JS  ------------------------ */
+			{
+				"scope": [
+					"entity.other.attribute-name.class.css",
+					"entity.other.attribute-name.id.css",
+					"entity.other.attribute-name.pseudo-element.css",
+					"entity.name.tag.css",
+					"entity.name.tag.js.jsx",
+					"support.class.component.js.jsx",
+				],
+				"settings": {
+					"foreground": "#569CD6"
+				}
+			},
+			{
+				"scope": [
+					"constant.other.color.rgb-value.hex.css",
+					"entity.other.attribute-name.pseudo-class.css",
+					"support.constant.property-value.css",
+					"support.function.misc.css",
+					"support.type.property-name.css"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
 			/* -----------------------  JSON  ------------------------ */
 			{
 				"scope": [
@@ -278,5 +305,9 @@
 		]
 	},
 	"security.workspace.trust.untrustedFiles": "open",
-	"problems.visibility": false
+	"problems.visibility": false,
+	"workbench.navigationControl.enabled": false,
+	"window.commandCenter": false,
+	"window.menuBarVisibility": "toggle",
+	"workbench.layoutControl.enabled": false,
 }
