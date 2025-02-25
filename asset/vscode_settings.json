@@ -240,7 +240,8 @@
 			{
 				"scope": [
 					"variable.legacy.builtin.python",
-					"support.type.python"
+					"support.type.python",
+					"support.variable.magic.python"
 				],
 				"settings": {
 					"foreground": "#A8A8A8"
@@ -261,7 +262,8 @@
 					"support.variable.drive.powershell",
 					"support.variable.automatic.powershell",
 					"support.function.attribute.powershell",
-					"support.function.powershell"
+					"support.function.powershell",
+					"variable.other.member.powershell"
 				],
 				"settings": {
 					"foreground": "#A8A8A8"

@@ -20,6 +20,7 @@
 [advice]
 	detachedHead = false
 	statusHints = false
+	mergeConflict = false
 
 [pretty]
 	Fixes = Fixes: %h (\"%s\")

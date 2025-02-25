@@ -10,7 +10,7 @@ Host github.com
 	IdentitiesOnly yes
 
 Host noble
-	HostName 138.2.45.214
+	HostName 140.83.57.178
 	User ubuntu
 	IdentityFile ~/.ssh/id_oci_noble
 	IdentitiesOnly yes
