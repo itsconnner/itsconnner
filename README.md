@@ -1,28 +1,29 @@
-```no_markdown
+```no_fucking_markdown
 
-                        A brief overview of barroit
+                                About barroit
 
-Here’s Jiamu Sun, though barroit is preferred. A Miku fan with nearly 3 years
-of development experience. IDEs are forbidden. More detailed self-introductions
-are bothersome and awkward, so that’s pretty much it.
+Here's Jiamu Sun. A Miku fan who started programming in first grade. IDEs are
+forbidden. Prefers GNU C over C++. Experienced in cross-platform development,
+especially on Unix-like systems and Windows. Strives for simplicity and
+maintainability, avoiding unnecessary abstraction and over-engineering.
 
-Currently living in Japan, and languages spoken include
+Development experience covers areas such as:
+
+	Hybrid TUI/GUI framework        - brukit
+	Password management             - passkeeper / cred
+	Automated file backup tool      - savesave
+	Core Keeper modding             - corekeeper-autofish
+	Automated light/AC controller   - livaut
+	Full-stack web development      - Baioretto.com / barroit.cc
+	Minecraft plugin development
+	Discord bot development
+	Vocaloid music production
+
+Currently in Japan for Miku. Languages spoken:
 
 	中文
 	English
 	日本語
 
-Development experience covers areas such as
-
-	Password vaults
-	Backup automation
-	Keystroke logging
-	IoT
-	Web full stack
-	Minecraft plugin
-	Discord bot
-	Vocaloid song
-
-The preferred contact email address is barroit@linux.com; however,
-sunjiamu@outlook.com is also acceptable.
+Contact: barroit@linux.com (forwarding to sunjiamu@outlook.com)
 ```
