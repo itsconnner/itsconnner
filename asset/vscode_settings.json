@@ -14,7 +14,6 @@
 	"editor.minimap.enabled": false,
 	"editor.scrollbar.horizontal": "hidden",
 /* -----------------------------  Suggestion  ------------------------------ */
-	"cmake.showOptionsMovedNotification": false,
 	"editor.codeLens": false,
 	"editor.guides.indentation": false,
 	"editor.quickSuggestions": {
@@ -263,7 +262,8 @@
 					"support.variable.automatic.powershell",
 					"support.function.attribute.powershell",
 					"support.function.powershell",
-					"variable.other.member.powershell"
+					"variable.other.member.powershell",
+					"interpolated.complex.source.powershell"
 				],
 				"settings": {
 					"foreground": "#A8A8A8"
@@ -277,7 +277,7 @@
 					"entity.other.attribute-name.pseudo-element.css",
 					"entity.name.tag.css",
 					"entity.name.tag.js.jsx",
-					"support.class.component.js.jsx",
+					"support.class.component.js.jsx"
 				],
 				"settings": {
 					"foreground": "#569CD6"
@@ -287,9 +287,37 @@
 				"scope": [
 					"constant.other.color.rgb-value.hex.css",
 					"entity.other.attribute-name.pseudo-class.css",
+					"meta.parameters.js",
+					"punctuation.accessor.js",
+					"punctuation.definition.template-expression.begin.js",
+					"punctuation.definition.template-expression.end.js",
+					"punctuation.separator.comma.js",
+					"punctuation.terminator.statement.js",
 					"support.constant.property-value.css",
 					"support.function.misc.css",
-					"support.type.property-name.css"
+					"support.type.property-name.css",
+					"support.variable.property",
+					"support.variable.tsx",
+					"punctuation.separator.key-value.tsx",
+					"support.function.tsx",
+					"support.variable.ts",,
+					"support.variable.js"
+					"storage.type.function.arrow.ts",
+					"storage.type.function.arrow.js",
+					"punctuation.separator.key-value.ts",
+					"punctuation.separator.key-value.js"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
+			/* ------------------------  PHP  ------------------------ */
+			{
+				"scope": [
+					"constant.other.php",
+					"punctuation.separator.delimiter.php",
+					"punctuation.terminator.expression.php",
+					"support.function.construct.php",
 				],
 				"settings": {
 					"foreground": "#A8A8A8"
@@ -312,4 +340,5 @@
 	"window.commandCenter": false,
 	"window.menuBarVisibility": "toggle",
 	"workbench.layoutControl.enabled": false,
+	"chat.commandCenter.enabled": false,
 }
