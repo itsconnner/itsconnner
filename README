@@ -1,6 +1,12 @@
-Barroit's Assets
-================
+Barroit
+=======
 
-This repository serves as a central hub for essential resources associated with
-barroit. It includes personal configuration files, automatic configuration
-scripts, and a collection of practical utility scripts.
+Barroit is a collection of useful scripts and tools designed to simplify system
+setup and automation. It includes utilities for tasks such as kernel module
+signing automation and rendering PDFs with inverted colors.
+
+Additionally, Barroit provides a quick way to set up a new environment across
+different operating systems. It includes VS Code configuration, SSH key setup,
+keycode mappings, GDB supplement functions, and more, ensuring a consistent
+workflow. Supported platforms include FreeBSD 14, Windows 11, Sequoia, and
+Noble.
