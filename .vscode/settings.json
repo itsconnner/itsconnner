@@ -4,4 +4,10 @@
 		"memo/*": "plaintext",
 		".fastfetch": "jsonc"
 	},
+	"fileHeaderComment.parameter": {
+		"*": {
+			"license": "GPL-3.0-or-later",
+			"year": "2025"
+		}
+	},
 }
