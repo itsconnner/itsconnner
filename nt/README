@@ -1,0 +1,20 @@
+                                    README
+
+Paths containing spaces are not supported. Do not use these setup scripts if
+this rule is violated.
+
+
+CMD note
+--------
+
+CMD doesn't handle newlines with \n well. This causes CMD to output an extra
+newline in the terminal. To avoid this problem, keep an extra empty line at the
+end of the source file.
+
+
+Setup scripts
+-------------
+
+All setup scripts must be PowerShell scripts. Script names should have a
+two-digit number prefix followed by a hyphen. Scripts are executed in order,
+sorted by these numbers.
