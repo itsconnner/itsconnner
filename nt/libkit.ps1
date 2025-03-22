@@ -7,6 +7,8 @@ $CYAN	= "`e[0;36m"
 $WHITE	= "`e[0;37m"
 $RESET	= "`e[0m"
 
+$VERSION = [System.Environment]::OSVersion.Version.Major
+
 function die
 {
 	Write-Output "${RED}fatal:${RESET} $args"
@@ -23,6 +25,11 @@ function warn
 	Write-Output "${YELLOW}warn:${RESET} $args"
 }
 
+function note
+{
+	Write-Output "${CYAN}note:${RESET} $args"
+}
+
 function uptime
 {
 	$prev = (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
@@ -35,4 +42,37 @@ function uptime
 function log
 {
 	Write-Output "${GREEN}[$(uptime)]${RESET} $args"
+}
+
+function ver-spec-name
+{
+	$name = "$PSScriptRoot\..\windows-$($VERSION)\$($args[0])"
+
+	if (-not (Test-Path $name)) {
+		die "version-specified file ``$name' doesn't exist"
+	}
+
+	return $name
+}
+
+function load-pair
+{
+	$ret = @{}
+	$sep = '\t'
+
+	if ($args.Length -gt 1) {
+		$sep = $args[1]
+	}
+
+	Get-Content $args[0] | ForEach-Object {
+		$pair = $_ -split $sep
+
+		if ($pair.Length -eq 2) {
+			$ret[$pair[0]] = $pair[1]
+		} else {
+			$ret[$pair[0]] = $pair[1..($pair.Length - 1)]
+		}
+	}
+
+	return $ret
 }

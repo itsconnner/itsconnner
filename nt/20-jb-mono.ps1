@@ -30,7 +30,10 @@ if (-not (Test-Path $dst)) {
 
 Copy-Item $pattern $dst
 
-$reg = "HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Fonts"
+$def_path = ver-spec-name jb-mono
+$def = load-pair $def_path
+$reg = $def['reg']
+
 $styles = 'Thin',
 	  'ExtraLight',
 	  'Light',
