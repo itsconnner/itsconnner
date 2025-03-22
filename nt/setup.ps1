@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-#requires -version 6
+#requires -version 7
 
 $scripts = Get-ChildItem -Name -Filter ??-*.ps1 $PSScriptRoot
 
