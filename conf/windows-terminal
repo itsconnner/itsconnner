@@ -1,0 +1,26 @@
+center_on_launch		$B:1
+
+confirm_close_all_tabs		$B:0
+
+default_profile			$U:PowerShell
+
+initial_cols			$N:90
+initial_rows			$N:20
+
+show_terminal_title_in_titlebar	$B:0
+
+start_on_user_login		$B:1
+
+theme				system
+
+$P:PowerShell	bell_style		none
+$P:PowerShell	font	cell_height	1.4
+$P:PowerShell	font	face		JetBrains Mono
+$P:PowerShell	font	size		$N:19
+$P:PowerShell	font	weight		semi-bold
+
+$P:Command Prompt	bell_style		none
+$P:Command Prompt	font	cell_height	1.4
+$P:Command Prompt	font	face		JetBrains Mono
+$P:Command Prompt	font	size		$N:19
+$P:Command Prompt	font	weight		semi-bold
