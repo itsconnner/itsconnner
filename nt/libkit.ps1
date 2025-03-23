@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
+. $PSScriptRoot\syscall.ps1
+
 $RED	= "`e[0;31m"
 $YELLOW	= "`e[0;33m"
 $GREEN	= "`e[0;32m"
