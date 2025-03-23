@@ -67,7 +67,11 @@ function load-pair
 	}
 
 	Get-Content $args[0] | ForEach-Object {
-		$pair = $_ -split $sep
+		if (-not $_ -or $_ -match '^#') {
+			return
+		}
+
+		$pair = $_ -split $sep | Where-Object { $_ }
 
 		if ($pair.Length -eq 2) {
 			$ret[$pair[0]] = $pair[1]
