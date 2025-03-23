@@ -11,6 +11,8 @@ $RESET	= "`e[0m"
 
 $VERSION = [System.Environment]::OSVersion.Version.Major
 
+$SR_PATH = 'HKCU:\Software\Barroit\Barroit'
+
 function die
 {
 	Write-Output "${RED}fatal:${RESET} $args"
@@ -81,4 +83,34 @@ function load-pair
 	}
 
 	return $ret
+}
+
+function sr_is_force
+{
+	$args | Where-Object { $_ -eq 'Force=1' }
+}
+
+function script_name
+{
+	Split-Path -Leaf $MyInvocation.ScriptName
+}
+
+function sr_done
+{
+	if (-not (Test-Path $SR_PATH)) {
+		New-Item -Force $SR_PATH >nul
+	}
+
+	Set-ItemProperty -Type DWord $SR_PATH $args[0] 1
+}
+
+function sr_is_done
+{
+	try {
+		$ret = Get-ItemPropertyValue $SR_PATH $args[0]
+	} catch {
+		return $false
+	}
+
+	return $ret -eq 1
 }

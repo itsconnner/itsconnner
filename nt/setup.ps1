@@ -9,6 +9,11 @@ $scripts = Get-ChildItem -Name -Filter ??-*.ps1 $PSScriptRoot
 if ($args.Length) {
 	$name = $args[0]
 
+	if ($name[0] -eq '!') {
+		$force = 1
+		$name = $name.Substring(1);
+	}
+
 	if ($name -notmatch '^\d\d-.+\.ps1$') {
 		$script = $scripts | Where-Object {
 			$_ -match "^\d\d-$name.*\.ps1$"
@@ -28,7 +33,8 @@ if ($args.Length) {
 	}
 
 	log "Executing $PSScriptRoot\$script"
-	& $PSScriptRoot\$script
+
+	& $PSScriptRoot\$script Force=$force
 	exit
 }
 
