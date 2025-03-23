@@ -1,0 +1,5 @@
+SPI_SETDESKWALLPAPER	0x14
+SPIF_UPDATEINIFILE	0x1
+SPIF_SENDCHANGE		0x2
+
+reg_background		HKCU:\Control Panel\Colors	Background
