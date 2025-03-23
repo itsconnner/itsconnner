@@ -3,11 +3,12 @@
 . $PSScriptRoot\syscall.ps1
 . $PSScriptRoot\strutil.ps1
 
-$RED	= "`e[0;31m"
-$YELLOW	= "`e[0;33m"
-$GREEN	= "`e[0;32m"
-$CYAN	= "`e[0;36m"
-$WHITE	= "`e[0;37m"
+$BOLD	= "`e[1m"
+$RED	= "`e[31m"
+$YELLOW	= "`e[33m"
+$GREEN	= "`e[32m"
+$CYAN	= "`e[36m"
+$WHITE	= "`e[37m"
 $RESET	= "`e[0m"
 
 $VERSION = [System.Environment]::OSVersion.Version.Major
@@ -16,23 +17,23 @@ $SR_PATH = 'HKCU:\Software\Barroit\Barroit'
 
 function die
 {
-	Write-Output "${RED}fatal:${RESET} $args"
+	Write-Output "${BOLD}${RED}fatal:${RESET} $args"
 	exit 128
 }
 
 function error
 {
-	Write-Output "${RED}error:${RESET} $args"
+	Write-Output "${BOLD}${RED}error:${RESET} $args"
 }
 
 function warn
 {
-	Write-Output "${YELLOW}warn:${RESET} $args"
+	Write-Output "${BOLD}${YELLOW}warn:${RESET} $args"
 }
 
 function note
 {
-	Write-Output "${CYAN}note:${RESET} $args"
+	Write-Output "${BOLD}${CYAN}note:${RESET} $args"
 }
 
 function uptime
@@ -46,7 +47,7 @@ function uptime
 
 function log
 {
-	Write-Output "${GREEN}[$(uptime)]${RESET} $args"
+	Write-Output "${BOLD}${GREEN}[$(uptime)]${RESET} $args"
 }
 
 function ver-spec-name
