@@ -1,0 +1,12 @@
+                                     TBA
+
+Some functionalities still need to be implemented, either due to Win32's
+godawful API design or the complete lack of any sane API to do the job in the
+first place. The following list shows what's still missing. Whether these will
+ever be supported depends on how much bullshit we're willing to work around:
+
+ - DPI
+
+ - Accent color on title bars
+
+ - Accent color on window borders
