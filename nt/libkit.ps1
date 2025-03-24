@@ -116,3 +116,15 @@ function sr_is_done
 
 	return $ret -eq 1
 }
+
+function confirm
+{
+	Write-Host -NoNewline "$($args[0]) [y/N] "
+
+	do {
+		$yn = $Host.UI.RawUI.ReadKey().Character
+	} while (-not $yn)
+
+	Write-Host ''
+	return $yn -match '^(y|yes)$'
+}
