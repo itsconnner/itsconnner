@@ -32,9 +32,15 @@ if ($args.Length) {
 		$script = $name
 	}
 
+	$cmd = "& $PSScriptRoot\$script"
+
+	if ($force) {
+		$cmd += " Force=1"
+	}
+
 	log "Executing $PSScriptRoot\$script"
 
-	& $PSScriptRoot\$script Force=$force
+	pwsh -Command ". $PSScriptRoot\libkit.ps1; $cmd"
 	exit
 }
 
