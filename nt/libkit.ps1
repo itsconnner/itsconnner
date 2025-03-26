@@ -128,3 +128,8 @@ function confirm
 	Write-Host ''
 	return $yn -match '^(y|yes)$'
 }
+
+function likely-vm
+{
+	return -not (Get-CimInstance Win32_Fan)
+}

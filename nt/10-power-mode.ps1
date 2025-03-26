@@ -10,7 +10,7 @@ if ($seen -and -not (sr_is_force $args)) {
 	exit
 }
 
-if (Get-CimInstance Win32_Fan) {
+if (likely-vm) {
 	$is_vm = 1
 }
 
