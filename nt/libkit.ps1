@@ -133,3 +133,37 @@ function likely-vm
 {
 	return -not (Get-CimInstance Win32_Fan)
 }
+
+function getenv
+{
+	[Environment]::GetEnvironmentVariable($args[0], 'User')
+}
+
+function setenv
+{
+	[Environment]::SetEnvironmentVariable($args[0], $args[1], 'User')
+}
+
+function sync-env-path
+{
+	$Env:PATH = getenv PATH
+}
+
+function read-line
+{
+	Get-Content $args[0] | Where-Object {
+		$_ -and $_ -notmatch '^#'
+	}
+}
+
+function env-path-append
+{
+	$name = $args[0]
+	$old = getenv PATH
+	$new = "$old;$name"
+	$seen = $old -split ';' | Where-Object { $_ -eq $name }
+
+	if (-not $seen) {
+		setenv PATH $new
+	}
+}
