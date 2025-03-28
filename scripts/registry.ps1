@@ -5,7 +5,7 @@
 param([ArgumentCompletions('dump', 'cmp')]
       [string]$action)
 
-. $PSScriptRoot\..\nt\libkit.ps1
+. $PSScriptRoot\..\windows\libkit.ps1
 
 if (-not $action) {
 	die "missing action, available actions are:`n  dump`n  cmp"
