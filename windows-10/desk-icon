@@ -1,4 +1,0 @@
-SHCNE_UPDATEDIR	0x00001000
-SHCNF_PATH	0x0005
-
-reg_hide_icon	HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons

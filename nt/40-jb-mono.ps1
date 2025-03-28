@@ -30,10 +30,6 @@ if (-not (Test-Path $dst)) {
 
 Copy-Item $pattern $dst
 
-$def_path = ver-spec-name jb-mono
-$def = load-pair $def_path
-$reg = $def['reg']
-
 $styles = 'Thin',
 	  'ExtraLight',
 	  'Light',
@@ -58,7 +54,9 @@ foreach ($font in $src) {
 	$key = "$family $style (TrueType)"
 
 	New-ItemProperty -ErrorAction SilentlyContinue `
-			 -PropertyType String -Value $dst\$font $reg $key >nul
+			 -PropertyType String -Value $dst\$font `
+			 'HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Fonts' `
+			 $key >nul
 }
 
 log "Installing JetBrains Mono ... OK"

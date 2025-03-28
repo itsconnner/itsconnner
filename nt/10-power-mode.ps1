@@ -3,7 +3,6 @@
 $seen = powercfg /list | Where-Object { $_ -match '\(Barroit-[\w-]+\)( \*)?$' }
 
 $conf = load-pair $PSScriptRoot\..\conf\power-mode
-$builtin = load-pair (ver-spec-name power-mode)
 
 if ($seen -and -not (sr_is_force $args)) {
 	log 'Adjusting power mode ... Skipped'
@@ -15,7 +14,7 @@ if (likely-vm) {
 }
 
 $mode = 'power-saver'
-$default = $builtin['power_saver']
+$default = 'a1841308-3541-4fab-bc81-f71556f20b4a'
 $blank = $conf['desk_blank']
 $suspend = $conf['desk_suspend']
 
@@ -26,7 +25,7 @@ if (Get-CimInstance Win32_Battery) {
 
 if ($is_vm) {
 	$mode = 'balanced'
-	$default = $builtin['balanced']
+	$default = '381b4222-f694-41f0-9685-ff5bb260df2e'
 	$blank = 0
 	$suspend = 0
 }

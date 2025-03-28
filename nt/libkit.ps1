@@ -50,17 +50,6 @@ function log
 	Write-Output "${BOLD}${GREEN}[$(uptime)]${RESET} $args"
 }
 
-function ver-spec-name
-{
-	$name = "$PSScriptRoot\..\windows-$($VERSION)\$($args[0])"
-
-	if (-not (Test-Path $name)) {
-		die "version-specified file ``$name' doesn't exist"
-	}
-
-	return $name
-}
-
 function load-pair
 {
 	$ret = @{}
