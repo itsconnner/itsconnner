@@ -1,20 +1,19 @@
 call plug#begin('~/.vim/plugged')
-" List your plugins here
 Plug 'octol/vim-cpp-enhanced-highlight'
 call plug#end()
 
 if !isdirectory(expand('~/.vim/swap'))
-	silent !mkdir -p ~/.vim/swap
+	call mkdir(expand('~/.vim/swap'), 'p')
 endif
 
-set directory=~/.vim/swap//	" swap folder
+set directory=~/.vim/swap
 
-set number			" line numbers
+set number
 set tabstop=8
 set autoindent
 set shiftwidth=8
-set cindent			" C/C++ indentation
-set backspace=indent,eol,start	" backspace behavior
-set ruler			" column number
+set cindent
+set backspace=indent,eol,start
+set ruler
 
 colorscheme barroit
