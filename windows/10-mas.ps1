@@ -15,7 +15,7 @@ if (is_activated) {
 	exit
 }
 
-$domain = Get-Content $PSScriptRoot\mas_domain
+$domain = Get-Content $PSScriptRoot\..\conf\mas-domain
 
 Resolve-DnsName -ErrorAction SilentlyContinue $domain >nul
 if (-not $?) {
