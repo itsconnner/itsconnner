@@ -305,7 +305,9 @@
 					"storage.type.function.arrow.ts",
 					"storage.type.function.arrow.js",
 					"punctuation.separator.key-value.ts",
-					"punctuation.separator.key-value.js"
+					"punctuation.separator.key-value.js",
+					"punctuation.separator.comma.tsx",
+					"support.function.js"
 				],
 				"settings": {
 					"foreground": "#A8A8A8"
