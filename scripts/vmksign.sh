@@ -1,7 +1,8 @@
 #!/bin/bash
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-source $(dirname $(echo $0))/../linux/libkit.sh
+export LIBKIT_ROOT=$(cd $(dirname $0) && pwd -P)/../linux
+source $LIBKIT_ROOT/libkit.sh
 
 if [[ ! -f ~/.mok/vmware || ! -f ~/.mok/vmware.der ]]; then
 	error 'VMware Workstation MOKs are not found'
