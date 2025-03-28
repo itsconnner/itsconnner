@@ -1,15 +1,17 @@
-# temporary files
-.*.swp
+.gdbinit
+.lldbinit
 
-# dependencies
-node_modules
+.tmp*
 
-# environment files
-.env
-
-# core dump files
 core.*
 vgcore.*
 
-# perf
 perf.data*
+
+.*.swp
+
+.config
+.config.unix*
+.config.win32*
+
+node_modules
