@@ -1,0 +1,346 @@
+{
+/* -------------------------------  Window  -------------------------------- */
+	"workbench.activityBar.location": "top",
+	"window.restoreWindows": "none",
+	"window.zoomLevel": 4,
+	"explorer.autoReveal": false,
+/* -------------------------------  Editor  -------------------------------- */
+	"workbench.editor.doubleClickTabToToggleEditorGroupSizes": "off",
+	"workbench.editor.enablePreview": false,
+	"workbench.editor.editorActionsLocation": "hidden",
+	"diffEditor.renderSideBySide": false,
+	"merge-conflict.decorators.enabled": false,
+	"editor.stickyScroll.enabled": false,
+	"editor.minimap.enabled": false,
+	"editor.scrollbar.horizontal": "hidden",
+/* -----------------------------  Suggestion  ------------------------------ */
+	"editor.codeLens": false,
+	"editor.guides.indentation": false,
+	"editor.quickSuggestions": {
+		"other": "off"
+	},
+	"editor.suggestOnTriggerCharacters": false,
+	"explorer.confirmPasteNative": false,
+	"explorer.confirmDragAndDrop": false,
+	"explorer.confirmDelete": false,
+	"extensions.ignoreRecommendations": true,
+/* ---------------------------  Srouce Control  ---------------------------- */
+	"scm.showActionButton": false,
+	"git.showCommitInput": false,
+	"git.openRepositoryInParentFolders": "never",
+	"git.mergeEditor": true,
+/* ------------------------------  Highlight  ------------------------------ */
+	"editor.occurrencesHighlight": "off",
+	"editor.selectionHighlight": false,
+	"editor.matchBrackets": "never",
+	"editor.unicodeHighlight.includeStrings": false,
+	"C_Cpp.dimInactiveRegions": false,
+/* --------------------------------  Save  --------------------------------- */
+	"files.autoSave": "onFocusChange",
+	"files.insertFinalNewline": true,
+/* -----------------------------  Indentation  ----------------------------- */
+	"editor.autoIndent": "brackets",
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false,
+	"editor.tabSize": 8,
+	"[cmake]": {
+		"editor.insertSpaces": true,
+		"editor.indentSize": 2
+	},
+	"[jsonc]": {
+		"editor.tabSize": 3
+	},
+	"[xml]": {
+		"editor.insertSpaces": true,
+		"editor.indentSize": 2
+	},
+	"[markdown]": {
+		"editor.wordWrap": "off"
+	},
+/* -------------------------  File Header Comment  ------------------------- */
+	"fileHeaderComment.template": {
+		"*": [ "" ],
+		"source": [
+			"// SPDX-License-Identifier: ${license}",
+			"/*",
+			" * Copyright ${year} Jiamu Sun <barroit@linux.com>",
+			" */"
+		],
+		"header": [
+			"/* SPDX-License-Identifier: ${license} */",
+			"/*",
+			" * Copyright ${year} Jiamu Sun <barroit@linux.com>",
+			" */"
+		],
+		"bash": [
+			"#!/usr/bin/env bash",
+			"# SPDX-License-Identifier: ${license}"
+		]
+	},
+/* ------------------------------  CodeSnap  ------------------------------- */
+	"codesnap.showWindowControls": false,
+	"codesnap.realLineNumbers": true,
+	"codesnap.roundedCorners": false,
+	"codesnap.shutterAction": "copy",
+	"codesnap.containerPadding": "0",
+/* --------------------------------  Misc  --------------------------------- */
+	"cmake.configureOnOpen": false,
+/* -----------------------------  Association  ----------------------------- */
+	"C_Cpp.autoAddFileAssociations": false,
+	"files.associations": {
+		"*gdbinit": "plaintext",
+		"README*": "plaintext",
+		"Kconfig": "plaintext",
+		"TODO": "plaintext",
+		".git*": "plaintext",
+		".muttrc": "plaintext",
+		".config*": "plaintext",
+		"*.h.in": "c",
+		"*.hpp.in": "cpp",
+		"vscode_settings.json": "jsonc"
+	},
+/* --------------------------------  Font  --------------------------------- */
+	"editor.fontFamily": "'JetBrains Mono'",
+	"editor.fontSize": 19,
+/* ----------------------------  Color Scheme  ----------------------------- */
+	"workbench.colorTheme": "Default Dark Modern",
+	"C_Cpp.enhancedColorization": "disabled",
+	"workbench.colorCustomizations": {
+		"editorBracketHighlight.foreground1": "#A8A8A8",
+		"editorBracketHighlight.foreground2": "#A8A8A8",
+		"editorBracketHighlight.foreground3": "#A8A8A8",
+		"editorBracketHighlight.foreground4": "#A8A8A8",
+		"editorBracketHighlight.foreground5": "#A8A8A8",
+		"editorBracketHighlight.foreground6": "#A8A8A8",
+		"editor.foreground": "#A8A8A8",
+		"editor.background": "#141414",
+		"diffEditor.removedLineBackground": "#500000a0",
+		"diffEditor.insertedLineBackground": "#2b3f14fa",
+		"diffEditor.insertedTextBackground": "#0000"
+	},
+	"editor.tokenColorCustomizations": {
+		"textMateRules": [
+			/* -----------------------  C/CPP  ----------------------- */
+			{
+				"scope": "constant.other.placeholder",
+				"settings": {
+					"foreground": "#CE9178"
+				}
+			},
+			{
+				"scope": [
+					"keyword.control",
+					"keyword.operator.new.cpp",
+					"keyword.operator.delete",
+					"keyword.other.using.directive",
+					"keyword.other.operator.overload",
+					"support.type.posix-reserved",
+					"support.type.built-in.posix-reserved",
+					"storage.type.built-in.primitive",
+					"storage.modifier"
+				],
+				"settings": {
+					"foreground": "#569CD6"
+				}
+			},
+			{
+				"scope": [
+					"entity.name.function",
+					"support.function.builtin"
+				],
+				"settings": {
+					"foreground": "#C6C699"
+				}
+			},
+			{
+				"scope": [
+					"constant.numeric.decimal",
+					"constant.numeric.integer"
+				],
+				"settings": {
+					"foreground": "#ACC4A0"
+				}
+			},
+			{
+				"scope": [
+					"meta.preprocessor.macro",
+					"entity.name.type",
+					"entity.name.function.preprocessor",
+					"entity.name.function",
+					"entity.name.label.call",
+					"entity.name.label",
+					"entity.name.scope-resolution",
+					"entity.name.other.preprocessor.macro.predefined",
+					"entity.name.operator.type",
+					"entity.other.attribute",
+					"entity.other.attribute-name",
+					"storage.modifier.pointer",
+					"storage.modifier.reference",
+					"storage.source.cmake",
+					"variable",
+					"variable.other.enummember",
+					"string.regexp",
+					"constant.character.escape",
+					"constant.language",
+					"keyword.operator",
+					"keyword.operator.quantifier.regexp",
+					"keyword.control.directive",
+					"keyword.control.directive",
+					"comment",
+					"punctuation.parenthesis.begin.regexp",
+					"punctuation.parenthesis.end.regexp"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
+			/* ------------------------  C#  ------------------------- */
+			{
+				"scope": [
+					"entity.name.variable.field.cs",
+					"entity.name.variable.local.cs",
+					"entity.name.namespace",
+					"punctuation.accessor.cs",
+					"variable.other.constant"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
+			{
+				"scope": [
+					"keyword.other.directive.using.cs"
+				],
+				"settings": {
+					"foreground": "#569CD6"
+				}
+			},
+			/* -----------------------  JAVA  ------------------------ */
+			{
+				"scope": [
+					"storage.modifier.import.java",
+					"storage.type.annotation.java",
+					"storage.type.java",
+					"storage.type.generic.java"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
+			{
+				"scope": [
+					"storage.type.primitive.java"
+				],
+				"settings": {
+					"foreground": "#569CD6"
+				}
+			},
+			/* ----------------------  PYTHON  ----------------------- */
+			{
+				"scope": [
+					"variable.legacy.builtin.python",
+					"support.type.python",
+					"support.variable.magic.python"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
+			{
+				"scope": [
+					"storage.type.number.python",
+				],
+				"settings": {
+					"foreground": "#ACC4A0"
+				}
+			},
+			/* -----------------------  SHELL  ----------------------- */
+			{
+				"scope": [
+					"support.function.builtin",
+					"support.variable.drive.powershell",
+					"support.variable.automatic.powershell",
+					"support.function.attribute.powershell",
+					"support.function.powershell",
+					"variable.other.member.powershell",
+					"interpolated.complex.source.powershell"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
+			/* ------------------------  JS  ------------------------ */
+			{
+				"scope": [
+					"entity.other.attribute-name.class.css",
+					"entity.other.attribute-name.id.css",
+					"entity.other.attribute-name.pseudo-element.css",
+					"entity.name.tag.css",
+					"entity.name.tag.js.jsx",
+					"support.class.component.js.jsx"
+				],
+				"settings": {
+					"foreground": "#569CD6"
+				}
+			},
+			{
+				"scope": [
+					"constant.other.color.rgb-value.hex.css",
+					"entity.other.attribute-name.pseudo-class.css",
+					"meta.parameters.js",
+					"punctuation.accessor.js",
+					"punctuation.definition.template-expression.begin.js",
+					"punctuation.definition.template-expression.end.js",
+					"punctuation.separator.comma.js",
+					"punctuation.terminator.statement.js",
+					"support.constant.property-value.css",
+					"support.function.misc.css",
+					"support.type.property-name.css",
+					"support.variable.property",
+					"support.variable.tsx",
+					"punctuation.separator.key-value.tsx",
+					"support.function.tsx",
+					"support.variable.ts",,
+					"support.variable.js"
+					"storage.type.function.arrow.ts",
+					"storage.type.function.arrow.js",
+					"punctuation.separator.key-value.ts",
+					"punctuation.separator.key-value.js",
+					"punctuation.separator.comma.tsx",
+					"support.function.js"
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
+			/* ------------------------  PHP  ------------------------ */
+			{
+				"scope": [
+					"constant.other.php",
+					"punctuation.separator.delimiter.php",
+					"punctuation.terminator.expression.php",
+					"support.function.construct.php",
+				],
+				"settings": {
+					"foreground": "#A8A8A8"
+				}
+			},
+			/* -----------------------  JSON  ------------------------ */
+			{
+				"scope": [
+					"support.type.property-name.json.comments"
+				],
+				"settings": {
+					"foreground": "#939393"
+				}
+			}
+		]
+	},
+	"security.workspace.trust.untrustedFiles": "open",
+	"problems.visibility": false,
+	"workbench.navigationControl.enabled": false,
+	"window.commandCenter": false,
+	"window.menuBarVisibility": "toggle",
+	"workbench.layoutControl.enabled": false,
+	"chat.commandCenter.enabled": false,
+}

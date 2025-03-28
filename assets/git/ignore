@@ -1,0 +1,15 @@
+# temporary files
+.*.swp
+
+# dependencies
+node_modules
+
+# environment files
+.env
+
+# core dump files
+core.*
+vgcore.*
+
+# perf
+perf.data*

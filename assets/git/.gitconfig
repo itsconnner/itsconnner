@@ -1,0 +1,35 @@
+[user]
+	name  = Jiamu Sun
+	email = barroit@linux.com
+	signingkey = EB6F4A6080F544F6
+
+[init]
+	defaultBranch = master
+
+[core]
+	autocrlf = input
+	editor   = vim
+	abbrev   = 12
+
+[format]
+	useAutoBase
+
+[fetch]
+	prune = true
+
+[advice]
+	detachedHead = false
+	statusHints = false
+	mergeConflict = false
+
+[pretty]
+	Fixes = Fixes: %h (\"%s\")
+
+[tag]
+	forceSignAnnotated = true
+
+[rerere]
+	enabled = true
+
+[help]
+	autocorrect = 1
