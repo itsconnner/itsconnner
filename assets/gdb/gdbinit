@@ -1,7 +1,5 @@
-#	<BR>set auto-load safe-path %s<BR> $HOME/workspace
-set auto-load safe-path /home/barroit/workspace
+source ~/.config/gdb/hexdump.py
 
-#	<BR>source %s<BR> $HOME/.config/gdb/hexdump.py
-source /home/barroit/.config/gdb/hexdump.py
+add-auto-load-safe-path ~/git
 
 set confirm off
