@@ -9,7 +9,7 @@ if (likely-vm) {
 	$is_dev = 1
 }
 
-$lines = read-line $PSScriptRoot\..\conf\winget-packages
+$lines = read-line $PSScriptRoot\..\config\winget-packages
 
 foreach ($line in $lines) {
 	$col = $line -split '\t'

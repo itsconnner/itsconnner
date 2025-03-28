@@ -2,7 +2,7 @@
 
 $wt_path = "$Env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe"
 $conf_path = "$wt_path\LocalState\settings.json"
-$udef_path = "$PSScriptRoot\..\conf\windows-terminal"
+$udef_path = "$PSScriptRoot\..\config\windows-terminal"
 
 $conf = Get-Content $conf_path | ConvertFrom-Json -AsHashtable
 $udef = Get-Content $udef_path

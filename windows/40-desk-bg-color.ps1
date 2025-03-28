@@ -12,7 +12,7 @@ if (-not (sr_is_force $args) -and (sr_is_done (script_name))) {
 [syscall]::sys_param_info($SPI_SETDESKWALLPAPER, 0, '',
 			  $SPIF_UPDATEINIFILE -bor $SPIF_SENDCHANGE)
 
-$conf = read-pair $PSScriptRoot\..\conf\desk-bg-color
+$conf = read-pair $PSScriptRoot\..\config\desk-bg-color
 
 $r = $conf['bg-r']
 $g = $conf['bg-g']

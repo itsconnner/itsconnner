@@ -2,7 +2,7 @@
 
 $seen = powercfg /list | Where-Object { $_ -match '\(Barroit-[\w-]+\)( \*)?$' }
 
-$conf = read-pair $PSScriptRoot\..\conf\power-mode
+$conf = read-pair $PSScriptRoot\..\config\power-mode
 
 if ($seen -and -not (sr_is_force $args)) {
 	log 'Adjusting power mode ... Skipped'

@@ -7,7 +7,7 @@ if ((Get-ChildItem -Filter JetBrainsMono-* $dst).Count) {
 	exit
 }
 
-$url = Get-Content $PSScriptRoot\..\conf\jb-mono-url
+$url = Get-Content $PSScriptRoot\..\config\jb-mono-url
 $tmp = ".tmp-$PID"
 $zip = "$tmp/$(Split-Path $url -Leaf)"
 

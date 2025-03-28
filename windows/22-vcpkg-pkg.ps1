@@ -9,7 +9,7 @@ if (likely-vm) {
 	$is_dev = 1
 }
 
-$lines = read-line $PSScriptRoot\..\conf\vcpkg-packages
+$lines = read-line $PSScriptRoot\..\config\vcpkg-packages
 
 foreach ($line in $lines) {
 	$col = $line -split '\t'
