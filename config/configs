@@ -1,0 +1,27 @@
+code/keybindings.json	~/.config/Code/User
+code/settings.json	~/.config/Code/User
+
+fastfetch/config.jsonc	~/.config/fastfetch
+fastfetch/dotmiku	~/.config/fastfetch	copy
+
+gdb/gdbinit		~/.config/gdb
+gdb/hexdump.py		~/.config/gdb
+
+git/.gitconfig		~
+git/ignore		~/.config/git
+
+gpg/pgp.conf		~/.gnupg
+
+mutt/.mailcap		~
+mutt/mutt_oauth2.py	~/.mutt
+mutt/.muttrc		~
+mutt/.signature		~
+
+ssh/config		~/.ssh
+
+vim/.vimrc		~
+vim/barroit.vim		~/.vim/colors
+
+xmodmap/.Xmodmap	~
+
+xorg/xorg.conf		/etc/X11		copy,sudo

@@ -1,0 +1,12 @@
+code/keybindings.json	$Env:APPDATA\Code\User
+code/settings.json	$Env:APPDATA\Code\User
+
+git/.gitconfig
+git/ignore
+
+gpg/pgp.conf		$Env:APPDATA\gnupg
+
+ssh/config
+
+vim/.vimrc
+vim/barroit.vim
