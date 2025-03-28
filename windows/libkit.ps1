@@ -50,7 +50,7 @@ function log
 	Write-Output "${BOLD}${GREEN}[$(uptime)]${RESET} $args"
 }
 
-function load-pair
+function read-pair
 {
 	$ret = @{}
 	$sep = '\t'
