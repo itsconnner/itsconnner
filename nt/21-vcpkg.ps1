@@ -18,6 +18,7 @@ $new = "$old;$PWD"
 $seen = $old -split ';' | Where-Object { $_ -eq $PWD }
 
 if (-not $seen) {
+	setenv VCPKG_PREFIX $PWD
 	setenv PATH $new
 }
 
