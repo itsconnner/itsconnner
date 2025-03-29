@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: GPL-3.0-only
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 if [[ ! $KTREE ]]; then
 	die 'missing kernel tree (set KTREE path by setting ‘KTREE’)'
