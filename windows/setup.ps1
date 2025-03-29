@@ -32,7 +32,7 @@ if ($args.Length) {
 		$script = $name
 	}
 
-	$cmd = "& $PSScriptRoot\$script"
+	$cmd = "& '$PSScriptRoot\$script'"
 
 	if ($force) {
 		$cmd += " Force=1"
@@ -40,13 +40,13 @@ if ($args.Length) {
 
 	log "Executing $PSScriptRoot\$script"
 
-	pwsh -Command ". $PSScriptRoot\libkit.ps1; sync-env-path; $cmd"
+	pwsh -Command ". '$PSScriptRoot\libkit.ps1'; sync-env-path; $cmd"
 	exit
 }
 
 foreach ($script in $scripts) {
-	pwsh -Command ". $PSScriptRoot\libkit.ps1; `
-		       sync-env-path; & $PSScriptRoot\$script"
+	pwsh -Command ". '$PSScriptRoot\libkit.ps1'; `
+		       sync-env-path; & '$PSScriptRoot\$script'"
 
 	if (-not $?) {
 		warn "$PSScriptRoot\$script interrupted"
