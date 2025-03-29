@@ -161,3 +161,12 @@ function env-path-append
 		setenv PATH $new
 	}
 }
+
+function is-admin
+{
+	$user = [Security.Principal.WindowsIdentity]::GetCurrent()
+	$user = [Security.Principal.WindowsPrincipal]$user
+	$admin = [Security.Principal.WindowsBuiltInRole]::Administrator
+
+	return $user.IsInRole($admin)
+}
