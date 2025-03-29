@@ -123,9 +123,14 @@ function likely-vm
 	return -not (Get-CimInstance Win32_Fan)
 }
 
+function getenv2
+{
+	[Environment]::GetEnvironmentVariable($args[0], $args[1])
+}
+
 function getenv
 {
-	[Environment]::GetEnvironmentVariable($args[0], 'User')
+	getenv2 $args[0] 'User'
 }
 
 function setenv
@@ -135,7 +140,7 @@ function setenv
 
 function sync-env-path
 {
-	$Env:PATH = getenv PATH
+	$Env:PATH = "$(getenv2 PATH 'User');$(getenv2 PATH 'Machine')"
 }
 
 function read-line
