@@ -1,0 +1,31 @@
+                                    STATUS
+
+WIP projects:
+
+	barroit
+	cred
+
+
+Maintained or planned-to-be-maintained projects:
+
+	brukit
+	corekeeper-autofish
+	livaut
+
+
+TBA projects:
+
+	aramspy
+	barroit.cc
+	linefeed
+	sqlite (encryption support)
+
+
+Projects requiring refactor:
+
+	livaut
+	savesave
+
+
+Projects not listed here are either unmaintained or deprecated due to legacy
+design hell or unsalvageable coding style.
