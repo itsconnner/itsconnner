@@ -9,4 +9,4 @@ gpg/pgp.conf		$Env:APPDATA\gnupg
 ssh/config
 
 vim/.vimrc
-vim/barroit.vim
+vim/barroit.vim		$Env:USERPROFILE\vimfiles\colors

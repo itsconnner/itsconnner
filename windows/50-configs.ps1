@@ -19,7 +19,7 @@ foreach ($line in (read-line $PSScriptRoot\..\config\configs-windows)) {
 		New-Item -ItemType Directory $dir >NUL
 	}
 
-	$dst = Resolve-Path $dir/$name
+	$dst = "$(Resolve-Path $dir)\$name"
 
 	Copy-Item -Force "$PSScriptRoot/../assets/$path" $dst >NUL
 	log ("$CYAN{0,-25}$RESET -> $GREEN$dst$RESET" -f $path)
