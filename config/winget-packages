@@ -5,7 +5,6 @@ gp	Git.Git
 
 dev	Kitware.CMake
 dev	LLVM.LLVM
-dev	Microsoft.VisualStudio.2022.BuildTools	${Env:PROGRAMFILES(x86)}\Microsoft Visual Studio\Installer	--add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.Windows11SDK.26100
 dev	StrawberryPerl.StrawberryPerl
 
 gp	GnuPG.GnuPG
