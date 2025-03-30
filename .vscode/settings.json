@@ -1,8 +1,7 @@
 {
 	"files.associations": {
-		"filelinks": "plaintext",
-		"memo/*": "plaintext",
-		".fastfetch": "jsonc"
+		"**/assets/**": "plaintext",
+		"**/config/**": "plaintext"
 	},
 	"fileHeaderComment.parameter": {
 		"*": {
