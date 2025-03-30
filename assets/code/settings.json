@@ -300,14 +300,17 @@
 					"support.variable.tsx",
 					"punctuation.separator.key-value.tsx",
 					"support.function.tsx",
-					"support.variable.ts",,
-					"support.variable.js"
+					"support.variable.ts",
+					"support.variable.js",
 					"storage.type.function.arrow.ts",
 					"storage.type.function.arrow.js",
 					"punctuation.separator.key-value.ts",
 					"punctuation.separator.key-value.js",
 					"punctuation.separator.comma.tsx",
-					"support.function.js"
+					"support.function.js",
+					"support.class",
+					"support.function.ts",
+					"punctuation.accessor.tsx"
 				],
 				"settings": {
 					"foreground": "#A8A8A8"
