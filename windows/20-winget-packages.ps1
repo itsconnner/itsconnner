@@ -19,8 +19,17 @@ foreach ($line in $lines) {
 	$path = $col[2]
 	$args = $col[3]
 
-	if (-not $is_dev -and $type -eq 'dev') {
-		continue
+	switch ($type) {
+	'dev' {
+		if (-not $is_dev) {
+			continue
+		}
+	}
+	'desk' {
+		if ($is_dev) {
+			continue
+		}
+	}
 	}
 
 	$opt_id = "--id=$name"
