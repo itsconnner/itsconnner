@@ -97,8 +97,12 @@ function sr_done
 
 function sr_is_done
 {
-	$ret = Get-ItemPropertyValue -ErrorAction SilentlyContinue `
-				     $SR_PATH $args[0] 2>NUL
+	try {
+		$ret = Get-ItemPropertyValue -ErrorAction SilentlyContinue `
+					     $SR_PATH $args[0] 2>NUL
+	} catch {
+		return $false
+	}
 
 	return $ret -eq 1
 }
