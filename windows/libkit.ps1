@@ -170,3 +170,18 @@ function is-admin
 
 	return $user.IsInRole($admin)
 }
+
+function run-admin
+{
+	$letter = $PSScriptRoot[0]
+	$drive = Get-PSDrive $letter
+
+	if ($drive.DisplayRoot) {
+		$root = $drive.DisplayRoot.TrimEnd([char]0)
+		$cmd += "New-PSDrive $letter FileSystem '$root'; "
+	}
+
+	$cmd += "& $PSScriptRoot\setup.ps1 $($args[0])"
+
+	Start-Process -Verb RunAs -Wait pwsh '-Command', $cmd
+}

@@ -15,17 +15,8 @@ if (-not (sr_is_force $args) -and (Get-Command sshd 2>NUL)) {
 	exit
 }
 
-$letter = $PSScriptRoot[0]
-$drive = Get-PSDrive $letter
 $name = Split-Path -Leaf $PSCommandPath
 
-if ($drive.DisplayRoot) {
-	$root = $drive.DisplayRoot.TrimEnd([char]0)
-	$cmd += "New-PSDrive $letter FileSystem '$root'; "
-}
-
-$cmd += "& $PSScriptRoot\setup.ps1 $name"
-
-Start-Process -Verb RunAs -Wait pwsh '-Command', $cmd
+run-admin $name
 
 log 'Installing openssh ... OK'
