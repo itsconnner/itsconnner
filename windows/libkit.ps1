@@ -97,11 +97,7 @@ function sr_done
 
 function sr_is_done
 {
-	try {
-		$ret = Get-ItemPropertyValue $SR_PATH $args[0]
-	} catch {
-		return $false
-	}
+	$ret = Get-ItemPropertyValue $SR_PATH $args[0] 2>NUL
 
 	return $ret -eq 1
 }
