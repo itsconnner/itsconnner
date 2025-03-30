@@ -21,7 +21,7 @@ foreach ($line in $lines) {
 		continue
 	}
 
-	# vcpkg install $name
+	vcpkg install $name
 }
 
 $seg = vcpkg list $name | ForEach-Object { $_ -split ' ' }
