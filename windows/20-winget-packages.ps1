@@ -12,7 +12,7 @@ if (likely-vm) {
 $lines = read-line $PSScriptRoot\..\config\winget-packages
 
 foreach ($line in $lines) {
-	$col = $line -split '\t'
+	$col = $line -split '\t' | Where-Object { $_ }
 
 	$type = $col[0]
 	$name = $col[1]

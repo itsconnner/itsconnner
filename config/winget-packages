@@ -1,5 +1,5 @@
 desk	Microsoft.VisualStudioCode
-gp	vim.vim	$Env:PROGRAMFILES\Vim\vim91
+gp	vim.vim				$Env:PROGRAMFILES\Vim\vim91
 
 gp	Git.Git
 
