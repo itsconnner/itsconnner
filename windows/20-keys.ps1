@@ -33,7 +33,7 @@ foreach ($sec in (Get-ChildItem -Filter *.gpg -Name L:\)) {
 			continue
 		}
 
-		$name = (Get-Item $sec).BaseName
+		$name = (Get-Item $tmpd\$sec).BaseName
 		$dst = "$HOME\.ssh\$name"
 
 		Remove-Item -ErrorAction SilentlyContinue $dst
