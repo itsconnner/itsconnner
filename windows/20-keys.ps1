@@ -11,7 +11,7 @@ if (-not (Test-Path L:\)) {
 	die "LOCKER did not mount to L:"
 }
 
-$tmpd = "L:\$PID"
+$tmpd = "L:\.tmp-$PID"
 $rule = New-Object $fsrule($env:USERNAME, 'Read', 'Allow')
 
 New-Item -ItemType Directory $tmpd >NUL
@@ -21,14 +21,20 @@ foreach ($sec in (Get-ChildItem -Filter *.gpg -Name L:\)) {
 	switch -Regex ($sec) {
 	'^pg' {
 		gpg --import L:\$sec
+		if (-not $?) {
+			warn "Importing $sec ... Failed"
+			continue
+		}
 	}
 	'^id' {
 		gpg -o $tmpd\$sec -d L:\$sec
 		if (-not $?) {
+			warn "Importing $sec ... Failed"
 			continue
 		}
 
-		$dst = "$HOME\.ssh\$sec"
+		$name = (Get-Item $sec).BaseName
+		$dst = "$HOME\.ssh\$name"
 
 		Remove-Item -ErrorAction SilentlyContinue $dst
 		Move-Item $tmpd\$sec $dst
@@ -45,9 +51,11 @@ foreach ($sec in (Get-ChildItem -Filter *.gpg -Name L:\)) {
 		Set-Acl $dst $acl
 	}
 	}
+
+	log "Importing $sec ... DONE"
 }
 
-Remove-Item $tmpd
+Remove-Item -Force $tmpd
 
 sr_done (script_name)
 log 'Copying private keys ... OK'
