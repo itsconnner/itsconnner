@@ -14,3 +14,8 @@ Setup scripts
 All setup scripts must be PowerShell scripts. Script names should have a
 two-digit number prefix followed by a hyphen. Scripts are executed in order,
 sorted by these numbers.
+
+FIXME
+-----
+FUCK vcpkg on ARM64 Windows. It refuses to find VC tools like a dumbass,
+and I've wasted 4 hours in this flaming pit of misery. I'm absolutely DONE.
