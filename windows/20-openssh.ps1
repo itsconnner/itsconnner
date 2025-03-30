@@ -6,7 +6,9 @@ if (is-admin) {
 	Start-Service sshd
 	Set-Service sshd -StartupType Automatic
 
-	note 'Start sshd once as administrator to make it function properly'
+	New-ItemProperty -PropertyType String -Force `
+			 -Value (Get-Command pwsh).Source `
+			 'HKLM:\SOFTWARE\OpenSSH' DefaultShell
 	exit
 }
 
@@ -19,4 +21,5 @@ $name = Split-Path -Leaf $PSCommandPath
 
 run-admin $name
 
+note 'Start sshd once as administrator to make it function properly'
 log 'Installing openssh ... OK'
