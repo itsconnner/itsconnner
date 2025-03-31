@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 # NO MORE SYMLINKS ON WINDOWS. THE DEFAULT FILE SYSTEM FUCKED ME UP :(
 
-$config = read-pair $PSScriptRoot\..\config\configs
+$config = read-pair $PSScriptRoot\..\config\file-map
 
-foreach ($line in (read-line $PSScriptRoot\..\config\configs-windows)) {
+foreach ($line in (read-line $PSScriptRoot\..\config\file-map-windows)) {
 	$col = $line -split '\t'
 	$path = $col[0]
 
