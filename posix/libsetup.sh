@@ -19,3 +19,23 @@ exec_is_foce()
 {
 	test $SCRIPT_PATH = "$FORCE_EXEC"
 }
+
+v1()
+{
+	grep $2 $1 | cut -f2
+}
+
+v2()
+{
+	grep $2 $1 | cut -f3
+}
+
+v3()
+{
+	grep $2 $1 | cut -f4
+}
+
+v4()
+{
+	grep $2 $1 | cut -f5
+}
