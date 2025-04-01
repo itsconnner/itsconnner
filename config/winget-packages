@@ -1,8 +1,6 @@
 desk	Microsoft.VisualStudioCode
 gp	vim.vim				$Env:PROGRAMFILES\Vim\vim91
 
-gp	Git.Git
-
 dev	Kitware.CMake
 dev	LLVM.LLVM			$Env:PROGRAMFILES\LLVM\bin
 dev	StrawberryPerl.StrawberryPerl
