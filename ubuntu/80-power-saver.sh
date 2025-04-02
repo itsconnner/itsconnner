@@ -2,14 +2,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 if ! exec_is_foce && setup_is_done; then
-	log 'Adjusting power mode ... Skipped'
+	log 'Setting power saver ... Skipped'
 	exit
-fi
-
-if ! virt; then
-	powerprofilesctl set power-saver
-else
-	powerprofilesctl set performance
 fi
 
 type=desk
@@ -32,4 +26,4 @@ gsettings set org.gnome.settings-daemon.plugins.power \
 	  sleep-inactive-$power-type 'suspend'
 
 setup_done
-log 'Adjusting power mode ... OK'
+log 'Setting power mode ... OK'
