@@ -22,20 +22,20 @@ exec_is_foce()
 
 v1()
 {
-	grep $2 $1 | cut -f2
+	grep $2 $1 | awk '{print $2}'
 }
 
 v2()
 {
-	grep $2 $1 | cut -f3
+	grep $2 $1 | awk '{print $3}'
 }
 
 v3()
 {
-	grep $2 $1 | cut -f4
+	grep $2 $1 | awk '{print $4}'
 }
 
 v4()
 {
-	grep $2 $1 | cut -f5
+	grep $2 $1 | awk '{print $5}'
 }
