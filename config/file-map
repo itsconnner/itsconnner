@@ -1,27 +1,27 @@
-code/keybindings.json	~/.config/Code/User
-code/settings.json	~/.config/Code/User
+code/keybindings.json	$HOME/.config/Code/User
+code/settings.json	$HOME/.config/Code/User
 
-fastfetch/config.jsonc	~/.config/fastfetch
-fastfetch/dotmiku	~/.config/fastfetch	copy
+fastfetch/config.jsonc	$HOME/.config/fastfetch
+fastfetch/dotmiku	$HOME/.config/fastfetch	copy
 
-gdb/gdbinit		~/.config/gdb
-gdb/hexdump.py		~/.config/gdb
+gdb/gdbinit		$HOME/.config/gdb
+gdb/hexdump.py		$HOME/.config/gdb
 
-git/.gitconfig		~
-git/ignore		~/.config/git
+git/.gitconfig		$HOME
+git/ignore		$HOME/.config/git
 
-gpg/pgp.conf		~/.gnupg
+gpg/pgp.conf		$HOME/.gnupg
 
-mutt/.mailcap		~
-mutt/mutt_oauth2.py	~/.mutt
-mutt/.muttrc		~
-mutt/.signature		~
+mutt/.mailcap		$HOME
+mutt/mutt_oauth2.py	$HOME/.mutt
+mutt/.muttrc		$HOME
+mutt/.signature		$HOME
 
-ssh/config		~/.ssh
+ssh/config		$HOME/.ssh
 
-vim/.vimrc		~
-vim/barroit.vim		~/.vim/colors
+vim/.vimrc		$HOME
+vim/barroit.vim		$HOME/.vim/colors
 
-xmodmap/.Xmodmap	~
+xmodmap/.Xmodmap	$HOME
 
 xorg/xorg.conf		/etc/X11		copy,sudo
