@@ -1,0 +1,28 @@
+asciidoc		d
+autoconf		d
+bison			d
+bzip2			d
+clang
+cmake
+code			d
+dotnet-sdk-8.0		d
+fastfetch		d
+ffmpeg			d
+flex			d
+g++-14
+gcc-14
+google-chrome-stable	d
+lld
+lldb
+make
+mingw-w64		d
+mutt			d
+ninja-build
+nodejs			d
+obs-studio		d
+pavucontrol		d
+qbittorrent		d
+libncurses-dev
+libxt-dev
+wine			d
+zstd
