@@ -12,37 +12,43 @@ if (likely-vm) {
 $lines = read-line $PSScriptRoot\..\config\winget-packages
 
 foreach ($line in $lines) {
-	$col = $line -split '\t' | Where-Object { $_ }
+	$skip = 0
+	$col = @($line -split '\t' | Where-Object {
+		$_ -and $_ -notmatch '^#'
+	})
 
-	$type = $col[0]
-	$name = $col[1]
-	$path = $col[2]
-	$args = $col[3]
+	$name = $col[0]
+	$args = $col[1]
 
-	switch ($type) {
-	'dev' {
-		if (-not $is_dev) {
-			continue
+	$args = @($args -split ',')
+
+	foreach ($arg in $args) {
+		switch ($arg) {
+		'v' {
+			if (-not $is_dev) {
+				$skip = 1
+			}
+		}
+		'd' {
+			if ($is_dev) {
+				$skip = 1
+			}
+		}
+		default {
+			$path = $arg
+		}
 		}
 	}
-	'desk' {
-		if ($is_dev) {
-			continue
-		}
-	}
+
+	if ($skip) {
+		continue
 	}
 
-	$opt_id = "--id=$name"
-
-	if ($args) {
-		$opt_custom = "--custom=`"$args`""
-	}
-
-	winget install $opt_id $opt_custom
-
-	if ($path -and $path -ne '-') {
+	if ($path) {
 		env-path-append (Invoke-Expression "`"$path`"")
 	}
+
+	winget install --id=$name
 }
 
 sr_done (script_name)

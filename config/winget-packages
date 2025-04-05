@@ -1,8 +1,7 @@
-desk	Microsoft.VisualStudioCode
-gp	vim.vim				$Env:PROGRAMFILES\Vim\vim91
-
-dev	Kitware.CMake
-dev	LLVM.LLVM			$Env:PROGRAMFILES\LLVM\bin
-dev	StrawberryPerl.StrawberryPerl
-
-gp	GnuPG.GnuPG
+GnuPG.GnuPG
+Kitware.CMake
+LLVM.LLVM			$Env:PROGRAMFILES\LLVM\bin
+Microsoft.VisualStudioCode	d
+Ninja-build.Ninja
+StrawberryPerl.StrawberryPerl	v
+vim.vim				$Env:PROGRAMFILES\Vim\vim91
