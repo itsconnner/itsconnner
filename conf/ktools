@@ -1,3 +1,0 @@
-checkpatch.pl    --no-tree -q
-checkincludes.pl
-checkstack.pl
