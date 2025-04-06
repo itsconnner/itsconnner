@@ -1,7 +1,7 @@
 #!/bin/bash
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-if ! exec_is_foce && setup_is_done; then
+if ! exec_is_foce && setup_is_done || virt; then
 	log "Installing JetBrains Mono ... Skipped"
 	exit
 fi
