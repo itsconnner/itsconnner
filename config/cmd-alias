@@ -1,0 +1,23 @@
+add		git add
+am		git am
+amend		git commit --amend
+apply		git apply
+branch		git branch
+commit		git commit
+format-patch	git format-path
+log		git log
+merge		git merge
+merge-base	git merge-base
+pull		git pull
+push		git push
+rebase		git rebase
+reflog		git reflog
+show		git show
+stash		git stash
+status		git status
+switch		git switch
+
+m		make
+g		gdb
+
+use-idf		. $HOME/git/esp-idf/export.sh
