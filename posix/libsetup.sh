@@ -22,41 +22,41 @@ exec_is_foce()
 
 v1()
 {
-	grep $2 $1 | awk '{print $2}'
+	grep $2 $1 | awk -F'\t+' '{print $2}'
 }
 
 v2()
 {
-	grep $2 $1 | awk '{print $3}'
+	grep $2 $1 | awk -F'\t+' '{print $3}'
 }
 
 v3()
 {
-	grep $2 $1 | awk '{print $4}'
+	grep $2 $1 | awk -F'\t+' '{print $4}'
 }
 
 v4()
 {
-	grep $2 $1 | awk '{print $5}'
+	grep $2 $1 | awk -F'\t+' '{print $5}'
 }
 
 
 r1()
 {
-	printf %s "$1" | awk '{print $1}'
+	printf %s "$1" | awk -F'\t+' '{print $1}'
 }
 
 r2()
 {
-	printf %s "$1" | awk '{print $2}'
+	printf %s "$1" | awk -F'\t+' '{print $2}'
 }
 
 r3()
 {
-	printf %s "$1" | awk '{print $3}'
+	printf %s "$1" | awk -F'\t+' '{print $3}'
 }
 
 r4()
 {
-	printf %s "$1" | awk '{print $4}'
+	printf %s "$1" | awk -F'\t++' '{print $4}'
 }
