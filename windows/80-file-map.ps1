@@ -12,8 +12,10 @@ foreach ($line in (read-line $PSScriptRoot\..\config\file-map-windows)) {
 
 	if ($col.Count -gt 1) {
 		$col = $col | Where-Object { $_ }
-		$dir = Invoke-Expression "`"$($col[1])`""
+		$dir = $col[1]
 	}
+
+	$dir = Invoke-Expression "`"$($dir)`""
 
 	if (-not (Test-Path $dir)) {
 		New-Item -ItemType Directory $dir >NUL
@@ -21,7 +23,13 @@ foreach ($line in (read-line $PSScriptRoot\..\config\file-map-windows)) {
 
 	$dst = "$(Resolve-Path $dir)\$name"
 
-	Copy-Item -Force "$PSScriptRoot/../assets/$path" $dst >NUL
+	Copy-Item -Force "$PSScriptRoot/../assets/$path" $dst
+
+	$file = Get-Item -Force $dst
+
+	$file.Attributes = $file.Attributes -band `
+			   -bnot [System.IO.FileAttributes]::Hidden
+
 	log ("$CYAN{0,-25}$RESET -> $GREEN$dst$RESET" -f $path)
 }
 
