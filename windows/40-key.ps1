@@ -8,36 +8,33 @@ if (-not (sr_is_force $args) -and (sr_is_done (script_name))) {
 }
 
 if (-not (Test-Path L:\)) {
-	die "LOCKER did not mount to L:"
+	die 'LOCKER did not mount to L:'
 }
 
-$tmpd = "L:\.tmp-$PID"
 $rule = New-Object $fsrule($env:USERNAME, 'Read', 'Allow')
 
-New-Item -ItemType Directory $tmpd >NUL
-
-foreach ($sec in (Get-ChildItem -Filter *.gpg -Name L:\)) {
+:dumbass_continue foreach ($sec in (Get-ChildItem -Filter *.gpg -Name L:\)) {
 	log "Importing $sec ..."
+
 	switch -Regex ($sec) {
 	'^pg' {
 		gpg --import L:\$sec
 		if (-not $?) {
-			warn "Importing $sec ... Failed"
-			continue
+			error "Importing $sec ... Failed"
+			continue dumbass_continue
 		}
 	}
 	'^id' {
-		gpg -o $tmpd\$sec -d L:\$sec
-		if (-not $?) {
-			warn "Importing $sec ... Failed"
-			continue
-		}
-
-		$name = (Get-Item $tmpd\$sec).BaseName
+		$name = (Get-Item L:\$sec).BaseName
 		$dst = "$HOME\.ssh\$name"
 
 		Remove-Item -ErrorAction SilentlyContinue $dst
-		Move-Item $tmpd\$sec $dst
+
+		gpg -o $dst -d L:\$sec
+		if (-not $?) {
+			error "Importing $name ... Failed"
+			continue dumbass_continue
+		}
 
 		$acl = Get-Acl $dst
 
@@ -54,8 +51,6 @@ foreach ($sec in (Get-ChildItem -Filter *.gpg -Name L:\)) {
 
 	log "Importing $sec ... DONE"
 }
-
-Remove-Item -Force $tmpd
 
 sr_done (script_name)
 log 'Copying private keys ... OK'
