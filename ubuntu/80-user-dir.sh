@@ -11,7 +11,7 @@ cd
 if [[ ! -h Desktop ]]; then
 	rm -rf Desktop
 fi
-ln -snf /tmp desktop
+mkdir desktop
 
 rm -rf Documents
 
