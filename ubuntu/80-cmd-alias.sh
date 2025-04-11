@@ -17,7 +17,7 @@ while read line; do
 	cmd=$(r2 "$line")
 	prefix="alias $name"
 
-	if grep -q $name ~/.bash_aliases; then
+	if grep -q "$prefix=" ~/.bash_aliases; then
 		sed -i "s|^$prefix='.*'$|$prefix='$cmd'|" ~/.bash_aliases
 	else
 		printf '\n%s\n' "$prefix='$cmd'" >> ~/.bash_aliases
