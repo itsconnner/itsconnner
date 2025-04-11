@@ -8,25 +8,41 @@ fi
 
 cd
 
+dst=~/.config/user-tmpfiles.d/user-dir.conf
+
+mkdir -p $(dirname $dst)
+
+cat <<EOF > $dst
+d	/tmp/desktop	0700	$USER	$USER	-
+d	/tmp/download	0700	$USER	$USER	-
+d	/tmp/sandbox	0700	$USER	$USER	-
+
+e!	/tmp/desktop	-	-	-	0
+e!	/tmp/download	-	-	-	0
+e!	/tmp/sandbox	-	-	-	0
+EOF
+
+systemd-tmpfiles --user --create
+
 if [[ ! -h Desktop ]]; then
 	rm -rf Desktop
 fi
-mkdir desktop
-
-rm -rf Documents
+ln -snf /tmp/desktop desktop
 
 if [[ ! -h Downloads ]]; then
 	rm -rf Downloads
 fi
-ln -snf /tmp download
+ln -snf /tmp/download download
 
+ln -snf /tmp/sandbox sandbox
+
+rm -rf Documents
 rm -rf Music
+rm -rf Videos
 
 rm -rf Pictures
 mkdir -p picture/Screenshots
 ln -snf picture/Screenshots screenshot
-
-rm -rf Videos
 
 xdg-user-dirs-update --set DESKTOP $HOME/desktop
 xdg-user-dirs-update --set DOWNLOAD $HOME/download
