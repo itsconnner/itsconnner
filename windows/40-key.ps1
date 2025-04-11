@@ -7,30 +7,30 @@ if (-not (sr_is_force $args) -and (sr_is_done (script_name))) {
 	exit
 }
 
-if (-not (Test-Path L:\)) {
-	die 'LOCKER did not mount to L:'
+if (-not (Test-Path S:\)) {
+	die "GPG file storage didn't mount to S:"
 }
 
 $rule = New-Object $fsrule($env:USERNAME, 'Read', 'Allow')
 
-:dumbass_continue foreach ($sec in (Get-ChildItem -Filter *.gpg -Name L:\)) {
+:dumbass_continue foreach ($sec in (Get-ChildItem -Filter *.gpg -Name S:\)) {
 	log "Importing $sec ..."
 
 	switch -Regex ($sec) {
 	'^pg' {
-		gpg --import L:\$sec
+		gpg --import S:\$sec
 		if (-not $?) {
 			error "Importing $sec ... Failed"
 			continue dumbass_continue
 		}
 	}
 	'^id' {
-		$name = (Get-Item L:\$sec).BaseName
+		$name = (Get-Item S:\$sec).BaseName
 		$dst = "$HOME\.ssh\$name"
 
 		Remove-Item -ErrorAction SilentlyContinue $dst
 
-		gpg -o $dst -d L:\$sec
+		gpg -o $dst -d S:\$sec
 		if (-not $?) {
 			error "Importing $name ... Failed"
 			continue dumbass_continue
@@ -46,6 +46,9 @@ $rule = New-Object $fsrule($env:USERNAME, 'Read', 'Allow')
 
 		$acl.AddAccessRule($rule)
 		Set-Acl $dst $acl
+	}
+	default {
+		continue dumbass_continue
 	}
 	}
 
