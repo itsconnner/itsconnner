@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 if ! exec_is_foce && setup_is_done; then
-	log "Aliasing commands ... Skipped"
+	log 'Aliasing commands ... Skipped'
 	exit
 fi
 
@@ -25,4 +25,4 @@ while read line; do
 done < $CONFIG_ROOT/cmd-alias
 
 setup_done
-log "Aliasing commands ... OK"
+log 'Aliasing commands ... OK'

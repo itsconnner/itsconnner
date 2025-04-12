@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 if ! exec_is_foce && setup_is_done; then
-	log "Linking configuration files ... Skipped"
+	log 'Linking configuration files ... Skipped'
 	exit
 fi
 
@@ -44,4 +44,4 @@ while read line; do
 done < $CONFIG_ROOT/file-map
 
 setup_done
-log "Linking configuration files ... OK"
+log 'Linking configuration files ... OK'

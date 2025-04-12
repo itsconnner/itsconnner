@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 if ! exec_is_foce && setup_is_done; then
-	log "Configuring core dump ... Skipped"
+	log 'Configuring core dump ... Skipped'
 	exit
 fi
 
@@ -17,4 +17,4 @@ sudo tee /etc/sysctl.d/39-coredump.conf
 sudo service procps reload
 
 setup_done
-log "Configuring core dump ... OK"
+log 'Configuring core dump ... OK'

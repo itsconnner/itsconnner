@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 if ! exec_is_foce && setup_is_done || virt; then
-	log "Installing JetBrains Mono ... Skipped"
+	log 'Installing JetBrains Mono ... Skipped'
 	exit
 fi
 
@@ -25,4 +25,4 @@ mv fonts $dst
 fc-cache -f
 
 setup_done
-log "Installing JetBrains Mono ... OK"
+log 'Installing JetBrains Mono ... OK'

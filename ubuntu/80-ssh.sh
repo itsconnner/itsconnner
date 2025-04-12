@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 if ! exec_is_foce && setup_is_done || ! virt; then
-	log "Configuring ssh server ... Skipped"
+	log 'Configuring ssh server ... Skipped'
 	exit
 fi
 
@@ -17,4 +17,4 @@ EOF
 sudo systemctl restart ssh.service
 
 setup_done
-log "Configuring ssh server ... OK"
+log 'Configuring ssh server ... OK'
