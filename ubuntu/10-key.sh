@@ -13,10 +13,12 @@ if [[ ! -d $secret ]]; then
 fi
 
 for file in $(ls $secret); do
-	log "Processing $file ..."
-
 	case $file in
 	pg_*.gpg)
+		if ! confirm "import $file?"; then
+			continue
+		fi
+
 		gpg --import $secret/$file
 
 		if [[ $? -ne 0 ]]; then
@@ -26,8 +28,12 @@ for file in $(ls $secret); do
 		;;
 
 	id_*.gpg)
+		if ! confirm "decrypt $file to $HOME/.ssh?"; then
+			continue
+		fi
+
 		name=${file%.gpg}
-		dst=$HOME/.ssh/$name
+		dst=~/.ssh/$name
 
 		gpg --yes -o $dst -d $secret/$file
 
