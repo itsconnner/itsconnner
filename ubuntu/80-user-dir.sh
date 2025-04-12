@@ -8,11 +8,7 @@ fi
 
 cd
 
-dst=~/.config/user-tmpfiles.d/user-dir.conf
-
-mkdir -p $(dirname $dst)
-
-cat <<EOF > $dst
+cat <<EOF | sudo tee /etc/tmpfiles.d/user-dir.conf
 d	/tmp/desktop	0700	$USER	$USER	-
 d	/tmp/download	0700	$USER	$USER	-
 d	/tmp/sandbox	0700	$USER	$USER	-
@@ -22,7 +18,7 @@ e!	/tmp/download	-	-	-	0
 e!	/tmp/sandbox	-	-	-	0
 EOF
 
-systemd-tmpfiles --user --create
+sudo systemd-tmpfiles --create
 
 if [[ ! -h Desktop ]]; then
 	rm -rf Desktop
