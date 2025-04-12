@@ -1,6 +1,16 @@
-Host win11
-	HostName 192.168.50.104
-	IdentityFile ~/.ssh/id_vm_win11
+Host windows
+	HostName windows.lvm
+	IdentityFile ~/.ssh/id_lvm_windows
+	IdentitiesOnly yes
+
+Host noble
+	HostName noble.lvm
+	IdentityFile ~/.ssh/id_lvm_noble
+	IdentitiesOnly yes
+
+Host freebsd
+	HostName freebsd.lvm
+	IdentityFile ~/.ssh/id_lvm_freebsd
 	IdentitiesOnly yes
 
 Host github.com
@@ -9,7 +19,7 @@ Host github.com
 	IdentityFile ~/.ssh/id_github
 	IdentitiesOnly yes
 
-Host noble
+Host oci-noble
 	HostName 140.83.57.178
 	User ubuntu
 	IdentityFile ~/.ssh/id_oci_noble
