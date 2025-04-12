@@ -10,7 +10,7 @@ cd ~/.ssh
 
 ssh-keygen -y -f id_lvm_noble > authorized_keys
 
-cat <<EOF | sudo tee /etc/ssh/sshd_config.d/99-auth.conf
+cat <<EOF | sudo tee /etc/ssh/sshd_config.d/39-auth.conf
 PasswordAuthentication no
 EOF
 
