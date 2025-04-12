@@ -4,7 +4,7 @@ amend		git commit --amend
 apply		git apply
 branch		git branch
 commit		git commit
-format-patch	git format-path
+format-patch	git format-patch
 log		git log
 merge		git merge
 merge-base	git merge-base

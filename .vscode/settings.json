@@ -1,7 +1,8 @@
 {
 	"files.associations": {
 		"**/assets/**": "plaintext",
-		"**/config/**": "plaintext"
+		"**/config/**": "plaintext",
+		"**/docs/**": "plaintext"
 	},
 	"fileHeaderComment.parameter": {
 		"*": {

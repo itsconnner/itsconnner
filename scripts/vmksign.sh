@@ -1,7 +1,7 @@
 #!/bin/bash
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-export LIBKIT_ROOT=$(cd $(dirname $0) && pwd -P)/../linux
+export LIBKIT_ROOT=$(dirname $(readlink -f $0))/../linux
 source $LIBKIT_ROOT/libkit.sh
 
 if [[ ! -f ~/.mok/vmware || ! -f ~/.mok/vmware.der ]]; then

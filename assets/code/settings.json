@@ -59,21 +59,35 @@
 	},
 /* -------------------------  File Header Comment  ------------------------- */
 	"fileHeaderComment.template": {
-		"*": [ "" ],
-		"source": [
+		"*": [
+			"# SPDX-License-Identifier: ${license}"
+		],
+		"bash": [
+			"#!/bin/bash",
+			"# SPDX-License-Identifier: ${license}"
+		],
+		"c": [
 			"// SPDX-License-Identifier: ${license}",
 			"/*",
 			" * Copyright ${year} Jiamu Sun <barroit@linux.com>",
 			" */"
 		],
-		"header": [
+		"h": [
 			"/* SPDX-License-Identifier: ${license} */",
 			"/*",
 			" * Copyright ${year} Jiamu Sun <barroit@linux.com>",
 			" */"
 		],
-		"bash": [
-			"#!/usr/bin/env bash",
+		"python": [
+			"#!/bin/python3",
+			"# SPDX-License-Identifier: ${license}"
+		],
+		"sh": [
+			"#!/bin/sh",
+			"# SPDX-License-Identifier: ${license}"
+		],
+		"zsh": [
+			"#!/bin/zsh",
 			"# SPDX-License-Identifier: ${license}"
 		]
 	},
@@ -97,7 +111,7 @@
 		".config*": "plaintext",
 		"*.h.in": "c",
 		"*.hpp.in": "cpp",
-		"vscode_settings.json": "jsonc"
+		"settings.json": "jsonc"
 	},
 /* --------------------------------  Font  --------------------------------- */
 	"editor.fontFamily": "'JetBrains Mono'",
@@ -340,10 +354,9 @@
 		]
 	},
 	"security.workspace.trust.untrustedFiles": "open",
-	"problems.visibility": false,
 	"workbench.navigationControl.enabled": false,
 	"window.commandCenter": false,
-	"window.menuBarVisibility": "toggle",
+	"window.menuBarVisibility": "hidden",
 	"workbench.layoutControl.enabled": false,
 	"chat.commandCenter.enabled": false,
 }

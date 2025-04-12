@@ -20,8 +20,11 @@ mutt			d
 ninja-build
 nodejs			d
 obs-studio		d
+openssh-client		d
+openssh-server		v
 pavucontrol		d
 qbittorrent		d
+rclone			d
 libncurses-dev
 libxt-dev
 wine			d

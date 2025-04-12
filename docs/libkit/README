@@ -1,0 +1,28 @@
+                       The portable shell support layer
+
+
+The portable shell layer strives for consistency, portability, and ease of use.
+Implementations provide platform-dependent functionality and integrate the base
+implementation — posix/libkit.sh.
+
+
+To implement a support layer:
+
+  1 - Create a libkit.sh under the platform directory (e.g. linux/, darwin/).
+  2 - Source $LIBKIT_ROOT/../posix/libkit.sh.
+
+
+Also, implement the following functions if they are used:
+
+	Name		Required by
+	----		-----------
+	current		log
+	virt
+	laptop
+
+
+To use a support layer:
+
+  1 - Define $LIBKIT_ROOT. This will be $(dirname $(absname <plat>/libkit.sh)).
+      Check out posix/setup.sh for absname().
+  2 - Source <plat>/libkit.sh

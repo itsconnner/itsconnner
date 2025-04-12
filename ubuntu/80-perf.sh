@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 if ! exec_is_foce && setup_is_done; then
-	log "Configuring perf permissions ... Skipped"
+	log 'Configuring perf permissions ... Skipped'
 	exit
 fi
 
@@ -12,4 +12,4 @@ sudo tee /etc/sysctl.d/39-perf.conf
 sudo service procps reload
 
 setup_done
-log "Configuring perf permissions ... OK"
+log 'Configuring perf permissions ... OK'
