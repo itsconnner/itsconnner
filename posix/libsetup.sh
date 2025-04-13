@@ -3,15 +3,15 @@
 
 setup_is_done()
 {
-	touch $(datadir)/done
+	touch "$(datadir)/done"
 
-	grep -q $SCRIPT_PATH $(datadir)/done
+	grep -q $SCRIPT_PATH "$(datadir)/done"
 }
 
 setup_done()
 {
 	if ! setup_is_done; then
-		printf '%s\n' $SCRIPT_PATH >> $(datadir)/done
+		printf '%s\n' $SCRIPT_PATH >> "$(datadir)/done"
 	fi
 }
 
