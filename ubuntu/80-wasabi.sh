@@ -14,6 +14,11 @@ if [[ ! -d $secret ]]; then
 fi
 
 mkdir -p $HOME/.config/rclone
+
+if ! confirm "import rclone.conf?"; then
+	exit 128
+fi
+
 gpg --yes -o $HOME/.config/rclone/rclone.conf -d $secret/rclone.conf.gpg
 
 if [[ $? -ne 0 ]]; then
