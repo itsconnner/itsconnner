@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 if ! exec_is_foce && setup_is_done; then
