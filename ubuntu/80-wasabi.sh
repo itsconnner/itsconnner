@@ -13,6 +13,7 @@ if [[ ! -d $secret ]]; then
 	die "GPG file storage didn't mount to \`$secret'"
 fi
 
+mkdir -p $HOME/.config/rclone
 gpg --yes -o $HOME/.config/rclone/rclone.conf -d $secret/rclone.conf.gpg
 
 if [[ $? -ne 0 ]]; then
