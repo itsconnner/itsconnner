@@ -1,0 +1,20 @@
+code/keybindings.json	$HOME/Library/Application Support/Code/User
+code/settings.json	$HOME/Library/Application Support/Code/User
+
+fastfetch/config.jsonc
+fastfetch/dotmiku
+
+git/.gitconfig
+git/ignore
+
+gpg/pgp.conf
+
+mutt/.mailcap
+mutt/mutt_oauth2.py
+mutt/.muttrc
+mutt/.signature
+
+ssh/config
+
+vim/.vimrc
+vim/barroit.vim
