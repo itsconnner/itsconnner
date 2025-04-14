@@ -6,8 +6,6 @@ if ! exec_is_foce && setup_is_done; then
 	exit
 fi
 
-src_dir=$SCRIPT_ROOT/../assets
-
 while read line; do
 	if [[ -z "$line" ]]; then
 		continue
@@ -17,7 +15,7 @@ while read line; do
 	dst_dir=$(eval "printf %s \"$(r2 "$line")\"")
 	mode=$(r3 "$line")
 
-	src=$src_dir/$name
+	src=$ASSETS_ROOT/$name
 	dst=$dst_dir/$(basename $name)
 	cmd='ln -sf'
 
