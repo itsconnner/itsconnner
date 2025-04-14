@@ -1,9 +1,12 @@
 #!/bin/zsh
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-export SCRIPT_PATH=$1
-export SCRIPT_ROOT=$(dirname $0)
-export CONFIG_ROOT=$SCRIPT_ROOT/../config
+root_dir=$(dirname $0)/..
+
+export SCRIPT_NAME=$1
+export ASSETS_ROOT=$root_dir/assets
+export SCRIPT_ROOT=$root_dir/scripts
+export CONFIG_ROOT=$root_dir/config
 export LIBKIT_ROOT=$(dirname $(readlink -f $0))
 
 function datadir()
