@@ -2,6 +2,7 @@ discord			cask
 fastfetch
 gnupg
 google-chrome		cask
+make			-	/opt/homebrew/opt/make/libexec/gnubin
 mutt
 visual-studio-code	cask
 vmware-fusion		cask
