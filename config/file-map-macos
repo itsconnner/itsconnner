@@ -7,7 +7,7 @@ fastfetch/dotmiku
 git/.gitconfig
 git/ignore
 
-gpg/pgp.conf
+gpg/gpg.conf
 
 mutt/.mailcap
 mutt/mutt_oauth2.py

@@ -10,7 +10,7 @@ gdb/hexdump.py		$HOME/.config/gdb
 git/.gitconfig		$HOME
 git/ignore		$HOME/.config/git
 
-gpg/pgp.conf		$HOME/.gnupg
+gpg/gpg.conf		$HOME/.gnupg
 
 mutt/.mailcap		$HOME
 mutt/mutt_oauth2.py	$HOME/.mutt
