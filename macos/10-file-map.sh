@@ -7,7 +7,7 @@ if ! exec_is_foce && setup_is_done; then
 fi
 
 while read line; do
-	if [[ -z "$line" ]]; then
+	if [[ ! $line || $line == '#'* ]]; then
 		continue
 	fi
 
