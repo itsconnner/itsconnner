@@ -8,9 +8,12 @@ fi
 
 touch ~/.bashrc
 
-line="PS1='\w \\$ '"
+ps1='\w \$ '
+ps1="\[\e]0;\h: \w\a\]$ps1"
 
-if ! grep -q "$line" ~/.bashrc; then
+line="PS1='$ps1'"
+
+if ! grep -Fq "$line" ~/.bashrc; then
 	printf '\n%s\n' "$line" >> ~/.bashrc
 fi
 
