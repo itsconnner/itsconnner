@@ -60,3 +60,15 @@ r4()
 {
 	printf %s "$1" | awk -F'\t++' '{print $4}'
 }
+
+line_need_skip()
+{
+	case "$1" in
+	'' | \#*)
+		# weird, but works
+		return 0
+		;;
+	*)
+		return 1
+	esac
+}

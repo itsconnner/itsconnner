@@ -4,6 +4,8 @@ gnupg
 google-chrome		cask
 make			-	/opt/homebrew/opt/make/libexec/gnubin
 mutt
+pipx			-	$HOME/.local/bin
+python3
 visual-studio-code	cask
 vmware-fusion		cask
 zstd
