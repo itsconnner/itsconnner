@@ -7,7 +7,7 @@ if ! exec_is_foce && setup_is_done; then
 fi
 
 brew update
-touch .zshrc
+touch ~/.zshrc
 
 while read line; do
 	if [[ ! $line || $line == '#'* ]]; then
