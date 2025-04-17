@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 root_dir=$(dirname $0)/..
@@ -11,10 +11,10 @@ export LIBKIT_ROOT=$(dirname $(readlink -f $0))
 
 function datadir()
 {
-	printf %s $HOME/.local/share/barroit
+	printf %s "$HOME/Library/Application Support/barroit"
 }
 
-mkdir -p $(datadir)
+mkdir -p "$(datadir)"
 
 source $LIBKIT_ROOT/libkit.sh
 source $LIBKIT_ROOT/libsetup.sh

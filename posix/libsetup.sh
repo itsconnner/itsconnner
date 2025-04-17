@@ -3,21 +3,21 @@
 
 setup_is_done()
 {
-	touch $(datadir)/done
+	touch "$(datadir)/done"
 
-	grep -q $SCRIPT_PATH $(datadir)/done
+	grep -q $SCRIPT_NAME "$(datadir)/done"
 }
 
 setup_done()
 {
 	if ! setup_is_done; then
-		printf '%s\n' $SCRIPT_PATH >> $(datadir)/done
+		printf '%s\n' $SCRIPT_NAME >> "$(datadir)/done"
 	fi
 }
 
 exec_is_foce()
 {
-	test $SCRIPT_PATH = "$FORCE_EXEC"
+	test $SCRIPT_NAME = "$FORCE_EXEC"
 }
 
 v1()

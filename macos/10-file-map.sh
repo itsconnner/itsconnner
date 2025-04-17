@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 if ! exec_is_foce && setup_is_done; then
@@ -7,12 +7,18 @@ if ! exec_is_foce && setup_is_done; then
 fi
 
 while read line; do
-	if [[ -z "$line" ]]; then
+	if [[ ! $line || $line == '#'* ]]; then
 		continue
 	fi
 
 	name=$(r1 "$line")
-	dst_dir=$(eval "printf %s \"$(r2 "$line")\"")
+	dst_dir=$(r2 "$line")
+
+	if [[ ! $dst_dir || $dst_dir == '-' ]]; then
+		dst_dir=$(r2 "$(grep $name $CONFIG_ROOT/file-map)")
+	fi
+
+	dst_dir=$(eval "printf %s \"$dst_dir\"")
 	mode=$(r3 "$line")
 
 	src=$ASSETS_ROOT/$name
@@ -27,9 +33,9 @@ while read line; do
 		cmd="sudo $cmd"
 	fi
 
-	mkdir -p $dst_dir
+	mkdir -p "$dst_dir"
 
-	$cmd $src $dst
+	eval "$cmd $src \"$dst\""
 
 	if [[ $? -eq 1 ]]; then
 		fmt="${CYAN}%-25s${RESET} -> ${RED}%s${RESET}\n"
@@ -37,9 +43,9 @@ while read line; do
 		fmt="${CYAN}%-25s${RESET} -> ${GREEN}%s${RESET}\n"
 	fi
 
-	printf "$fmt" $name $dst
+	printf "$fmt" $name "$dst"
 
-done < $CONFIG_ROOT/file-map
+done < $CONFIG_ROOT/file-map-macos
 
 setup_done
 log 'Linking configuration files ... OK'

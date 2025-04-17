@@ -13,6 +13,12 @@ if [[ ! -d $secret ]]; then
 	die "GPG file storage didn't mount to \`$secret'"
 fi
 
+mkdir -p $HOME/.config/rclone
+
+if ! confirm "import rclone.conf?"; then
+	exit 128
+fi
+
 gpg --yes -o $HOME/.config/rclone/rclone.conf -d $secret/rclone.conf.gpg
 
 if [[ $? -ne 0 ]]; then
@@ -38,7 +44,7 @@ EOF
 systemctl --user daemon-reload
 systemctl --user enable $sysd/wasabi.service
 
-$CONFIG_ROOT/../scripts/mount-wasabi.sh
+$SCRIPT_ROOT/mount-wasabi.sh
 
 setup_done
 log 'Configuring Wasabi cloud storage ... OK'

@@ -2,13 +2,13 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 ESC="$(printf '\033')"
-BOLD="$ESC[1m"
-RED="$ESC[31m"
-YELLOW="$ESC[33m"
-GREEN="$ESC[32m"
-CYAN="$ESC[36m"
-WHITE="$ESC[37m"
-RESET="$ESC[0m"
+BOLD="${ESC}[1m"
+RED="${ESC}[31m"
+YELLOW="${ESC}[33m"
+GREEN="${ESC}[32m"
+CYAN="${ESC}[36m"
+WHITE="${ESC}[37m"
+RESET="${ESC}[0m"
 
 die()
 {
