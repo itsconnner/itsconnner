@@ -8,7 +8,7 @@ fi
 
 touch ~/.bashrc
 
-ps1='\w \$ '
+ps1='\$ '
 ps1="\[\e]0;\h: \w\a\]$ps1"
 
 line="PS1='$ps1'"
