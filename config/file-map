@@ -13,9 +13,22 @@ git/ignore		$HOME/.config/git
 gpg/gpg.conf		$HOME/.gnupg
 
 mutt/.mailcap		$HOME
-mutt/mutt_oauth2.py	$HOME/.mutt
 mutt/.muttrc		$HOME
 mutt/.signature		$HOME
+mutt/oauth2.py		$HOME/.mutt
+mutt/xoauth2		$HOME/.mutt
+
+mutt/@gmail.com			$HOME/.mutt
+mutt/@outlook.com		$HOME/.mutt
+mutt/@sunjiamu@outlook.com	$HOME/.mutt
+
+mutt/barroit@linux.com			$HOME/.mutt
+mutt/barroit39@gmail.com		$HOME/.mutt
+mutt/j25232sj@edu.tuis.ac.jp		$HOME/.mutt
+mutt/sunjiamu@outlook.com		$HOME/.mutt
+mutt/client.barroit39@gmail.com		$HOME/.mutt
+mutt/client.j25232sj@edu.tuis.ac.jp	$HOME/.mutt
+mutt/client.sunjiamu@outlook.com	$HOME/.mutt
 
 ssh/config		$HOME/.ssh
 

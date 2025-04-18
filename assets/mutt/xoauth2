@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+set imap_authenticators        = 'xoauth2'
+set imap_oauth_refresh_command = "~/.mutt/oauth2.py ~/.mutt/$imap_user.token"
+
+set smtp_authenticators	       = $imap_authenticators
+set smtp_oauth_refresh_command = $imap_oauth_refresh_command

@@ -4,6 +4,7 @@
 # Written against python 3.7.3, not tried with earlier python versions.
 #
 #   Copyright (C) 2020 Alexander Perlis
+#   Copyright (C) 2025 Jiamu Sun <barroit@linux.com>
 #
 #   This program is free software; you can redistribute it and/or
 #   modify it under the terms of the GNU General Public License as
@@ -41,26 +42,35 @@ import subprocess
 import readline
 import os
 import re
+from os import path
 
-user = {}
-conf = os.environ['HOME'] + '/.mutt/ouathuser'
-with open(conf, 'r') as file:
-	for line in file:
-		match = re.match(r'^(\S+)\s+(.+)$', line)
-		if match and match.group(1) != '#':
-			user[match.group(1)] = match.group(2)
+client = {}
+home = os.environ['HOME']
+client_file = path.join(home, '.mutt/client')
 
-if (('client_id' not in user) or ('user_id' not in user)):
-	print(f"error: client_id or user_id not specified in {conf}",
-	      file=sys.stderr)
-	exit(128)
+if path.exists(client_file):
+	with open(client_file, 'r') as file:
+		for line in file.read().splitlines():
+			if not len(line) or line[0] == '#':
+				continue
+
+			pair = re.split('\t+', line)
+			client[pair[0]] = pair[1]
+
+if 'secret' not in client:
+	client['secret'] = ''
+else:
+	secret_file = path.join(home, '.mutt', client['secret'])
+
+	with open(secret_file, 'r') as file:
+		client['secret'] = file.read().splitlines()[0]
 
 # The token file must be encrypted because it contains multi-use bearer tokens
 # whose usage does not require additional verification. Specify whichever
 # encryption and decryption pipes you prefer. They should read from standard
 # input and write to standard output. The example values here invoke GPG,
 # although won't work until an appropriate identity appears in the first line.
-ENCRYPTION_PIPE = ['gpg', '--encrypt', '--recipient', user['user_id']]
+ENCRYPTION_PIPE = ['gpg', '--encrypt', '--recipient', client['user']]
 DECRYPTION_PIPE = ['gpg', '--decrypt']
 
 registrations = {
@@ -74,8 +84,8 @@ registrations = {
         'smtp_endpoint': 'smtp.gmail.com',
         'sasl_method': 'OAUTHBEARER',
         'scope': 'https://mail.google.com/',
-        'client_id': '',
-        'client_secret': '',
+        'client_id': client['id'],
+        'client_secret': client['secret'],
     },
     'microsoft': {
         'authorize_endpoint': 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize',
@@ -90,8 +100,8 @@ registrations = {
         'scope': ('offline_access https://outlook.office.com/IMAP.AccessAsUser.All '
                   'https://outlook.office.com/POP.AccessAsUser.All '
                   'https://outlook.office.com/SMTP.Send'),
-        'client_id': user['client_id'],
-        'client_secret': '',
+        'client_id': client['id'],
+        'client_secret': client['secret'],
     },
 }
 
