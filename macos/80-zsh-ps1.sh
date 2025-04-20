@@ -8,10 +8,20 @@ fi
 
 touch ~/.zshrc
 
-line="PS1='%~ %# '"
+line="PS1='%# '"
 
-if ! grep -q "$line" ~/.zshrc; then
+if ! grep -Fxq "$line" ~/.zshrc; then
 	printf '\n%s\n' "$line" >> ~/.zshrc
+fi
+
+if ! grep -Fxq 'precmd()' ~/.zshrc; then
+	cat <<'EOF' >> ~/.zshrc
+
+precmd()
+{
+	print -Pn '\e]0;%m: %~\a'
+}
+EOF
 fi
 
 setup_done

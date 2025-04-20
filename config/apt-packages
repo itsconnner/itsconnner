@@ -23,6 +23,7 @@ obs-studio		d
 openssh-client		d
 openssh-server		v
 pavucontrol		d
+pipx
 qbittorrent		d
 rclone			d
 libncurses-dev

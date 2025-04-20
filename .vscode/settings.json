@@ -2,7 +2,8 @@
 	"files.associations": {
 		"**/assets/**": "plaintext",
 		"**/config/**": "plaintext",
-		"**/docs/**": "plaintext"
+		"**/docs/**": "plaintext",
+		"**/docs/**/*.rst": "restructuredtext"
 	},
 	"fileHeaderComment.parameter": {
 		"*": {

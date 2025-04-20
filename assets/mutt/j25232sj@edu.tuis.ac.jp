@@ -1,0 +1,7 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+set imap_user = 'j25232sj@edu.tuis.ac.jp'
+set from      = $imap_user
+set realname  = 'ソン カモク'
+
+source ~/.mutt/@outlook.com

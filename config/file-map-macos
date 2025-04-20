@@ -10,9 +10,22 @@ git/ignore
 gpg/gpg.conf
 
 mutt/.mailcap
-mutt/mutt_oauth2.py
 mutt/.muttrc
 mutt/.signature
+mutt/oauth2.py
+mutt/xoauth2
+
+mutt/@gmail.com
+mutt/@outlook.com
+mutt/@sunjiamu@outlook.com
+
+mutt/barroit@linux.com
+mutt/barroit39@gmail.com
+mutt/j25232sj@edu.tuis.ac.jp
+mutt/sunjiamu@outlook.com
+mutt/client.barroit39@gmail.com
+mutt/client.j25232sj@edu.tuis.ac.jp
+mutt/client.sunjiamu@outlook.com
 
 ssh/config
 

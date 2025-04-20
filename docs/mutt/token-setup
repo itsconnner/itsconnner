@@ -1,0 +1,21 @@
+Token Setup
+-----------
+
+First, set up app registrations. Follow the guide at
+
+	mutt/contrib/mutt_oauth2.py.README
+
+
+Then, generate a GPG key for token encryption
+
+	gpg --no-greeting --full-generate-key
+
+Don't forget to comment keys with 'mutt'. Otherwise you screw up your keyring.
+
+
+Once key generated, run this to get token
+
+	~/.mutt/oauth2.py miku@example.com.token --authorize
+
+Some providers need client secret. Skip it, and you're gonna get your ass
+kicked.
